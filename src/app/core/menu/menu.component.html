@@ -1,0 +1,16 @@
+<div class="menu-header">
+  <h2>Gloomhaven Secretariat Data Editor</h2>
+</div>
+
+<div class="menu-content">
+  <div class="menu-row" *ngFor="let item of items" routerLinkActive="active" [routerLink]="item">
+    <h3 class="menu-title">{{item | titlecase }}</h3>
+    <div class="some-figure item-{{item}}"></div>
+  </div>
+</div>
+
+<div class="menu-footer">
+<div class="menu-row">
+  <h3 class="menu-title">About</h3>
+</div>
+</div>
