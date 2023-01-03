@@ -1,12 +1,20 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import {TuiAlertModule, TuiDialogModule, TuiRootModule} from "@taiga-ui/core";
+import {CoreModule} from "./core/core.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        BrowserAnimationsModule,
+        TuiRootModule,
+        TuiDialogModule,
+        TuiAlertModule,
+        CoreModule
       ],
       declarations: [
         AppComponent
@@ -26,10 +34,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('ghs-editor');
   });
 
-  it('should render title', () => {
+  it('should render menu', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ghs-editor app is running!');
+    expect(compiled.querySelector('app-menu')).toBeTruthy();
   });
 });
