@@ -11,10 +11,18 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          - run: npm ci
-          - run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      with:
+        node-version: 16
+        cacho: npm
+    - run: npm ci
+    - run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+#    - name: Git Version
+#      id: version
+#      uses: codacy/git-version@2.8.0
+#
+#    - name: Set new version
+#      run: npm version ${{ steps.version.outputs.version }}
 
     - name: All things angular
       uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
