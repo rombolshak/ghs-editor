@@ -13,7 +13,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-        cacho: npm
+        cache: npm
     - run: npm ci
     - run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
