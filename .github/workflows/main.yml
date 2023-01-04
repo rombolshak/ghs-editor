@@ -15,6 +15,10 @@ jobs:
         node-version: 16
         cache: npm
 
+    - name: Setup git profile
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
     - run: npm i -g @angular/cli@latest
     - run: npm ci
     - run: ng test --no-watch --no-progress --browsers=ChromeHeadlessCI
