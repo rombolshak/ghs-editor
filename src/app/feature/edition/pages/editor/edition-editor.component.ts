@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { EditionData } from "@ghs/game/model/data/EditionData";
 
 @Component({
   selector: 'app-editor',
@@ -7,5 +8,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditionEditorComponent {
-
+  model: EditionData = new EditionData("test", [], [], [], [], [], []);
 }

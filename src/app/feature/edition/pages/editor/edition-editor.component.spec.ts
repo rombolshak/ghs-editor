@@ -20,4 +20,8 @@ describe('EditorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show edition name', () => {
+    expect(fixture.debugElement.nativeElement.innerText).toContain('test');
+  })
 });
