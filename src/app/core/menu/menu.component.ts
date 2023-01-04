@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component, TemplateRef, ViewChild} from '@angular/core';
 import { TuiDialogService } from "@taiga-ui/core";
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
-import packageJson from '../../../../package.json';
+import appPackageJson from '../../../../package.json';
+import ghsPackageJson from '../../../../gloomhavensecretariat/package.json';
 
 @Component({
   selector: 'app-menu',
@@ -19,10 +20,11 @@ export class MenuComponent {
     "decks",
     "characters",
     "items"
-  ]
+  ];
 
-  productName = 'Gloomhaven Secretariat Data Editor'
-  version = packageJson.version
+  productName = 'Gloomhaven Secretariat Data Editor';
+  appVersion = appPackageJson.version;
+  ghsVersion = ghsPackageJson.version;
 
   showAbout(header: PolymorpheusContent, content: PolymorpheusContent) {
     this.dialogService.open(content, {
@@ -30,4 +32,6 @@ export class MenuComponent {
       label: this.productName
     }).subscribe();
   }
+
+  @ViewChild('content', {static: true}) aboutDialogContent!: TemplateRef<any>;
 }

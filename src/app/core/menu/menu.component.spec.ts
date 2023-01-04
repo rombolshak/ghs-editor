@@ -5,15 +5,25 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { TuiDialogService } from "@taiga-ui/core";
 import { from } from "rxjs";
 import {By} from "@angular/platform-browser";
+import {AfterContentInit, Component, TemplateRef, ViewChild} from "@angular/core";
+
+@Component({template: '<ng-container *ngTemplateOutlet="modal"></ng-container> <app-menu></app-menu>'})
+class WrapperComponent implements AfterContentInit {
+  @ViewChild(MenuComponent, {static: true}) componentRef!: MenuComponent;
+  modal!: TemplateRef<any>;
+  ngAfterContentInit() {
+    this.modal = this.componentRef.aboutDialogContent;
+  }
+}
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
-  let fixture: ComponentFixture<MenuComponent>;
+  let fixture: ComponentFixture<WrapperComponent>;
   let dialogService: jasmine.SpyObj<TuiDialogService>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuComponent ],
+      declarations: [ WrapperComponent, MenuComponent ],
       imports: [RouterTestingModule.withRoutes([])],
       providers: [
         { provide: TuiDialogService, useValue: jasmine.createSpyObj<TuiDialogService>({open: from([])}) }
@@ -21,8 +31,8 @@ describe('MenuComponent', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MenuComponent);
-    component = fixture.componentInstance;
+    fixture = TestBed.createComponent(WrapperComponent);
+    component = fixture.debugElement.componentInstance.componentRef;
     dialogService = TestBed.inject(TuiDialogService) as jasmine.SpyObj<TuiDialogService>;
     fixture.detectChanges();
   });
@@ -47,4 +57,10 @@ describe('MenuComponent', () => {
     component.showAbout(null, null);
     expect(dialogService.open.calls.count()).toBe(1);
   });
+
+  it('should show app versions', () => {
+    const dialogText = fixture.debugElement.query(By.css('.about-content')).nativeElement.innerText;
+    expect(dialogText).toContain(component.appVersion);
+    expect(dialogText).toContain(component.ghsVersion);
+  })
 });
