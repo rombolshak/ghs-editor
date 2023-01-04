@@ -4,6 +4,7 @@ import { MenuComponent } from './menu.component';
 import { RouterTestingModule } from "@angular/router/testing";
 import { TuiDialogService } from "@taiga-ui/core";
 import { from } from "rxjs";
+import {By} from "@angular/platform-browser";
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
@@ -31,12 +32,18 @@ describe('MenuComponent', () => {
   });
 
   it('should have menu items', () => {
-    expect((fixture.nativeElement as HTMLElement).querySelectorAll('.menu-content .menu-row').length).toBeGreaterThan(0);
+    expect((fixture.debugElement.queryAll(By.css('.menu-content .menu-row')).length)).toBeGreaterThan(0);
   });
 
-  it('should have about dialog', () => {
-    const menu = (fixture.nativeElement as HTMLElement).querySelector('.menu-footer .menu-row');
+  it('should have click handler on about', () => {
+    const showAbout = spyOn(component, 'showAbout');
+    const menu = fixture.debugElement.query(By.css('.menu-footer .menu-row'));
     expect(menu).toBeTruthy();
+    menu.triggerEventHandler('click', null);
+    expect(showAbout).toHaveBeenCalled();
+  });
+
+  it('should open about dialog', () => {
     component.showAbout();
     expect(dialogService.open.calls.count()).toBe(1);
   });
