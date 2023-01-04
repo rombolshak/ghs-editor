@@ -1,4 +1,5 @@
 <div class="menu-header">
+  <img src="assets/img/logo.png" />
   <h2>{{productName}}</h2>
 </div>
 
@@ -10,8 +11,29 @@
 </div>
 
 <div class="menu-footer">
-<div class="menu-row" (click)="showAbout()">
+<div class="menu-row" (click)="showAbout(header, content)">
   <h3 class="menu-title">About</h3>
   <div class="some-figure item-about"></div>
 </div>
 </div>
+
+
+<ng-template #header>
+  <div class="about-header">
+    <img src="assets/img/classes/brute.png"  />
+    <img src="assets/img/classes/spellweaver.png"  />
+    <img src="assets/img/classes/scoundrel.png"  />
+    <img src="assets/img/classes/tinkerer.png"  />
+    <img src="assets/img/classes/mindthief.png"  />
+    <img src="assets/img/classes/cragheart.png"  />
+  </div>
+</ng-template>
+
+<ng-template #content>
+  <div class="about-content">
+    <p>Gloomhaven, Frosthaven and all related properties, images and text are owned by <a href="https://cephalofair.com" target="_blank">Cephalofair Games</a>.</p>
+    <p><a href="https://gloomhaven-secretary.de/" target="_blank">Gloomhaven Secretariat</a> is a game helper app developed by <a href="https://github.com/Lurkars/gloomhavensecretariat" target="_blank">@Lurkars</a></p>
+    <p>This data editor is a helper tool developed by <a href="https://github.com/rombolshak/ghs-editor">@rombolshak</a></p>
+    <p>App version: {{version}}</p>
+  </div>
+</ng-template>

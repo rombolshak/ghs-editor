@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, Component, Injector} from '@angular/core';
-import {TuiDialogService} from "@taiga-ui/core";
-import { PolymorpheusComponent } from '@tinkoff/ng-polymorpheus';
-import {AboutDialogComponent} from "../about-dialog/about-dialog.component";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TuiDialogService } from "@taiga-ui/core";
+import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
+import packageJson from '../../../../package.json';
 
 @Component({
   selector: 'app-menu',
@@ -10,8 +10,7 @@ import {AboutDialogComponent} from "../about-dialog/about-dialog.component";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuComponent {
-  constructor(private readonly dialogService: TuiDialogService,
-              private readonly injector: Injector) {}
+  constructor(private readonly dialogService: TuiDialogService) {}
 
   items = [
     "edition",
@@ -23,9 +22,11 @@ export class MenuComponent {
   ]
 
   productName = 'Gloomhaven Secretariat Data Editor'
+  version = packageJson.version
 
-  showAbout() {
-    this.dialogService.open(new PolymorpheusComponent(AboutDialogComponent, this.injector), {
+  showAbout(header: PolymorpheusContent, content: PolymorpheusContent) {
+    this.dialogService.open(content, {
+      header: header,
       label: this.productName
     }).subscribe();
   }
