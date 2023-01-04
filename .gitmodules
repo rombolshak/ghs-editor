@@ -1,0 +1,3 @@
+[submodule "src/gloomhavensecretariat"]
+	path = src/gloomhavensecretariat
+	url = https://github.com/Lurkars/gloomhavensecretariat
