@@ -44,7 +44,7 @@ describe('MenuComponent', () => {
   });
 
   it('should open about dialog', () => {
-    component.showAbout();
+    component.showAbout(null, null);
     expect(dialogService.open.calls.count()).toBe(1);
   });
 });
