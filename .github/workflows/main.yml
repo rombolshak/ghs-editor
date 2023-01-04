@@ -22,5 +22,9 @@ jobs:
     - run: npm i -g @angular/cli@latest
     - run: npm ci
     - run: ng test --no-watch --no-progress --browsers=ChromeHeadlessCI
-    - run: ng deploy --base-href=/ghs-editor/ --no-silent
+
+    - name: build and publish
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: ng deploy --base-href=/ghs-editor/ --no-silent
 
