@@ -4,8 +4,8 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import {TuiDialogService } from '@taiga-ui/core';
-import {PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
+import { TuiDialogService } from '@taiga-ui/core';
+import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import appPackageJson from '../../../../package.json';
 import ghsPackageJson from '../../../../gloomhavensecretariat/package.json';
 
