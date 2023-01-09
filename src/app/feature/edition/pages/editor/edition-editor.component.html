@@ -26,12 +26,14 @@
       [formControl]="editionForm.controls.extendedEditions"
       [tuiTextfieldLabelOutside]="true"
       [editable]="false"
+      [expandable]="false"
     >
       Extended editions
       <tui-data-list-wrapper
         *tuiDataList
         tuiMultiSelectGroup
-        [items]="availableEditions"
+        [items]="availableEditions | async"
+        [itemContent]="editionName"
       ></tui-data-list-wrapper>
     </tui-multi-select>
   </form>

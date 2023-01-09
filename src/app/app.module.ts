@@ -15,6 +15,11 @@ import { CoreModule } from './core/core.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiInputModule } from '@taiga-ui/kit';
 import { EditionModule } from '@app/feature/edition/edition.module';
+import {
+  HttpCacheInterceptorModule,
+  useHttpCacheLocalStorage,
+} from '@ngneat/cashew';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,8 +31,13 @@ import { EditionModule } from '@app/feature/edition/edition.module';
     TuiDialogModule,
     TuiAlertModule,
     CoreModule,
+    HttpClientModule,
+    HttpCacheInterceptorModule.forRoot(),
   ],
-  providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
+  providers: [
+    { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },
+    useHttpCacheLocalStorage,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
