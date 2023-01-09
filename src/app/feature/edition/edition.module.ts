@@ -11,6 +11,7 @@ import { EditionRoutingModule } from '@app/feature/edition/edition-routing.modul
 import {
   TuiTextfieldControllerModule,
   TuiDataListModule,
+  TuiLabelModule,
 } from '@taiga-ui/core';
 
 @NgModule({
@@ -24,6 +25,7 @@ import {
     TuiTextfieldControllerModule,
     TuiDataListModule,
     TuiDataListWrapperModule,
+    TuiLabelModule,
   ],
   exports: [EditionEditorComponent],
 })

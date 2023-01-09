@@ -21,20 +21,20 @@
       </tui-input>
     </div>
 
-    <tui-multi-select
-      class="form-row"
-      [formControl]="editionForm.controls.extendedEditions"
-      [tuiTextfieldLabelOutside]="true"
-      [editable]="false"
-      [expandable]="false"
-    >
-      Extended editions
-      <tui-data-list-wrapper
-        *tuiDataList
-        tuiMultiSelectGroup
-        [items]="availableEditions | async"
-        [itemContent]="editionName"
-      ></tui-data-list-wrapper>
-    </tui-multi-select>
+    <label tuiLabel="Extended editions" class="form-row">
+      <tui-multi-select
+        [formControl]="editionForm.controls.extendedEditions"
+        [tuiTextfieldLabelOutside]="true"
+        [editable]="false"
+        [identityMatcher]="editionIdentityMatcher"
+      >
+        Select editions that this new edition extends
+        <tui-data-list-wrapper
+          *tuiDataList
+          tuiMultiSelectGroup
+          [items]="availableEditions | async"
+        ></tui-data-list-wrapper>
+      </tui-multi-select>
+    </label>
   </form>
 </div>

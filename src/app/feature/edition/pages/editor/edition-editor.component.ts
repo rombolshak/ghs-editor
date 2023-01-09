@@ -6,6 +6,7 @@ import { AvailableEdition } from '@app/shared/models/available-edition';
 import { map, Observable, tap } from 'rxjs';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import { TuiValueContentContext } from '@taiga-ui/core';
+import { TuiIdentityMatcher } from '@taiga-ui/cdk';
 
 @Component({
   selector: 'app-editor',
@@ -20,12 +21,8 @@ export class EditionEditorComponent {
   ) {}
   model: EditionData = new EditionData('test', [], [], [], [], [], []);
 
-  availableEditions: Observable<string[]> = this.dataService
-    .getAvailableEditions()
-    .pipe(
-      tap((data) => (this._availableEditions = data)),
-      map((data) => data.map((item) => item.prefix))
-    );
+  availableEditions: Observable<AvailableEdition[]> =
+    this.dataService.getAvailableEditions();
 
   editionForm = this.formBuilder.group({
     editionName: this.formBuilder.control(''),
@@ -36,10 +33,8 @@ export class EditionEditorComponent {
     newAttackModifierStyle: this.formBuilder.control(''),
   });
 
-  get editionName(): PolymorpheusContent<TuiValueContentContext<string>> {
-    return ({ $implicit }) =>
-      this._availableEditions.find((e) => e.prefix === $implicit)?.name;
-  }
+  editionIdentityMatcher: TuiIdentityMatcher<AvailableEdition> = (e1, e2) =>
+    e1.prefix === e2.prefix;
 
   private _availableEditions: AvailableEdition[] = [];
 }
