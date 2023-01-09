@@ -23,6 +23,8 @@ jobs:
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
     - run: npm i -g @angular/cli@latest
     - run: npm ci
+    - run: ng lint
+    - run: npx prettier --check src
     - run: ng test --no-watch --no-progress --browsers=ChromeHeadlessCI
 
     - name: build and publish
