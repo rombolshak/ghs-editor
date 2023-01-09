@@ -9,7 +9,8 @@
     "test": "ng test",
     "push": "npm version patch && git push && git push --tags",
     "push-minor": "npm version minor && git push && git push --tags",
-    "push-major": "npm version major && git push && git push --tags"
+    "push-major": "npm version major && git push && git push --tags",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -39,17 +40,27 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.0.4",
+    "@angular-eslint/builder": "15.1.0",
+    "@angular-eslint/eslint-plugin": "15.1.0",
+    "@angular-eslint/eslint-plugin-template": "15.1.0",
+    "@angular-eslint/schematics": "15.1.0",
+    "@angular-eslint/template-parser": "15.1.0",
     "@angular/cli": "~15.0.4",
     "@angular/compiler-cli": "^15.0.0",
     "@types/dompurify": "2.2.3",
     "@types/jasmine": "~4.3.0",
+    "@typescript-eslint/eslint-plugin": "5.44.0",
+    "@typescript-eslint/parser": "5.44.0",
     "angular-cli-ghpages": "^1.0.5",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.6.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "prettier": "^2.8.2",
     "typescript": "~4.8.2"
   }
 }
