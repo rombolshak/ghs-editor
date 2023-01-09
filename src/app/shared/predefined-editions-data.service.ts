@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { AvailableEdition } from '@app/shared/models/available-edition';
 import { HttpClient } from '@angular/common/http';
 import { withCache } from '@ngneat/cashew';
-import { EditionData } from '@ghs/game/model/data/EditionData';
 import { forkJoin, map, mergeMap, Observable } from 'rxjs';
-import { A } from '@angular/cdk/keycodes';
 
 type LabelData = { en: { edition: { [key: string]: string } } };
 

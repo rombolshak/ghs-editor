@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { EditionData } from '@ghs/game/model/data/EditionData';
 import { FormBuilder } from '@angular/forms';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
 import { map, Observable, tap } from 'rxjs';
-import { TUI_DEFAULT_MATCHER, tuiPure } from '@taiga-ui/cdk';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import { TuiValueContentContext } from '@taiga-ui/core';
 
@@ -39,7 +38,7 @@ export class EditionEditorComponent {
 
   get editionName(): PolymorpheusContent<TuiValueContentContext<string>> {
     return ({ $implicit }) =>
-      this._availableEditions.find((e) => e.prefix === $implicit)!.name;
+      this._availableEditions.find((e) => e.prefix === $implicit)?.name;
   }
 
   private _availableEditions: AvailableEdition[] = [];
