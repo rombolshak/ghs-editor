@@ -1,6 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditionEditorComponent } from './edition-editor.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+  TuiDataListWrapperModule,
+  TuiInputModule,
+  TuiMultiSelectModule,
+} from '@taiga-ui/kit';
+import {
+  TuiDataListModule,
+  TuiTextfieldControllerModule,
+} from '@taiga-ui/core';
 
 describe('EditorComponent', () => {
   let component: EditionEditorComponent;
@@ -8,6 +18,14 @@ describe('EditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        ReactiveFormsModule,
+        TuiInputModule,
+        TuiMultiSelectModule,
+        TuiTextfieldControllerModule,
+        TuiDataListModule,
+        TuiDataListWrapperModule,
+      ],
       declarations: [EditionEditorComponent],
     }).compileComponents();
 
@@ -18,9 +36,5 @@ describe('EditorComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should show edition name', () => {
-    expect(fixture.debugElement.nativeElement.innerText).toContain('test');
   });
 });

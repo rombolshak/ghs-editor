@@ -12,14 +12,14 @@ export class EditionEditorComponent {
   constructor(private readonly formBuilder: FormBuilder) {}
   model: EditionData = new EditionData('test', [], [], [], [], [], []);
 
+  availableEditions = [];
+
   editionForm = this.formBuilder.group({
     editionName: this.formBuilder.control(''),
     editionPrefix: this.formBuilder.control(''),
-    extendedEditions: this.formBuilder.control(''),
+    extendedEditions: this.formBuilder.control([]),
     conditions: this.formBuilder.control(''),
     newHazardousTerrain: this.formBuilder.control(''),
     newAttackModifierStyle: this.formBuilder.control(''),
   });
-
-  availableEditions = [];
 }
