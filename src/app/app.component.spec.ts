@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import {TuiAlertModule, TuiDialogModule, TuiRootModule} from "@taiga-ui/core";
-import {CoreModule} from "./core/core.module";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { TuiAlertModule, TuiDialogModule, TuiRootModule } from '@taiga-ui/core';
+import { CoreModule } from './core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -14,11 +14,9 @@ describe('AppComponent', () => {
         TuiRootModule,
         TuiDialogModule,
         TuiAlertModule,
-        CoreModule
+        CoreModule,
       ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
     }).compileComponents();
   });
 

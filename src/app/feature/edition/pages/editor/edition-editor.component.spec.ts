@@ -8,9 +8,8 @@ describe('EditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditionEditorComponent ]
-    })
-    .compileComponents();
+      declarations: [EditionEditorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EditionEditorComponent);
     component = fixture.componentInstance;
@@ -23,5 +22,5 @@ describe('EditorComponent', () => {
 
   it('should show edition name', () => {
     expect(fixture.debugElement.nativeElement.innerText).toContain('test');
-  })
+  });
 });
