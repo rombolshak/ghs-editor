@@ -1,0 +1,24 @@
+{
+  "conditions": [
+    "stun",
+    "immobilize",
+    "disarm",
+    "wound",
+    "muddle",
+    "poison",
+    "invisible",
+    "strengthen",
+    "regenerate",
+    "chill",
+    "infect",
+    "ward",
+    "rupture",
+    "poison_x",
+    "wound_x"
+  ],
+  "edition": "cs",
+  "newAmStyle": true,
+  "extensions": [
+    "gh"
+  ]
+}

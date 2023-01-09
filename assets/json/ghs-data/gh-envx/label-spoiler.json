@@ -1,0 +1,22 @@
+{
+  "en": {
+    "character": {
+      "envx": "Bladeswarm"
+    }
+  },
+  "de": {
+    "character": {
+      "envx": "Klingenschwarm"
+    }
+  },
+  "fr": {
+    "character": {
+      "envx": "Hordelames"
+    }
+  },
+  "ko": {
+    "character": {
+      "envx": "칼날군단"
+    }
+  }
+}

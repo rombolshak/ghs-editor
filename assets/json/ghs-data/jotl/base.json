@@ -1,0 +1,12 @@
+{
+  "conditions": [
+    "stun",
+    "immobilize",
+    "disarm",
+    "wound",
+    "muddle",
+    "poison",
+    "strengthen"
+  ],
+  "edition": "jotl"
+}

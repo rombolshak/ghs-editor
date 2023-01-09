@@ -1,0 +1,445 @@
+{
+  "name": "frozen-fist",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "wound",
+      "immobilize",
+      "disarm",
+      "stun",
+      "muddle",
+      "curse"
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx13",
+      "movement": 3,
+      "attack": "Cx2",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "ice"
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 1
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": 3,
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 1,
+      "health": "Cx15",
+      "movement": 3,
+      "attack": "Cx2",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "ice"
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 2
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": 3,
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 2,
+      "health": "Cx16",
+      "movement": 3,
+      "attack": "Cx3",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "ice"
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 2
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": 3,
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 3,
+      "health": "Cx20",
+      "movement": 4,
+      "attack": "Cx3",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "ice"
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 2
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": 3,
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 4,
+      "health": "Cx22",
+      "movement": 4,
+      "attack": "Cx4",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "ice"
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 3
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": 3,
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 5,
+      "health": "Cx27",
+      "movement": 4,
+      "attack": "Cx4",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "ice"
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 3
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": 3,
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 6,
+      "health": "Cx36",
+      "movement": 4,
+      "attack": "Cx5",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "ice"
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 3
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": 3,
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "level": 7,
+      "health": "Cx47",
+      "movement": 4,
+      "attack": "Cx5",
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "ice"
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 4
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "target",
+                "value": 3,
+                "small": true
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  ]
+}

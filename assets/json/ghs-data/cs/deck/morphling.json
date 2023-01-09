@@ -1,0 +1,16 @@
+{
+  "name": "morphling",
+  "edition": "cs",
+  "abilities": [
+    {
+      "cardId": 0,
+      "initiative": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.scenarioBook%"
+        }
+      ]
+    }
+  ]
+}

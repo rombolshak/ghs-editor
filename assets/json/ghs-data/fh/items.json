@@ -1,0 +1,363 @@
+[
+  {
+    "id": 1,
+    "name": "Crude Helmet",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "metal": 1
+    }
+  },
+  {
+    "id": 2,
+    "name": "Simple Charm",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "metal": 1
+    }
+  },
+  {
+    "id": 3,
+    "name": "Spyglass",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "metal": 1
+    }
+  },
+  {
+    "id": 4,
+    "name": "Crude Hide Armor",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "minusOne": 1,
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "hide": 1
+    }
+  },
+  {
+    "id": 5,
+    "name": "Crude Chain Armor",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "minusOne": 1,
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "metal": 2
+    }
+  },
+  {
+    "id": 6,
+    "name": "Traveling Cloak",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "hide": 1
+    }
+  },
+  {
+    "id": 7,
+    "name": "Crude Spear",
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "hide": 1,
+      "lumber": 1
+    }
+  },
+  {
+    "id": 8,
+    "name": "Crude Bow",
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "lumber": 1
+    }
+  },
+  {
+    "id": 9,
+    "name": "Protective Charm",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "lumber": 1,
+      "hide": 1
+    }
+  },
+  {
+    "id": 10,
+    "name": "Crude Shield",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "minusOne": 1,
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "metal": 1
+    }
+  },
+  {
+    "id": 14,
+    "name": "Heavy Sword",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "metal": 1,
+      "hide": 1
+    }
+  },
+  {
+    "id": 15,
+    "name": "Reinforced Shield",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "item": [
+        10
+      ],
+      "lumber": 1
+    }
+  },
+  {
+    "id": 18,
+    "name": "Crude Boots",
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "hide": 1
+    }
+  },
+  {
+    "id": 25,
+    "name": "Soothing Scepter",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "lumber": 1,
+      "metal": 1,
+      "hide": 1
+    }
+  },
+  {
+    "id": 38,
+    "name": "Volatile Boots",
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "item": [
+        18,
+        96
+      ],
+      "metal": 1
+    }
+  },
+  {
+    "id": 90,
+    "name": "Corrupted Blade",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": "true",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "item": [
+        14,
+        98
+      ]
+    }
+  },
+  {
+    "id": 91,
+    "name": "Stamina Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": "true",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    },
+    "resources": {
+      "arrowvine": 1,
+      "snowthistle": 1
+    }
+  },
+  {
+    "id": 120,
+    "name": "Amulet of Life",
+    "cost": 15,
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": "true",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    }
+  },
+  {
+    "id": 122,
+    "name": "Warden's Robes",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": "true",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    }
+  },
+  {
+    "id": 123,
+    "name": "Leather Armor",
+    "cost": 15,
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": "true",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    }
+  },
+  {
+    "id": 124,
+    "name": "Winged Shoes",
+    "cost": 15,
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": "true",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    }
+  },
+  {
+    "id": 125,
+    "name": "Boots of Speed",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": "true",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    }
+  },
+  {
+    "id": 127,
+    "name": "Poison Dagger",
+    "cost": 15,
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": "true",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    }
+  },
+  {
+    "id": 128,
+    "name": "Heater Shield",
+    "cost": 15,
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": "true",
+    "unlockScenario": {
+      "name": 1,
+      "edition": "fh"
+    }
+  }
+]

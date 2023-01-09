@@ -1,0 +1,242 @@
+{
+  "name": "sraka-the-wise",
+  "thumbnail": "gh-vermling-shaman",
+  "edition": "fc",
+  "deck": "shaman",
+  "boss": true,
+  "count": 6,
+  "baseStat": {
+    "type": "boss",
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "3xC/2",
+      "attack": 2,
+      "range": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
+      ]
+    },
+    {
+      "level": 1,
+      "health": "3xC/2",
+      "attack": 2,
+      "range": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
+      ]
+    },
+    {
+      "level": 2,
+      "health": "4xC/2",
+      "attack": 2,
+      "range": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
+      ]
+    },
+    {
+      "level": 3,
+      "health": "5xC/2",
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
+      ]
+    },
+    {
+      "level": 4,
+      "health": "5xC/2",
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 4
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
+      ]
+    },
+    {
+      "level": 5,
+      "health": "6xC/2",
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 4
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
+      ]
+    },
+    {
+      "level": 6,
+      "health": "6xC/2",
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 5
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ],
+      "immunities": [
+        "stun",
+        "wound",
+        "disarm",
+        "pierce"
+      ]
+    },
+    {
+      "level": 7,
+      "health": "8xC/2",
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
+        },
+        {
+          "type": "shield",
+          "value": 5
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ],
+      "immunities": [
+        "stun",
+        "wound",
+        "disarm",
+        "pierce"
+      ]
+    }
+  ]
+}

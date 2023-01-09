@@ -1,0 +1,6 @@
+{
+  "edition": "gh-envx",
+  "extensions": [
+    "gh"
+  ]
+}
