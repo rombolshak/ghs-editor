@@ -14,7 +14,7 @@ export class PredefinedEditionsDataService {
 
   getAvailableEditions(): Observable<AvailableEdition[]> {
     return this.http
-      .get<string[]>('/assets/json/predefined-editions.json', {
+      .get<string[]>('assets/json/predefined-editions.json', {
         context: withCache({ ttl: 86_400_000 }),
       })
       .pipe(
@@ -22,7 +22,7 @@ export class PredefinedEditionsDataService {
           return forkJoin(
             data.map((edition) => {
               return this.http.get<LabelData>(
-                `/assets/json/ghs-data/${edition}/label.json`,
+                `assets/json/ghs-data/${edition}/label.json`,
                 { context: withCache() }
               );
             })
