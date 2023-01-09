@@ -1,0 +1,41 @@
+@import "~@taiga-ui/core/styles/taiga-ui-local";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .page-header {
+    padding: 3rem 2rem;
+    .inset-border(bottom);
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .page-content {
+    display: flex;
+    padding: 2rem;
+
+    form {
+      width: 40rem;
+    }
+  }
+
+  .form-row {
+    margin-bottom: 1rem;
+  }
+
+  .name-fields {
+    display: flex;
+    justify-content: space-between;
+
+    .fullName {
+      width: 30rem;
+    }
+    .prefixName {
+      width: 9rem;
+    }
+  }
+}

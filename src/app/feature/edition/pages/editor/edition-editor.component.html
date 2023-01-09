@@ -1,1 +1,38 @@
-<p>Edition name: {{ model.edition }}</p>
+<div class="page-header">
+  <h2 class="tui-text_h2">Edition data</h2>
+</div>
+<div class="page-content">
+  <form [formGroup]="editionForm">
+    <div class="name-fields form-row">
+      <tui-input
+        [formControl]="editionForm.controls.editionName"
+        class="fullName"
+      >
+        Edition full name
+        <input tuiTextfield />
+      </tui-input>
+
+      <tui-input
+        [formControl]="editionForm.controls.editionPrefix"
+        class="prefixName"
+      >
+        Edition prefix
+        <input tuiTextfield />
+      </tui-input>
+    </div>
+
+    <tui-multi-select
+      class="form-row"
+      [formControl]="editionForm.controls.extendedEditions"
+      [tuiTextfieldLabelOutside]="true"
+      [editable]="false"
+    >
+      Extended editions
+      <tui-data-list-wrapper
+        *tuiDataList
+        tuiMultiSelectGroup
+        [items]="availableEditions"
+      ></tui-data-list-wrapper>
+    </tui-multi-select>
+  </form>
+</div>

@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditionEditorComponent } from './feature/edition/pages/editor/edition-editor.component';
 
 const routes: Routes = [
-  { path: 'edition', component: EditionEditorComponent },
+  {
+    path: 'edition',
+    loadChildren: () =>
+      import('./feature/edition/edition.module').then((m) => m.EditionModule),
+  },
   { path: '**', redirectTo: 'edition', pathMatch: 'full' },
 ];
 
