@@ -27,7 +27,7 @@
       <tui-multi-select
         [formControl]="editionForm.controls.extendedEditions"
         [tuiTextfieldLabelOutside]="true"
-        [editable]="false"
+        [editable]="true"
         [identityMatcher]="editionIdentityMatcher"
         data-automation="edition.extendedEditions"
       >
@@ -40,5 +40,33 @@
         ></tui-data-list-wrapper>
       </tui-multi-select>
     </label>
+
+    <label tuiLabel="Used conditions" class="form-row">
+      <tui-multi-select
+        [formControl]="editionForm.controls.conditions"
+        [tuiTextfieldLabelOutside]="true"
+        [editable]="true"
+        [(search)]="conditionSearch"
+        data-automation="edition.conditions"
+      >
+        Select conditions used in this edition
+        <tui-data-list-wrapper
+          *tuiDataList
+          tuiMultiSelectGroup
+          [items]="filterConditions(conditionSearch) | tuiHideSelected"
+          [itemContent]="conditionOptionTemplate"
+          data-automation="edition.extendedEditions.list"
+        ></tui-data-list-wrapper>
+      </tui-multi-select>
+    </label>
   </form>
 </div>
+
+<ng-template #conditionOptionTemplate let-condition>
+  <div class="condition-option">
+    <tui-svg
+      [src]="'assets/images/ghs/condition/' + condition + '.svg'"
+    ></tui-svg>
+    {{ condition }}
+  </div>
+</ng-template>

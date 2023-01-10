@@ -12,6 +12,7 @@ import {
   TuiTextfieldControllerModule,
   TuiDataListModule,
   TuiLabelModule,
+  TuiSvgModule,
 } from '@taiga-ui/core';
 
 @NgModule({
@@ -26,6 +27,7 @@ import {
     TuiDataListModule,
     TuiDataListWrapperModule,
     TuiLabelModule,
+    TuiSvgModule,
   ],
   exports: [EditionEditorComponent],
 })
