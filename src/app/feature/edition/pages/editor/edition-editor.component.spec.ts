@@ -19,23 +19,27 @@ import {
 } from '@taiga-ui/core';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
-import { of } from 'rxjs';
+import { of, takeLast } from 'rxjs';
 import { By } from '@angular/platform-browser';
+
+const edition1 = new AvailableEdition('Test 1', 'ed1');
+const edition2 = new AvailableEdition('Test 2', 'ed2');
+class FakePredefinedEditionsDataService {
+  getAvailableEditions() {
+    return of([edition1, edition2]);
+  }
+
+  getEditionConditions(edition: AvailableEdition) {
+    return edition.prefix === 'ed1'
+      ? of(['cond1', 'cond2'])
+      : of(['cond2', 'cond3']);
+  }
+}
 
 describe('EditorComponent', () => {
   let component: EditionEditorComponent;
   let fixture: ComponentFixture<EditionEditorComponent>;
-  const editionsDataService: jasmine.SpyObj<PredefinedEditionsDataService> =
-    jasmine.createSpyObj<PredefinedEditionsDataService>(
-      'PredefinedEditionsDataService',
-      {
-        getAvailableEditions: of([
-          new AvailableEdition('ed1', 'Edition 1'),
-          new AvailableEdition('ed2', 'Edition 2'),
-          new AvailableEdition('ed3', 'Edition 3'),
-        ]),
-      }
-    );
+  let editionsDataService: PredefinedEditionsDataService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -51,10 +55,13 @@ describe('EditorComponent', () => {
       providers: [
         {
           provide: PredefinedEditionsDataService,
-          useValue: editionsDataService,
+          useClass: FakePredefinedEditionsDataService,
         },
       ],
     }).compileComponents();
+
+    editionsDataService = TestBed.inject(PredefinedEditionsDataService);
+    spyOn(editionsDataService, 'getAvailableEditions').and.callThrough();
 
     fixture = TestBed.createComponent(EditionEditorComponent);
     component = fixture.componentInstance;
@@ -67,13 +74,13 @@ describe('EditorComponent', () => {
 
   it('should request available editions', () => {
     expect(editionsDataService.getAvailableEditions).toHaveBeenCalled();
+    component.availableEditions
+      .pipe(takeLast(1))
+      .subscribe((data) => expect(data.length).toBe(2));
   });
 
   it('should show selected editions', fakeAsync(() => {
-    const availableEdition = new AvailableEdition('ed2', 'Edition 2');
-    component.editionForm.controls.extendedEditions.setValue([
-      availableEdition,
-    ]);
+    component.editionForm.controls.extendedEditions.setValue([edition1]);
     fixture.detectChanges();
     tick(1);
     fixture.detectChanges();
@@ -81,9 +88,78 @@ describe('EditorComponent', () => {
       By.css('[data-automation="edition.extendedEditions"]')
     );
     expect(selector.nativeElement.innerText).not.toContain('\n');
-    expect(selector.nativeElement.innerText).toContain(
-      availableEdition.toString()
-    );
+    expect(selector.nativeElement.innerText).toContain(edition1.toString());
     discardPeriodicTasks();
   }));
+
+  it('should return edition conditions', () => {
+    const spy = spyOn(
+      editionsDataService,
+      'getEditionConditions'
+    ).and.callThrough();
+
+    component.editionForm.controls.extendedEditions.setValue([edition1]);
+    expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(
+      edition1
+    );
+    expect(component.editionForm.controls.conditions.value).toEqual([
+      'cond1',
+      'cond2',
+    ]);
+
+    spy.calls.reset();
+    component.editionForm.controls.extendedEditions.setValue([
+      edition1,
+      edition2,
+    ]);
+    expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(
+      edition1
+    );
+    expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(
+      edition2
+    );
+    expect(component.editionForm.controls.conditions.value).toEqual([
+      'cond1',
+      'cond2',
+      'cond3',
+    ]);
+
+    spy.calls.reset();
+    component.editionForm.controls.extendedEditions.setValue([]);
+    expect(editionsDataService.getEditionConditions).not.toHaveBeenCalled();
+    expect(component.editionForm.controls.conditions.value).toEqual([
+      'cond1',
+      'cond2',
+      'cond3',
+    ]);
+  });
+
+  it('should display selected conditions', fakeAsync(() => {
+    component.editionForm.controls.conditions.setValue(['cond1', 'cond2']);
+    fixture.detectChanges();
+    const el = fixture.debugElement.query(
+      By.css('[data-automation="edition.conditions"]')
+    );
+    tick(1);
+    fixture.detectChanges();
+    expect(el.nativeElement.innerText.trim()).toBe('cond1 \n cond2');
+    discardPeriodicTasks();
+  }));
+
+  it('should filter available conditions', () => {
+    const data = component.filterConditions('poison');
+    expect(data.length).toBe(2);
+
+    expect(component.filterConditions(null).length).toBeGreaterThan(6);
+  });
+
+  it('should compare editions by prefix', () => {
+    expect(component.editionIdentityMatcher(edition1, edition2)).toBeFalse();
+    expect(
+      component.editionIdentityMatcher(
+        edition1,
+        new AvailableEdition('qweqwe', 'ed1')
+      )
+    ).toBeTrue();
+  });
 });

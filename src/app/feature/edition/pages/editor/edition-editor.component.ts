@@ -54,9 +54,8 @@ export class EditionEditorComponent {
     this.editionForm.controls.extendedEditions.valueChanges
       .pipe(
         mergeMap((data) => {
-          if (data === null) return of([[]]);
           return forkJoin(
-            data.map((edition) =>
+            data!.map((edition) =>
               this.dataService.getEditionConditions(edition)
             )
           );

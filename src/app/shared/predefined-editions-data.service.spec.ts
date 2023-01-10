@@ -5,7 +5,7 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { HttpClient } from '@angular/common/http';
+import { AvailableEdition } from '@app/shared/models/available-edition';
 
 describe('PredefinedEditionsDataService', () => {
   let service: PredefinedEditionsDataService;
@@ -30,8 +30,8 @@ describe('PredefinedEditionsDataService', () => {
       const e2 = data.find((e) => e.prefix === 'test-ed');
       expect(e1).toBeTruthy();
       expect(e2).toBeTruthy();
-      expect(e1!.name).toBe('Test GH edition 1');
-      expect(e2!.name).toBe('Other test edition 2');
+      expect(e1?.name).toBe('Test GH edition 1');
+      expect(e2?.name).toBe('Other test edition 2');
     });
 
     const requestEditions = httpTestingController.expectOne(
@@ -48,6 +48,17 @@ describe('PredefinedEditionsDataService', () => {
     editionBase2.flush({
       en: { edition: { 'test-ed': 'Other test edition 2' } },
     });
+    httpTestingController.verify();
+  });
+
+  it('should return edition conditions', () => {
+    service
+      .getEditionConditions(new AvailableEdition('test ed', 'test'))
+      .subscribe((data) => expect(data).toEqual(['c1', 'c2']));
+    const request = httpTestingController.expectOne(
+      'assets/json/ghs-data/test/base.json'
+    );
+    request.flush({ conditions: ['c1', 'c2'] });
     httpTestingController.verify();
   });
 });
