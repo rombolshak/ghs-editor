@@ -3,7 +3,7 @@ import { EditionData } from '@ghs/game/model/data/EditionData';
 import { FormBuilder } from '@angular/forms';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
-import { map, Observable, tap } from 'rxjs';
+import {map, Observable, takeLast, tap} from 'rxjs';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import { TuiValueContentContext } from '@taiga-ui/core';
 import { TuiIdentityMatcher } from '@taiga-ui/cdk';
@@ -27,7 +27,7 @@ export class EditionEditorComponent {
   editionForm = this.formBuilder.group({
     editionName: this.formBuilder.control(''),
     editionPrefix: this.formBuilder.control(''),
-    extendedEditions: this.formBuilder.control([]),
+    extendedEditions: this.formBuilder.control<AvailableEdition[]>([]),
     conditions: this.formBuilder.control(''),
     newHazardousTerrain: this.formBuilder.control(''),
     newAttackModifierStyle: this.formBuilder.control(''),
@@ -36,5 +36,9 @@ export class EditionEditorComponent {
   editionIdentityMatcher: TuiIdentityMatcher<AvailableEdition> = (e1, e2) =>
     e1.prefix === e2.prefix;
 
+  test() {
+    this.editionForm.controls.editionName.setValue('qwe');
+    this.availableEditions.pipe(takeLast(1)).subscribe(data => this.editionForm.controls.extendedEditions.setValue([data[0]]));
+  }
   private _availableEditions: AvailableEdition[] = [];
 }

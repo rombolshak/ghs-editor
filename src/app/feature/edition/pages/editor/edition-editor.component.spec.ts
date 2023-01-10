@@ -1,8 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
+import {ComponentFixture, discardPeriodicTasks, fakeAsync, TestBed, tick} from '@angular/core/testing';
 
 import { EditionEditorComponent } from './edition-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -15,13 +11,25 @@ import {
   TuiDataListModule,
   TuiTextfieldControllerModule,
 } from '@taiga-ui/core';
-import { HttpClient } from '@angular/common/http';
+import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
+import { AvailableEdition } from '@app/shared/models/available-edition';
+import { of } from 'rxjs';
+import { By } from '@angular/platform-browser';
 
 describe('EditorComponent', () => {
   let component: EditionEditorComponent;
   let fixture: ComponentFixture<EditionEditorComponent>;
-  let httpClient: HttpClient;
-  let httpTestingController: HttpTestingController;
+  let editionsDataService: jasmine.SpyObj<PredefinedEditionsDataService> =
+    jasmine.createSpyObj<PredefinedEditionsDataService>(
+      'PredefinedEditionsDataService',
+      {
+        getAvailableEditions: of([
+          new AvailableEdition('ed1', 'Edition 1'),
+          new AvailableEdition('ed2', 'Edition 2'),
+          new AvailableEdition('ed3', 'Edition 3'),
+        ]),
+      }
+    );
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -32,13 +40,16 @@ describe('EditorComponent', () => {
         TuiTextfieldControllerModule,
         TuiDataListModule,
         TuiDataListWrapperModule,
-        HttpClientTestingModule,
       ],
       declarations: [EditionEditorComponent],
+      providers: [
+        {
+          provide: PredefinedEditionsDataService,
+          useValue: editionsDataService,
+        },
+      ],
     }).compileComponents();
 
-    httpClient = TestBed.inject(HttpClient);
-    httpTestingController = TestBed.inject(HttpTestingController);
     fixture = TestBed.createComponent(EditionEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -47,4 +58,20 @@ describe('EditorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should request available editions', () => {
+    expect(editionsDataService.getAvailableEditions).toHaveBeenCalled();
+  });
+
+  it('should show selected editions', fakeAsync(() => {
+    const availableEdition = new AvailableEdition('ed2', 'Edition 2');
+    component.editionForm.controls.extendedEditions.setValue([availableEdition]);
+    fixture.detectChanges();
+    tick(1);
+    fixture.detectChanges();
+    const selector = fixture.debugElement.query(By.css('[data-automation="edition.extendedEditions"]'));
+    expect(selector.nativeElement.innerText).not.toContain('\n');
+    expect(selector.nativeElement.innerText).toContain(availableEdition.toString());
+    discardPeriodicTasks();
+  }));
 });

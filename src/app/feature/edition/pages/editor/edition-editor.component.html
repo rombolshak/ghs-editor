@@ -6,7 +6,7 @@
     <div class="name-fields form-row">
       <tui-input
         [formControl]="editionForm.controls.editionName"
-        class="fullName"
+        class="fullName" data-automation="edition.fullname"
       >
         Edition full name
         <input tuiTextfield />
@@ -14,7 +14,7 @@
 
       <tui-input
         [formControl]="editionForm.controls.editionPrefix"
-        class="prefixName"
+        class="prefixName" data-automation="edition.prefix"
       >
         Edition prefix
         <input tuiTextfield />
@@ -27,14 +27,17 @@
         [tuiTextfieldLabelOutside]="true"
         [editable]="false"
         [identityMatcher]="editionIdentityMatcher"
+        data-automation="edition.extendedEditions"
       >
         Select editions that this new edition extends
         <tui-data-list-wrapper
           *tuiDataList
           tuiMultiSelectGroup
           [items]="availableEditions | async"
+          data-automation="edition.extendedEditions.list"
         ></tui-data-list-wrapper>
       </tui-multi-select>
     </label>
   </form>
 </div>
+<button (click)="test()"></button>
