@@ -1,4 +1,10 @@
-import {ComponentFixture, discardPeriodicTasks, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {
+  ComponentFixture,
+  discardPeriodicTasks,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 
 import { EditionEditorComponent } from './edition-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -65,13 +71,19 @@ describe('EditorComponent', () => {
 
   it('should show selected editions', fakeAsync(() => {
     const availableEdition = new AvailableEdition('ed2', 'Edition 2');
-    component.editionForm.controls.extendedEditions.setValue([availableEdition]);
+    component.editionForm.controls.extendedEditions.setValue([
+      availableEdition,
+    ]);
     fixture.detectChanges();
     tick(1);
     fixture.detectChanges();
-    const selector = fixture.debugElement.query(By.css('[data-automation="edition.extendedEditions"]'));
+    const selector = fixture.debugElement.query(
+      By.css('[data-automation="edition.extendedEditions"]')
+    );
     expect(selector.nativeElement.innerText).not.toContain('\n');
-    expect(selector.nativeElement.innerText).toContain(availableEdition.toString());
+    expect(selector.nativeElement.innerText).toContain(
+      availableEdition.toString()
+    );
     discardPeriodicTasks();
   }));
 });

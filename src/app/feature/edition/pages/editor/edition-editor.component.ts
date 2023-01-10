@@ -3,7 +3,7 @@ import { EditionData } from '@ghs/game/model/data/EditionData';
 import { FormBuilder } from '@angular/forms';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
-import { Observable, takeLast } from 'rxjs';
+import { Observable } from 'rxjs';
 import { TuiIdentityMatcher } from '@taiga-ui/cdk';
 
 @Component({
