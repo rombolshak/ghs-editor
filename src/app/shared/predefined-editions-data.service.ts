@@ -38,4 +38,13 @@ export class PredefinedEditionsDataService {
         })
       );
   }
+
+  getEditionConditions(edition: AvailableEdition): Observable<string[]> {
+    return this.http
+      .get<{ conditions: string[] }>(
+        `assets/json/ghs-data/${edition.prefix}/base.json`,
+        { context: withCache() }
+      )
+      .pipe(map((data) => data.conditions));
+  }
 }

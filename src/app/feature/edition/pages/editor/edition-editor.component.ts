@@ -3,7 +3,7 @@ import { EditionData } from '@ghs/game/model/data/EditionData';
 import { FormBuilder } from '@angular/forms';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
-import { Observable } from 'rxjs';
+import { forkJoin, mergeMap, Observable, of } from 'rxjs';
 import {
   TUI_DEFAULT_MATCHER,
   TuiIdentityMatcher,
@@ -21,7 +21,9 @@ export class EditionEditorComponent {
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly dataService: PredefinedEditionsDataService
-  ) {}
+  ) {
+    this.setEditionConditionsOnExtendedEdifionsChange();
+  }
   model: EditionData = new EditionData('test', [], [], [], [], [], []);
 
   availableEditions: Observable<AvailableEdition[]> =
@@ -46,5 +48,26 @@ export class EditionEditorComponent {
     return Object.keys(ConditionName).filter((item) =>
       TUI_DEFAULT_MATCHER(item, search || ``)
     );
+  }
+
+  private setEditionConditionsOnExtendedEdifionsChange() {
+    this.editionForm.controls.extendedEditions.valueChanges
+      .pipe(
+        mergeMap((data) => {
+          if (data === null) return of([[]]);
+          return forkJoin(
+            data.map((edition) =>
+              this.dataService.getEditionConditions(edition)
+            )
+          );
+        })
+      )
+      .subscribe((data) => {
+        const newConditions = data.flat();
+        const distinctConditions = newConditions.filter(
+          (value, index) => newConditions.indexOf(value) === index
+        );
+        this.editionForm.controls.conditions.setValue(distinctConditions);
+      });
   }
 }
