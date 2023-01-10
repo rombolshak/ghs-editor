@@ -6,18 +6,15 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
-import { H } from '@angular/cdk/keycodes';
 
 describe('PredefinedEditionsDataService', () => {
   let service: PredefinedEditionsDataService;
-  let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
     });
-    httpClient = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
     service = TestBed.inject(PredefinedEditionsDataService);
   });
@@ -31,8 +28,8 @@ describe('PredefinedEditionsDataService', () => {
       expect(data.length).toBe(2);
       const e1 = data.find((e) => e.prefix === 'gh-test');
       const e2 = data.find((e) => e.prefix === 'test-ed');
-      expect(e1).toBeDefined();
-      expect(e2).toBeDefined();
+      expect(e1).toBeTruthy();
+      expect(e2).toBeTruthy();
       expect(e1!.name).toBe('Test GH edition 1');
       expect(e2!.name).toBe('Other test edition 2');
     });

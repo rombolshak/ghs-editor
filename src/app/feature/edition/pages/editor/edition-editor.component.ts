@@ -3,9 +3,7 @@ import { EditionData } from '@ghs/game/model/data/EditionData';
 import { FormBuilder } from '@angular/forms';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
-import {map, Observable, takeLast, tap} from 'rxjs';
-import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
-import { TuiValueContentContext } from '@taiga-ui/core';
+import { Observable, takeLast } from 'rxjs';
 import { TuiIdentityMatcher } from '@taiga-ui/cdk';
 
 @Component({
@@ -35,10 +33,4 @@ export class EditionEditorComponent {
 
   editionIdentityMatcher: TuiIdentityMatcher<AvailableEdition> = (e1, e2) =>
     e1.prefix === e2.prefix;
-
-  test() {
-    this.editionForm.controls.editionName.setValue('qwe');
-    this.availableEditions.pipe(takeLast(1)).subscribe(data => this.editionForm.controls.extendedEditions.setValue([data[0]]));
-  }
-  private _availableEditions: AvailableEdition[] = [];
 }

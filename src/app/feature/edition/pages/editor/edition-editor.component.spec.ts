@@ -19,7 +19,7 @@ import { By } from '@angular/platform-browser';
 describe('EditorComponent', () => {
   let component: EditionEditorComponent;
   let fixture: ComponentFixture<EditionEditorComponent>;
-  let editionsDataService: jasmine.SpyObj<PredefinedEditionsDataService> =
+  const editionsDataService: jasmine.SpyObj<PredefinedEditionsDataService> =
     jasmine.createSpyObj<PredefinedEditionsDataService>(
       'PredefinedEditionsDataService',
       {
