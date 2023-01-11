@@ -29,6 +29,8 @@ import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-d
 import { AvailableEdition } from '@app/shared/models/available-edition';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
+import { LocalDataManagerService } from '@app/shared/local-data-manager.service';
+import { EditionBaseData } from '@app/shared/models/base-data';
 
 const edition1 = new AvailableEdition('Test 1', 'ed1');
 const edition2 = new AvailableEdition('Test 2', 'ed2');
@@ -200,5 +202,18 @@ describe('EditionEditorComponent', () => {
       .triggerEventHandler('click');
     expect(component.editionForm.value.editionName).not.toBeTruthy();
     expect(component.editionForm.value.editionPrefix).not.toBeTruthy();
+  });
+
+  it('should load saved data automatically', () => {
+    const localDataService = TestBed.inject(LocalDataManagerService);
+
+    expect(component.editionForm.value.editionPrefix).toBeFalsy();
+    localDataService.baseData.save({
+      editionName: 'name',
+      editionPrefix: 'test',
+    } as EditionBaseData);
+    fixture.detectChanges();
+    expect(component.editionForm.value.editionPrefix).toBe('test');
+    localStorage.clear();
   });
 });

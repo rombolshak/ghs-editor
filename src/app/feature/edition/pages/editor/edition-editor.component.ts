@@ -40,11 +40,16 @@ export class EditionEditorComponent implements OnInit {
         this.availableEditions = data;
         this.availableEditionsIds = data.map((e) => e.prefix);
       });
+
+    this.localDataService.baseData
+      .get()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data) => {
+        if (data !== null) {
+          this.editionForm.patchValue(data);
+        }
+      });
   }
-
-  availableEditionsIds: string[] = [];
-
-  conditionSearch: string | null = null;
 
   editionForm = this.formBuilder.nonNullable.group({
     editionName: ['', Validators.required],
@@ -53,6 +58,10 @@ export class EditionEditorComponent implements OnInit {
     conditions: [<string[]>[]],
     newHazardousTerrain: [false],
   });
+
+  availableEditionsIds: string[] = [];
+
+  conditionSearch: string | null = null;
 
   getName: TuiStringHandler<string> = (id) =>
     this.availableEditions.find((e) => e.prefix === id)!.toString();
