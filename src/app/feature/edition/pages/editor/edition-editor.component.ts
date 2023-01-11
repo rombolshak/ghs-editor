@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
-import { forkJoin, mergeMap, of, takeUntil } from 'rxjs';
+import { forkJoin, mergeMap, takeUntil } from 'rxjs';
 import {
   TUI_DEFAULT_MATCHER,
   TuiDestroyService,
@@ -56,7 +56,6 @@ export class EditionEditorComponent implements OnInit {
     editionPrefix: ['', Validators.required],
     extendedEditions: [<string[]>[], Validators.required],
     conditions: [<string[]>[]],
-    newHazardousTerrain: [false],
   });
 
   availableEditionsIds: string[] = [];
