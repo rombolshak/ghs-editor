@@ -216,4 +216,18 @@ describe('EditionEditorComponent', () => {
     expect(component.editionForm.value.editionPrefix).toBe('test');
     localStorage.clear();
   });
+
+  it('should save model to local data', () => {
+    const localDataService = TestBed.inject(LocalDataManagerService);
+    const saveSpy = spyOn(localDataService.baseData, 'save');
+    component.editionForm.setValue({
+      editionName: 'qwf',
+      editionPrefix: 'ars',
+      extendedEditions: ['zxc'],
+      conditions: ['wfp'],
+    });
+    component.save();
+    expect(saveSpy).toHaveBeenCalled();
+    localStorage.clear();
+  });
 });
