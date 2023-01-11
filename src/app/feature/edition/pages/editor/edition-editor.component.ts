@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
-import { EditionData } from '@ghs/game/model/data/EditionData';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
@@ -11,6 +10,8 @@ import {
   tuiPure,
 } from '@taiga-ui/cdk';
 import { ConditionName } from '@ghs/game/model/Condition';
+import { LocalDataManagerService } from '@app/shared/local-data-manager.service';
+import { EditionBaseData } from '@app/shared/models/base-data';
 
 @Component({
   selector: 'app-editor',
@@ -23,6 +24,7 @@ export class EditionEditorComponent {
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly dataService: PredefinedEditionsDataService,
+    private readonly localDataService: LocalDataManagerService,
     private readonly destroy$: TuiDestroyService
   ) {
     this.setEditionConditionsOnExtendedEditionsChange();
@@ -33,16 +35,12 @@ export class EditionEditorComponent {
 
   conditionSearch: string | null = null;
 
-  editionForm = this.formBuilder.group({
-    editionName: this.formBuilder.control('', Validators.required),
-    editionPrefix: this.formBuilder.control('', Validators.required),
-    extendedEditions: this.formBuilder.control<AvailableEdition[]>(
-      [],
-      Validators.required
-    ),
-    conditions: this.formBuilder.control<string[]>([]),
-    newHazardousTerrain: this.formBuilder.control(false),
-    newAttackModifierStyle: this.formBuilder.control(false),
+  editionForm = this.formBuilder.nonNullable.group({
+    editionName: ['', Validators.required],
+    editionPrefix: ['', Validators.required],
+    extendedEditions: [<AvailableEdition[]>[], Validators.required],
+    conditions: [<string[]>[]],
+    newHazardousTerrain: [false],
   });
 
   editionIdentityMatcher: TuiIdentityMatcher<AvailableEdition> = (e1, e2) =>
@@ -56,7 +54,14 @@ export class EditionEditorComponent {
   }
 
   save(): void {
-    const model = new EditionData('test', [], [], [], [], [], []);
+    const model = new EditionBaseData();
+    const rawValue = this.editionForm.getRawValue();
+    model.editionName = rawValue.editionName;
+    model.editionPrefix = rawValue.editionPrefix;
+    model.extendedEditions = rawValue.extendedEditions.map((e) => e.prefix);
+    model.conditions = rawValue.conditions;
+    model.newHazardousTerrain = rawValue.newHazardousTerrain;
+    this.localDataService.baseData.save(model);
   }
 
   private setEditionConditionsOnExtendedEditionsChange() {
