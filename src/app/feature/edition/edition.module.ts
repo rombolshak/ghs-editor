@@ -3,16 +3,22 @@ import { CommonModule } from '@angular/common';
 import { EditionEditorComponent } from './pages/editor/edition-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
-  TuiDataListWrapperModule, TuiFieldErrorPipeModule,
+  TuiCheckboxBlockModule,
+  TuiDataListWrapperModule,
+  TuiFieldErrorPipeModule,
   TuiInputModule,
   TuiMultiSelectModule,
 } from '@taiga-ui/kit';
 import { EditionRoutingModule } from '@app/feature/edition/edition-routing.module';
 import {
-    TuiTextfieldControllerModule,
-    TuiDataListModule,
-    TuiLabelModule,
-    TuiSvgModule, TuiErrorModule,
+  TuiTextfieldControllerModule,
+  TuiDataListModule,
+  TuiLabelModule,
+  TuiSvgModule,
+  TuiErrorModule,
+  TuiButtonModule,
+  TuiTooltipModule,
+  TuiHintModule,
 } from '@taiga-ui/core';
 
 @NgModule({
@@ -30,6 +36,10 @@ import {
     TuiSvgModule,
     TuiErrorModule,
     TuiFieldErrorPipeModule,
+    TuiButtonModule,
+    TuiCheckboxBlockModule,
+    TuiTooltipModule,
+    TuiHintModule,
   ],
   exports: [EditionEditorComponent],
 })

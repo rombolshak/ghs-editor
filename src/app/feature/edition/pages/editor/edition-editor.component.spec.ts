@@ -9,15 +9,21 @@ import {
 import { EditionEditorComponent } from './edition-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
+  TuiCheckboxBlockModule,
   TuiDataListWrapperModule,
   TuiFieldErrorPipeModule,
   TuiInputModule,
   TuiMultiSelectModule,
 } from '@taiga-ui/kit';
 import {
+  TuiButtonModule,
   TuiDataListModule,
   TuiErrorModule,
+  TuiHintModule,
+  TuiLabelModule,
+  TuiSvgModule,
   TuiTextfieldControllerModule,
+  TuiTooltipModule,
 } from '@taiga-ui/core';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
@@ -52,8 +58,14 @@ describe('EditionEditorComponent', () => {
         TuiTextfieldControllerModule,
         TuiDataListModule,
         TuiDataListWrapperModule,
+        TuiLabelModule,
+        TuiSvgModule,
         TuiErrorModule,
         TuiFieldErrorPipeModule,
+        TuiButtonModule,
+        TuiCheckboxBlockModule,
+        TuiTooltipModule,
+        TuiHintModule,
       ],
       declarations: [EditionEditorComponent],
       providers: [
@@ -188,5 +200,18 @@ describe('EditionEditorComponent', () => {
     component.editionForm.controls.extendedEditions.setValue([edition1]);
     expect(component.editionForm.controls.extendedEditions.valid).toBeTrue();
     expect(component.editionForm.valid).toBeTrue();
+  });
+
+  it('should reset form on button click', () => {
+    component.editionForm.patchValue({
+      editionName: '123',
+      editionPrefix: 'asd',
+    });
+
+    fixture.debugElement
+      .query(By.css('[data-automation="reset-button"]'))
+      .triggerEventHandler('click');
+    expect(component.editionForm.value.editionName).not.toBeTruthy();
+    expect(component.editionForm.value.editionPrefix).not.toBeTruthy();
   });
 });

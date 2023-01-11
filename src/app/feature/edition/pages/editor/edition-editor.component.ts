@@ -1,11 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { EditionData } from '@ghs/game/model/data/EditionData';
-import {FormBuilder, Validators} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
-import { forkJoin, mergeMap, Observable, of } from 'rxjs';
+import { forkJoin, mergeMap, Observable, of, takeUntil } from 'rxjs';
 import {
   TUI_DEFAULT_MATCHER,
+  TuiDestroyService,
   TuiIdentityMatcher,
   tuiPure,
 } from '@taiga-ui/cdk';
@@ -16,15 +17,16 @@ import { ConditionName } from '@ghs/game/model/Condition';
   templateUrl: './edition-editor.component.html',
   styleUrls: ['./edition-editor.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [TuiDestroyService],
 })
 export class EditionEditorComponent {
   constructor(
     private readonly formBuilder: FormBuilder,
-    private readonly dataService: PredefinedEditionsDataService
+    private readonly dataService: PredefinedEditionsDataService,
+    private readonly destroy$: TuiDestroyService
   ) {
-    this.setEditionConditionsOnExtendedEdifionsChange();
+    this.setEditionConditionsOnExtendedEditionsChange();
   }
-  model: EditionData = new EditionData('test', [], [], [], [], [], []);
 
   availableEditions: Observable<AvailableEdition[]> =
     this.dataService.getAvailableEditions();
@@ -34,7 +36,10 @@ export class EditionEditorComponent {
   editionForm = this.formBuilder.group({
     editionName: this.formBuilder.control('', Validators.required),
     editionPrefix: this.formBuilder.control('', Validators.required),
-    extendedEditions: this.formBuilder.control<AvailableEdition[]>([], Validators.required),
+    extendedEditions: this.formBuilder.control<AvailableEdition[]>(
+      [],
+      Validators.required
+    ),
     conditions: this.formBuilder.control<string[]>([]),
     newHazardousTerrain: this.formBuilder.control(false),
     newAttackModifierStyle: this.formBuilder.control(false),
@@ -50,16 +55,22 @@ export class EditionEditorComponent {
     );
   }
 
-  private setEditionConditionsOnExtendedEdifionsChange() {
+  save(): void {
+    const model = new EditionData('test', [], [], [], [], [], []);
+  }
+
+  private setEditionConditionsOnExtendedEditionsChange() {
     this.editionForm.controls.extendedEditions.valueChanges
       .pipe(
         mergeMap((data) => {
+          if (data === null) return of([]);
           return forkJoin(
-            data!.map((edition) =>
+            data?.map((edition) =>
               this.dataService.getEditionConditions(edition)
             )
           );
-        })
+        }),
+        takeUntil(this.destroy$)
       )
       .subscribe((data) => {
         const newConditions = data.flat();

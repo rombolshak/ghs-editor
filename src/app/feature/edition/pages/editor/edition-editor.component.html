@@ -4,33 +4,34 @@
 <div class="page-content">
   <form [formGroup]="editionForm" class="tui-form">
     <div class="name-fields form-row">
-      <div><tui-input
-        [formControl]="editionForm.controls.editionName"
-        class="fullName"
-        data-automation="edition.fullname"
-      >
-        Edition full name
-        <input tuiTextfield />
-      </tui-input>
-      <tui-error
-        [formControl]="editionForm.controls.editionName"
-        [error]="[] | tuiFieldError | async"
-      ></tui-error>
+      <div>
+        <tui-input
+          [formControl]="editionForm.controls.editionName"
+          class="fullName"
+          data-automation="edition.fullname"
+        >
+          Edition full name
+          <input tuiTextfield />
+        </tui-input>
+        <tui-error
+          [formControl]="editionForm.controls.editionName"
+          [error]="[] | tuiFieldError | async"
+        ></tui-error>
       </div>
 
       <div>
-      <tui-input
-        [formControl]="editionForm.controls.editionPrefix"
-        class="prefixName"
-        data-automation="edition.prefix"
-      >
-        Edition prefix
-        <input tuiTextfield />
-      </tui-input>
-      <tui-error
-        [formControl]="editionForm.controls.editionPrefix"
-        [error]="[] | tuiFieldError | async"
-      ></tui-error>
+        <tui-input
+          [formControl]="editionForm.controls.editionPrefix"
+          class="prefixName"
+          data-automation="edition.prefix"
+        >
+          Edition prefix
+          <input tuiTextfield />
+        </tui-input>
+        <tui-error
+          [formControl]="editionForm.controls.editionPrefix"
+          [error]="[] | tuiFieldError | async"
+        ></tui-error>
       </div>
     </div>
 
@@ -74,6 +75,40 @@
         ></tui-data-list-wrapper>
       </tui-multi-select>
     </label>
+
+    <tui-checkbox-block
+      [formControl]="editionForm.controls.newHazardousTerrain"
+      contentAlign="left"
+      size="l"
+      ><div class="checkbox-content">
+        Use FH-style hazardous terrain damage calculation
+        <tui-tooltip
+          content="In Gloomhaven hazardous terrain damage is calculated as (trapDamage / 2). In Frosthaven it is calculated as (1 + level / 3)"
+        ></tui-tooltip>
+      </div>
+    </tui-checkbox-block>
+
+    <div class="form-row buttons">
+      <button
+        tuiButton
+        type="button"
+        size="m"
+        [disabled]="!editionForm.valid"
+        (click)="save()"
+      >
+        Save
+      </button>
+      <button
+        tuiButton
+        type="button"
+        appearance="outline"
+        size="m"
+        (click)="editionForm.reset()"
+        data-automation="reset-button"
+      >
+        Reset
+      </button>
+    </div>
   </form>
 </div>
 
