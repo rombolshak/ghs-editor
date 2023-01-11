@@ -10,11 +10,13 @@ import { EditionEditorComponent } from './edition-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
   TuiDataListWrapperModule,
+  TuiFieldErrorPipeModule,
   TuiInputModule,
   TuiMultiSelectModule,
 } from '@taiga-ui/kit';
 import {
   TuiDataListModule,
+  TuiErrorModule,
   TuiTextfieldControllerModule,
 } from '@taiga-ui/core';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
@@ -36,7 +38,7 @@ class FakePredefinedEditionsDataService {
   }
 }
 
-describe('EditorComponent', () => {
+describe('EditionEditorComponent', () => {
   let component: EditionEditorComponent;
   let fixture: ComponentFixture<EditionEditorComponent>;
   let editionsDataService: PredefinedEditionsDataService;
@@ -50,6 +52,8 @@ describe('EditorComponent', () => {
         TuiTextfieldControllerModule,
         TuiDataListModule,
         TuiDataListWrapperModule,
+        TuiErrorModule,
+        TuiFieldErrorPipeModule,
       ],
       declarations: [EditionEditorComponent],
       providers: [
@@ -161,5 +165,28 @@ describe('EditorComponent', () => {
         new AvailableEdition('qweqwe', 'ed1')
       )
     ).toBeTrue();
+  });
+
+  it('should validate reuired fields', () => {
+    component.editionForm.controls.editionName.setValue('');
+    expect(component.editionForm.controls.editionName.valid).toBeFalse();
+
+    component.editionForm.controls.editionName.setValue('test');
+    expect(component.editionForm.controls.editionName.valid).toBeTrue();
+    expect(component.editionForm.valid).toBeFalse();
+
+    component.editionForm.controls.editionPrefix.setValue('');
+    expect(component.editionForm.controls.editionPrefix.valid).toBeFalse();
+
+    component.editionForm.controls.editionPrefix.setValue('test');
+    expect(component.editionForm.controls.editionPrefix.valid).toBeTrue();
+    expect(component.editionForm.valid).toBeFalse();
+
+    component.editionForm.controls.extendedEditions.setValue([]);
+    expect(component.editionForm.controls.extendedEditions.valid).toBeFalse();
+
+    component.editionForm.controls.extendedEditions.setValue([edition1]);
+    expect(component.editionForm.controls.extendedEditions.valid).toBeTrue();
+    expect(component.editionForm.valid).toBeTrue();
   });
 });

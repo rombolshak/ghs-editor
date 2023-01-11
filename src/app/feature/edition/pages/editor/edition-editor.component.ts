@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { EditionData } from '@ghs/game/model/data/EditionData';
-import { FormBuilder } from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
 import { forkJoin, mergeMap, Observable, of } from 'rxjs';
@@ -32,12 +32,12 @@ export class EditionEditorComponent {
   conditionSearch: string | null = null;
 
   editionForm = this.formBuilder.group({
-    editionName: this.formBuilder.control(''),
-    editionPrefix: this.formBuilder.control(''),
-    extendedEditions: this.formBuilder.control<AvailableEdition[]>([]),
+    editionName: this.formBuilder.control('', Validators.required),
+    editionPrefix: this.formBuilder.control('', Validators.required),
+    extendedEditions: this.formBuilder.control<AvailableEdition[]>([], Validators.required),
     conditions: this.formBuilder.control<string[]>([]),
-    newHazardousTerrain: this.formBuilder.control(''),
-    newAttackModifierStyle: this.formBuilder.control(''),
+    newHazardousTerrain: this.formBuilder.control(false),
+    newAttackModifierStyle: this.formBuilder.control(false),
   });
 
   editionIdentityMatcher: TuiIdentityMatcher<AvailableEdition> = (e1, e2) =>

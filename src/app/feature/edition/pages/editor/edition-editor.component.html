@@ -2,9 +2,9 @@
   <h2 class="tui-text_h2">Edition data</h2>
 </div>
 <div class="page-content">
-  <form [formGroup]="editionForm">
+  <form [formGroup]="editionForm" class="tui-form">
     <div class="name-fields form-row">
-      <tui-input
+      <div><tui-input
         [formControl]="editionForm.controls.editionName"
         class="fullName"
         data-automation="edition.fullname"
@@ -12,7 +12,13 @@
         Edition full name
         <input tuiTextfield />
       </tui-input>
+      <tui-error
+        [formControl]="editionForm.controls.editionName"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+      </div>
 
+      <div>
       <tui-input
         [formControl]="editionForm.controls.editionPrefix"
         class="prefixName"
@@ -21,6 +27,11 @@
         Edition prefix
         <input tuiTextfield />
       </tui-input>
+      <tui-error
+        [formControl]="editionForm.controls.editionPrefix"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+      </div>
     </div>
 
     <label tuiLabel="Extended editions" class="form-row">
@@ -39,6 +50,10 @@
           data-automation="edition.extendedEditions.list"
         ></tui-data-list-wrapper>
       </tui-multi-select>
+      <tui-error
+        [formControl]="editionForm.controls.extendedEditions"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
     </label>
 
     <label tuiLabel="Used conditions" class="form-row">
