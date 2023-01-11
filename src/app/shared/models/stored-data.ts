@@ -2,10 +2,7 @@ import { LocalDataType } from '@app/shared/models/local-data-type';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export class StoredData<T> {
-  constructor(
-    private type: LocalDataType,
-    private typeCreator: { new (instance: T): T }
-  ) {}
+  constructor(private type: LocalDataType) {}
   public save(value: T | null) {
     localStorage.setItem(this.getKey(this.type), JSON.stringify(value));
     this.subject$.next(value);
@@ -19,9 +16,9 @@ export class StoredData<T> {
     return this.subject$;
   }
 
-  private loadFromStore() {
+  private loadFromStore(): T | null {
     const data = localStorage.getItem(this.getKey(this.type));
-    return data !== null ? new this.typeCreator(JSON.parse(data)) : null;
+    return data !== null ? (JSON.parse(data) as T) : null;
   }
 
   private getKey(type: LocalDataType) {

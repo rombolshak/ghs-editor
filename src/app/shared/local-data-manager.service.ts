@@ -8,7 +8,6 @@ import { StoredData } from '@app/shared/models/stored-data';
 })
 export class LocalDataManagerService {
   public baseData: StoredData<EditionBaseData> = new StoredData(
-    LocalDataType.Base,
-    EditionBaseData
+    LocalDataType.Base
   );
 }

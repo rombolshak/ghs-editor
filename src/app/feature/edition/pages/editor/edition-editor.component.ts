@@ -54,7 +54,7 @@ export class EditionEditorComponent {
   }
 
   save(): void {
-    const model = new EditionBaseData();
+    const model = {} as EditionBaseData;
     const rawValue = this.editionForm.getRawValue();
     model.editionName = rawValue.editionName;
     model.editionPrefix = rawValue.editionPrefix;

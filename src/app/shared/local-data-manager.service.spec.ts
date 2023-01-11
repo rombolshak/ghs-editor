@@ -21,7 +21,7 @@ describe('LocalDataManagerService', () => {
   });
 
   it('should return saved data', () => {
-    const data = new EditionBaseData();
+    const data = {} as EditionBaseData;
     data.editionPrefix = 'test';
     data.extendedEditions = ['aaa'];
     service.baseData.save(data);
