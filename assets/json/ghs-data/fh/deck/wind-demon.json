@@ -10,7 +10,14 @@
         {
           "type": "attack",
           "value": 1,
-          "valueType": "minus"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
         },
         {
           "type": "heal",

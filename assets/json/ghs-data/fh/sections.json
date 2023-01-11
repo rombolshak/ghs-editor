@@ -92,7 +92,7 @@
   },
   {
     "index": "48.1",
-    "name": "realm of Endless Frost",
+    "name": "Realm of Endless Frost",
     "parent": "21",
     "edition": "fh",
     "objectives": [
@@ -420,6 +420,15 @@
     "edition": "fh",
     "monsters": [
       "belara"
+    ]
+  },
+  {
+    "index": "195.2",
+    "name": "Furios Factory",
+    "parent": "109",
+    "edition": "fh",
+    "monsters": [
+      "laser-spires"
     ]
   }
 ]

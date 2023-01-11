@@ -81,71 +81,17 @@
     "scenario": {
       "rules": {
         "gh": {
-          "27": {
-            "1": "Spawn Night Demon at %game.mapMarker.a%",
-            "2": "Spawn Wind Demon at %game.mapMarker.c%",
-            "3": "Spawn Frost Demon at %game.mapMarker.d% and Sun Demon at %game.mapMarker.e%",
-            "4": "Spawn Earth Demon at %game.mapMarker.b% and Flame Demon at %game.mapMarker.c%",
-            "5": "Spawn Night Demon at %game.mapMarker.d% and Wind Demon at %game.mapMarker.e%",
-            "6": "Scenario lost!"
-          },
-          "31": {
-            "1": "Dark strong, Light inert"
-          },
-          "36": {
-            "1": "Spawn Flame Demon at %game.mapMarker.a%",
-            "2": "Spawn Earth Demon at %game.mapMarker.b%",
-            "3": "Spawn Frost Demon at %game.mapMarker.c%",
-            "4": "Spawn Wind Demon at %game.mapMarker.d%"
-          },
-          "39": {
-            "1": "Ice strong, Fire inert"
-          },
-          "53": {
-            "1": "Open doors %game.mapMarker.a%",
-            "2": "Open doors %game.mapMarker.b%",
-            "3": "Open doors %game.mapMarker.c%",
-            "4": "Open doors %game.mapMarker.d%",
-            "5": "Scenario won!"
-          },
-          "60": {
-            "1": "All figures suffer %game.damage:2%.",
-            "2": "Scenario lost!"
-          },
-          "61": {
-            "1": "Oozes and Giant Vipers are active.",
-            "2": "Flame Demons and Frost Demons are active."
-          },
-          "62": {
-            "1": "Spawn Living Bones at %game.mapMarker.a% and %game.mapMarker.b%"
-          },
-          "70": {
-            "1": "Spawn Living Spirits at %game.mapMarker.a%",
-            "2": "Spawn Living Spirits at %game.mapMarker.b%",
-            "3": "Spawn Living Spirits at %game.mapMarker.a% and %game.mapMarker.b%"
-          },
           "71": {
-            ".": "Windswept Highlands",
             "1": "Move left",
             "2": "Move up",
             "3": "Move right",
             "4": "Move down"
           },
-          "72": {
-            "1": "Spawn Ooze at tree %game.mapMarker.a%",
-            "2": "Spawn Ooze at tree %game.mapMarker.b%",
-            "3": "Spawn Ooze at tree %game.mapMarker.c%"
-          },
           "73": {
             "1": "Roll boulders down."
           },
           "74": {
-            "1": "Add water tile.",
-            "2": "Open door %game.mapMarker.1%",
-            "3": "Open door %game.mapMarker.2%"
-          },
-          "81": {
-            "1": "Light and Dark strong, Fire, Ice, Wind and Earth inert"
+            "1": "Add water tile."
           }
         }
       }
@@ -975,12 +921,12 @@
     },
     "monster": {
       "ancient-artillery": "고대 대포",
-      "arcane-golem": "Arcane Golem",
+      "arcane-golem": "신비한 골렘",
       "bandit-archer": "강도 궁수",
       "bandit-commander": "강도 두목",
       "bandit-guard": "강도 경비병",
       "black-imp": "검은 임프",
-      "bloated-regent": "Bloated Regent",
+      "bloated-regent": "부어오른 섭정",
       "captain-of-the-guard": "경비대장",
       "cave-bear": "동굴 곰",
       "city-archer": "도시 궁수",
@@ -991,14 +937,14 @@
       "earth-demon": "대지 악마",
       "elder-drake": "장로 드레이크",
       "flame-demon": "화염 악마",
-      "forest-imp": "서리 임프",
+      "forest-imp": "숲 임프",
       "frost-demon": "서리 악마",
       "giant-ooze": "거대 점액",
       "giant-viper": "거대 독사",
       "harrower-infester": "해로어 확산자",
       "hound": "사냥개",
-      "hungry-soul": "Hungry Soul",
-      "infiltrator": "Infiltrator",
+      "hungry-soul": "굶주린 영혼",
+      "infiltrator": "첩자",
       "inox-archer": "이녹스 궁수",
       "inox-bodyguard": "이녹스 경호원",
       "inox-guard": "이녹스 경비병",
@@ -1013,18 +959,18 @@
       "night-demon": "밤 악마",
       "ooze": "점액",
       "prime-demon": "악마 군주",
-      "prime-lieutenant": "Prime Lieutenant",
+      "prime-lieutenant": "악마 부관",
       "rending-drake": "발톱 드레이크",
       "savvas-icestorm": "사바스 얼음폭풍",
       "savvas-lavaflow": "사바스 용암류",
-      "siege-cannon": "Siege Cannon",
+      "siege-cannon": "공성포",
       "spitting-drake": "분비액 드레이크",
       "stone-golem": "돌 골렘",
       "sun-demon": "태양 악마",
       "the-betrayer": "변절자",
       "the-colorless": "색이 없는 자",
       "the-gloom": "암영의 존재",
-      "the-harvester": "The Harvester",
+      "the-harvester": "수확자",
       "the-sightless-eye": "보이지 않는 눈",
       "vermling-scout": "버믈링 정찰병",
       "vermling-shaman": "버믈링 주술사",
@@ -1041,121 +987,162 @@
     },
     "ability": {},
     "scenario": {
+      "Black Barrow": "검은 무덤",
+      "Barrow Lair": "무덤 속 은신처",
+      "Inox Encampment": "이녹스 야영지",
+      "Crypt of the Damned": "저주받은 자의 묘지",
+      "Ruinous Crypt": "폐허가 된 묘지",
+      "Decaying Crypt": "썩어가는 묘지",
+      "Vibrant Grotto": "생명력의 동굴",
+      "Gloomhaven Warehouse": "글룸헤이븐 창고",
+      "Diamond Mine": "다이아몬드 광산",
+      "Plane of Elemental Power": "원소력의 차원",
+      "Gloomhaven Square A": "글룸헤이븐 광장 A",
+      "Gloomhaven Square B": "글룸헤이븐 광장 B",
+      "Temple of the Seer": "선지자의 신전",
+      "Frozen Hollow": "얼어붙은 동굴",
+      "Shrine of Strength": "힘의 사원",
+      "Mountain Pass": "산길",
+      "Lost Island": "잊힌 섬",
+      "Abandoned Sewers": "버려진 하수구",
+      "Forgotten Crypt": "망각된 묘지",
+      "Necromancer's Sanctum": "강령술사의 성소",
+      "Infernal Throne": "지옥의 왕좌",
+      "Temple of the Elements": "원소의 신전",
+      "Deep Ruins": "지하 폐허",
+      "Echo Chamber": "에아리의 방",
+      "Icecrag Ascent": "얼음바위 오르막",
+      "Ancient Cistern": "고대 저수조",
+      "Ruinous Rift": "폐허 속 균열",
+      "Outer Ritual Chamber": "교회 의례실",
+      "Sanctuary of Gloom": "암영의 성지",
+      "Shrine of the Depths": "해저 사원",
+      "Plane of the Night": "밤의 차원",
+      "Decrepit Wood": "쇠락한 숲",
+      "Savvas Armory": "사바스 무기고",
+      "Scorched Summit": "그을린 산꼭대기",
+      "Gloomhaven Battlements A": "글룸헤이븐 흉벽 A",
+      "Gloomhaven Battlements B": "글룸헤이븐 흉벽 B",
+      "Doom Trench": "죽음의 해구",
+      "Slave Pens": "노예 수용소",
+      "Treacherous Divide": "위험천만한 협곡",
+      "Ancient Defense Network": "고대 방어망",
+      "Timeworn Tomb": "오래된 무덤",
+      "Realm of the Voice": "목소리의 영역",
+      "Drake Nest": "드레이크 둥지",
+      "Tribal Assault": "부족 습격 현장",
+      "Rebel Swamp": "반군 습지",
+      "Nightmare Peak": "악몽의 봉우리",
+      "Lair of the Unseeing Eye": "보이지 않는 눈의 은신처",
+      "Shadow Weald": "그늘진 숲",
+      "Rebel's Stand": "반군 거점",
+      "Ghost Fortress": "유령 요새",
+      "The Void": "공허",
+      "Noxious Cellar": "유독한 지하실",
+      "Crypt Basement": "묘지 지하",
+      "Palace of Ice": "얼음 궁전",
+      "Foggy Thicket": "안개 낀 덤불숲",
+      "Bandit's Wood": "강도단의 숲",
+      "Investigation": "조사",
+      "Bloody Shack": "핏빛 오두막",
+      "Forgotten Grove": "망각된 숲",
+      "Alchemy Lab": "연금술 실험실",
+      "Fading Lighthouse": "사라지는 등대",
+      "Pit of Souls": "영혼 구덩이",
+      "Magma Pit": "용암 구덩이",
+      "Underwater Lagoon": "해저 석호",
+      "Sulfur Mine": "유황 광산",
+      "Clockwork Cove": "시계태엽 만",
+      "Arcane Library": "신비한 서고",
+      "Toxic Moor": "유독한 황야",
+      "Well of the Unfortunate": "불운한 이들의 우물",
+      "Chained Isle": "속박의 섬",
+      "Windswept Highlands": "바람부는 고원",
+      "Oozing Grove": "점액질 과수원",
+      "Rockslide Ridge": "낙석 고개",
+      "Merchant Ship": "상선",
+      "Overgrown Graveyard": "잡초가 무성한 무덤",
+      "Harrower Hive": "해로어 군락",
+      "Vault of Secrets": "비밀 금고실",
+      "Sacrifice Pit": "제물 구덩이",
+      "Lost Temple": "잊힌 신전",
+      "Vigil Keep": "철야 성채",
+      "Temple of the Eclipse": "일식의 신전",
+      "Burning Mountain": "불타는 산",
+      "Shadows Within": "그늘진 안쪽",
+      "Crystalline Cave": "수정 동굴",
+      "Sun Temple": "태양 신전",
+      "Harried Village": "곤경에 빠진 마을",
+      "Corrupted Cove": "오염된 만",
+      "Plane of Water": "물의 차원",
+      "Syndicate Hideout": "조직 은신처",
+      "Demonic Rift": "악마의 균열",
+      "Wild Melee": "야생의 난전",
+      "Back Alley Brawl": "뒷골목 난투",
+      "Sunken Vessel": "침몰선",
+      "Vermling Nest": "버믈링 소굴",
+      "Payment Due": "상환일",
       "rules": {
         "gh": {
-          "27": {
-            "1": "Spawn Night Demon at %game.mapMarker.a%",
-            "2": "Spawn Wind Demon at %game.mapMarker.c%",
-            "3": "Spawn Frost Demon at %game.mapMarker.d% and Sun Demon at %game.mapMarker.e%",
-            "4": "Spawn Earth Demon at %game.mapMarker.b% and Flame Demon at %game.mapMarker.c%",
-            "5": "Spawn Night Demon at %game.mapMarker.d% and Wind Demon at %game.mapMarker.e%",
-            "6": "Scenario lost!"
-          },
-          "31": {
-            "1": "Dark strong, Light inert"
-          },
-          "36": {
-            "1": "Spawn Flame Demon at %game.mapMarker.a%",
-            "2": "Spawn Earth Demon at %game.mapMarker.b%",
-            "3": "Spawn Frost Demon at %game.mapMarker.c%",
-            "4": "Spawn Wind Demon at %game.mapMarker.d%"
-          },
-          "39": {
-            "1": "Ice strong, Fire inert"
-          },
-          "53": {
-            "1": "Open doors %game.mapMarker.a%",
-            "2": "Open doors %game.mapMarker.b%",
-            "3": "Open doors %game.mapMarker.c%",
-            "4": "Open doors %game.mapMarker.d%",
-            "5": "Scenario won!"
-          },
-          "60": {
-            "1": "All figures suffer %game.damage:2%.",
-            "2": "Scenario lost!"
-          },
-          "61": {
-            "1": "Oozes and Giant Vipers are active.",
-            "2": "Flame Demons and Frost Demons are active."
-          },
-          "62": {
-            "1": "Spawn Living Bones at %game.mapMarker.a% and %game.mapMarker.b%"
-          },
-          "70": {
-            "1": "Spawn Living Spirits at %game.mapMarker.a%",
-            "2": "Spawn Living Spirits at %game.mapMarker.b%",
-            "3": "Spawn Living Spirits at %game.mapMarker.a% and %game.mapMarker.b%"
-          },
           "71": {
-            ".": "Windswept Highlands",
             "1": "Move left",
             "2": "Move up",
             "3": "Move right",
             "4": "Move down"
           },
-          "72": {
-            "1": "Spawn Ooze at tree %game.mapMarker.a%",
-            "2": "Spawn Ooze at tree %game.mapMarker.b%",
-            "3": "Spawn Ooze at tree %game.mapMarker.c%"
-          },
           "73": {
             "1": "Roll boulders down."
           },
           "74": {
-            "1": "Add water tile.",
-            "2": "Open door %game.mapMarker.1%",
-            "3": "Open door %game.mapMarker.2%"
-          },
-          "81": {
-            "1": "Light and Dark strong, Fire, Ice, Wind and Earth inert"
+            "1": "Add water tile."
           }
         }
       }
     },
     "summon": {
-      "angry-wasps": "Angry Wasps",
-      "bat-swarm": "Bat Swarm",
-      "battle-boar": "Battle Boar",
-      "battle-bot": "Battle Bot",
-      "black-unicorn": "Black Unicorn",
-      "bloat-maggot": "Bloat Maggot",
-      "burning-avatar": "Burning Avatar",
-      "creeping-beetles": "Creeping Beetles",
-      "decoy": "Decoy",
-      "doppelganger": "Doppelganger",
-      "giant-toad": "Giant Toad",
-      "green-adder": "Green Adder",
-      "healing-sprite": "Healing Sprite",
-      "iron-beast": "Iron Beast",
-      "kill-bot": "Kill Bot",
-      "lava-golem": "Lava Golem",
-      "lightning-moth": "Lightning Moth",
-      "living-bomb": "Living Bomb",
-      "mana-sphere": "Mana Sphere",
-      "monolith": "Monolith",
-      "monstrous-rat": "Monstrous Rat",
-      "mystic-ally": "Mystic Ally",
-      "nail-sphere": "Nail Sphere",
-      "rage-hornets": "Rage Hornets",
-      "rat-king": "Rat King",
-      "rat-swarm": "Rat Swarm",
-      "red-falcon": "Red Falcon",
-      "rock-colossus": "Rock Colossus",
-      "rust-vermin": "Rust Vermin",
-      "shadow-wolf": "Shadow wolf",
-      "slime-spirit": "Slime Spirit",
-      "soul-leeches": "Soul Leeches",
-      "spirit-banner": "Spirit Banner",
-      "spitting-cobra": "Spitting Cobra",
-      "steel-scarabs": "Steel Scarabs",
-      "swamp-alligator": "Swamp Alligator",
-      "tattered-wolf": "Tattered Wolf",
-      "thorn-shooter": "Thorn Shooter",
-      "two-mini": "Bear",
-      "vicious-jackal": "Vicious Jackal",
-      "void-eater": "Void Eater",
-      "war-hawk": "War Hawk",
-      "wind-totem": "Wind Totem"
+      "angry-wasps": "성난 말벌",
+      "bat-swarm": "박쥐 떼",
+      "battle-boar": "전투 멧돼지",
+      "battle-bot": "전투 로봇",
+      "black-unicorn": "검은 유니콘",
+      "bloat-maggot": "부푼 구더기",
+      "burning-avatar": "불타는 화신",
+      "creeping-beetles": "바글대는 딱정벌레",
+      "decoy": "유인용 모형",
+      "doppelganger": "도플갱어",
+      "giant-toad": "거대 두꺼비",
+      "green-adder": "녹색 살무사",
+      "healing-sprite": "치료 요정",
+      "iron-beast": "강철 야수",
+      "kill-bot": "살육 로봇",
+      "lava-golem": "용암 골렘",
+      "lightning-moth": "반디 나방",
+      "living-bomb": "살아있는 폭탄",
+      "mana-sphere": "마나 구체",
+      "monolith": "거석",
+      "monstrous-rat": "거대 쥐",
+      "mystic-ally": "신비한 아군",
+      "nail-sphere": "못 구체",
+      "rage-hornets": "말벌 전사",
+      "rat-king": "들쥐 군주",
+      "rat-swarm": "쥐 떼",
+      "red-falcon": "붉은 매",
+      "rock-colossus": "암석 거인",
+      "rust-vermin": "녹병 해충",
+      "shadow-wolf": "그림자 늑대",
+      "slime-spirit": "점액질 영혼",
+      "soul-leeches": "영혼 거머리",
+      "spirit-banner": "영혼 깃발",
+      "spitting-cobra": "독물총 코브라",
+      "steel-scarabs": "강철 풍뎅이",
+      "swamp-alligator": "늪지 악어",
+      "tattered-wolf": "지저분한 늑대",
+      "thorn-shooter": "가시 사수",
+      "two-mini": "곰",
+      "vicious-jackal": "사나운 자칼",
+      "void-eater": "공허 탐식자",
+      "war-hawk": "전투 수리",
+      "wind-totem": "바람 토템"
     },
     "custom": {
       "gh": {
