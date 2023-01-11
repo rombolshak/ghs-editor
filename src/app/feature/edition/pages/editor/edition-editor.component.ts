@@ -13,7 +13,11 @@ import { ConditionName } from '@ghs/game/model/Condition';
 import { LocalDataManagerService } from '@app/shared/local-data-manager.service';
 import { EditionBaseData } from '@app/shared/models/base-data';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
-import { TuiValueContentContext } from '@taiga-ui/core';
+import {
+  TuiAlertService,
+  TuiNotification,
+  TuiValueContentContext,
+} from '@taiga-ui/core';
 
 @Component({
   selector: 'app-editor',
@@ -27,7 +31,8 @@ export class EditionEditorComponent implements OnInit {
     private readonly formBuilder: FormBuilder,
     private readonly dataService: PredefinedEditionsDataService,
     private readonly localDataService: LocalDataManagerService,
-    private readonly destroy$: TuiDestroyService
+    private readonly destroy$: TuiDestroyService,
+    private readonly alertService: TuiAlertService
   ) {
     this.setEditionConditionsOnExtendedEditionsChange();
   }
@@ -78,7 +83,11 @@ export class EditionEditorComponent implements OnInit {
 
   save(): void {
     const model = this.editionForm.getRawValue() as EditionBaseData;
+    this.editionForm.markAsUntouched();
     this.localDataService.baseData.save(model);
+    this.alertService
+      .open('Data saved', { status: TuiNotification.Success })
+      .subscribe();
   }
 
   private setEditionConditionsOnExtendedEditionsChange() {

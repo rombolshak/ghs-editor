@@ -16,6 +16,7 @@ import {
   TuiMultiSelectModule,
 } from '@taiga-ui/kit';
 import {
+  TuiAlertService,
   TuiButtonModule,
   TuiDataListModule,
   TuiErrorModule,
@@ -219,7 +220,9 @@ describe('EditionEditorComponent', () => {
 
   it('should save model to local data', () => {
     const localDataService = TestBed.inject(LocalDataManagerService);
+    const alertService = TestBed.inject(TuiAlertService);
     const saveSpy = spyOn(localDataService.baseData, 'save');
+    const alertSpy = spyOn(alertService, 'open').and.returnValue(of(''));
     component.editionForm.setValue({
       editionName: 'qwf',
       editionPrefix: 'ars',
@@ -228,6 +231,9 @@ describe('EditionEditorComponent', () => {
     });
     component.save();
     expect(saveSpy).toHaveBeenCalled();
+    expect(alertSpy).toHaveBeenCalled();
+    expect(component.editionForm.touched).toBeFalse();
+    expect(component.editionForm.valid).toBeTrue();
     localStorage.clear();
   });
 });
