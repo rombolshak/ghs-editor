@@ -27,7 +27,7 @@ import {
 } from '@taiga-ui/core';
 import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
 import { AvailableEdition } from '@app/shared/models/available-edition';
-import { of, takeLast } from 'rxjs';
+import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
 
 const edition1 = new AvailableEdition('Test 1', 'ed1');
@@ -37,10 +37,8 @@ class FakePredefinedEditionsDataService {
     return of([edition1, edition2]);
   }
 
-  getEditionConditions(edition: AvailableEdition) {
-    return edition.prefix === 'ed1'
-      ? of(['cond1', 'cond2'])
-      : of(['cond2', 'cond3']);
+  getEditionConditions(edition: string) {
+    return edition === 'ed1' ? of(['cond1', 'cond2']) : of(['cond2', 'cond3']);
   }
 }
 
@@ -81,6 +79,7 @@ describe('EditionEditorComponent', () => {
 
     fixture = TestBed.createComponent(EditionEditorComponent);
     component = fixture.componentInstance;
+    component.ngOnInit();
     fixture.detectChanges();
   });
 
@@ -90,13 +89,11 @@ describe('EditionEditorComponent', () => {
 
   it('should request available editions', () => {
     expect(editionsDataService.getAvailableEditions).toHaveBeenCalled();
-    component.availableEditions
-      .pipe(takeLast(1))
-      .subscribe((data) => expect(data.length).toBe(2));
+    expect(component.availableEditionsIds.length).toBe(2);
   });
 
   it('should show selected editions', fakeAsync(() => {
-    component.editionForm.controls.extendedEditions.setValue([edition1]);
+    component.editionForm.controls.extendedEditions.setValue([edition1.prefix]);
     fixture.detectChanges();
     tick(1);
     fixture.detectChanges();
@@ -114,9 +111,9 @@ describe('EditionEditorComponent', () => {
       'getEditionConditions'
     ).and.callThrough();
 
-    component.editionForm.controls.extendedEditions.setValue([edition1]);
+    component.editionForm.controls.extendedEditions.setValue([edition1.prefix]);
     expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(
-      edition1
+      edition1.prefix
     );
     expect(component.editionForm.controls.conditions.value).toEqual([
       'cond1',
@@ -125,14 +122,14 @@ describe('EditionEditorComponent', () => {
 
     spy.calls.reset();
     component.editionForm.controls.extendedEditions.setValue([
-      edition1,
-      edition2,
+      edition1.prefix,
+      edition2.prefix,
     ]);
     expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(
-      edition1
+      edition1.prefix
     );
     expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(
-      edition2
+      edition2.prefix
     );
     expect(component.editionForm.controls.conditions.value).toEqual([
       'cond1',
@@ -169,16 +166,6 @@ describe('EditionEditorComponent', () => {
     expect(component.filterConditions(null).length).toBeGreaterThan(6);
   });
 
-  it('should compare editions by prefix', () => {
-    expect(component.editionIdentityMatcher(edition1, edition2)).toBeFalse();
-    expect(
-      component.editionIdentityMatcher(
-        edition1,
-        new AvailableEdition('qweqwe', 'ed1')
-      )
-    ).toBeTrue();
-  });
-
   it('should validate reuired fields', () => {
     component.editionForm.controls.editionName.setValue('');
     expect(component.editionForm.controls.editionName.valid).toBeFalse();
@@ -197,7 +184,7 @@ describe('EditionEditorComponent', () => {
     component.editionForm.controls.extendedEditions.setValue([]);
     expect(component.editionForm.controls.extendedEditions.valid).toBeFalse();
 
-    component.editionForm.controls.extendedEditions.setValue([edition1]);
+    component.editionForm.controls.extendedEditions.setValue([edition1.prefix]);
     expect(component.editionForm.controls.extendedEditions.valid).toBeTrue();
     expect(component.editionForm.valid).toBeTrue();
   });

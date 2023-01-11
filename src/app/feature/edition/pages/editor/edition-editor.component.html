@@ -40,14 +40,15 @@
         [formControl]="editionForm.controls.extendedEditions"
         [tuiTextfieldLabelOutside]="true"
         [editable]="true"
-        [identityMatcher]="editionIdentityMatcher"
+        [stringify]="getName"
         data-automation="edition.extendedEditions"
       >
         Select editions that this new edition extends
         <tui-data-list-wrapper
           *tuiDataList
           tuiMultiSelectGroup
-          [items]="availableEditions | async"
+          [items]="availableEditionsIds"
+          [itemContent]="getNameForList"
           data-automation="edition.extendedEditions.list"
         ></tui-data-list-wrapper>
       </tui-multi-select>

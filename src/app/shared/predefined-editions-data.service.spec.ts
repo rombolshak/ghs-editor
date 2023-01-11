@@ -5,7 +5,6 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { AvailableEdition } from '@app/shared/models/available-edition';
 
 describe('PredefinedEditionsDataService', () => {
   let service: PredefinedEditionsDataService;
@@ -53,7 +52,7 @@ describe('PredefinedEditionsDataService', () => {
 
   it('should return edition conditions', () => {
     service
-      .getEditionConditions(new AvailableEdition('test ed', 'test'))
+      .getEditionConditions('test')
       .subscribe((data) => expect(data).toEqual(['c1', 'c2']));
     const request = httpTestingController.expectOne(
       'assets/json/ghs-data/test/base.json'
