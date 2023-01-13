@@ -20,7 +20,7 @@ import {
 } from '@taiga-ui/core';
 
 @Component({
-  selector: 'app-editor',
+  selector: 'ghse-editor',
   templateUrl: './edition-editor.component.html',
   styleUrls: ['./edition-editor.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

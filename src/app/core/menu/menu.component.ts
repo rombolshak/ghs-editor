@@ -10,7 +10,7 @@ import appPackageJson from '../../../../package.json';
 import ghsPackageJson from '../../../../gloomhavensecretariat/package.json';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'ghse-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
