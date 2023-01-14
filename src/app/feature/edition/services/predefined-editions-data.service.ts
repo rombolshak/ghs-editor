@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
-import { AvailableEdition } from '@app/shared/models/available-edition';
 import { HttpClient } from '@angular/common/http';
 import { withCache } from '@ngneat/cashew';
 import { forkJoin, map, mergeMap, Observable } from 'rxjs';
+import { EditionServicesModule } from '@app/feature/edition/edition-services.module';
+
+export class AvailableEdition {
+  constructor(public name: string, public prefix: string) {}
+
+  public toString(): string {
+    return `${this.name} (${this.prefix})`;
+  }
+}
 
 type LabelData = { en: { edition: { [key: string]: string } } };
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: EditionServicesModule,
 })
 export class PredefinedEditionsDataService {
   constructor(private readonly http: HttpClient) {}

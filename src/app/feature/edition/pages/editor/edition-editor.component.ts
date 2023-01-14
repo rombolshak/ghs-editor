@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
-import { AvailableEdition } from '@app/shared/models/available-edition';
 import { forkJoin, mergeMap, takeUntil } from 'rxjs';
 import {
   TUI_DEFAULT_MATCHER,
@@ -20,6 +18,10 @@ import {
   BaseEditionData,
   BaseEditionDataService,
 } from '@app/core/services/base-edition-data.service';
+import {
+  AvailableEdition,
+  PredefinedEditionsDataService,
+} from '@app/feature/edition/services/predefined-editions-data.service';
 
 @Component({
   selector: 'ghse-editor',

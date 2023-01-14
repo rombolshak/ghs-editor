@@ -26,14 +26,16 @@ import {
   TuiTextfieldControllerModule,
   TuiTooltipModule,
 } from '@taiga-ui/core';
-import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-data.service';
-import { AvailableEdition } from '@app/shared/models/available-edition';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
 import {
   BaseEditionData,
   BaseEditionDataService,
 } from '@app/core/services/base-edition-data.service';
+import {
+  AvailableEdition,
+  PredefinedEditionsDataService,
+} from '@app/feature/edition/services/predefined-editions-data.service';
 
 const edition1 = new AvailableEdition('Test 1', 'ed1');
 const edition2 = new AvailableEdition('Test 2', 'ed2');

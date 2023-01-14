@@ -20,12 +20,14 @@ import {
   TuiTooltipModule,
   TuiHintModule,
 } from '@taiga-ui/core';
+import { EditionServicesModule } from '@app/feature/edition/edition-services.module';
 
 @NgModule({
   declarations: [EditionEditorComponent],
   imports: [
     CommonModule,
     EditionRoutingModule,
+    EditionServicesModule,
     ReactiveFormsModule,
     TuiInputModule,
     TuiMultiSelectModule,
