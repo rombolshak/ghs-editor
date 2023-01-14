@@ -8,14 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        BrowserAnimationsModule,
-        TuiRootModule,
-        TuiDialogModule,
-        TuiAlertModule,
-        CoreModule,
-      ],
+      imports: [RouterTestingModule, CoreModule],
       declarations: [AppComponent],
     }).compileComponents();
   });
@@ -36,6 +29,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('app-menu')).toBeTruthy();
+    expect(compiled.querySelector('ghse-menu')).toBeTruthy();
   });
 });

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './layout/menu/menu.component';
 import { TuiIslandModule } from '@taiga-ui/kit';
 import { TuiForModule } from '@taiga-ui/cdk';
 import { BrowserModule } from '@angular/platform-browser';

@@ -10,14 +10,16 @@ import {
   TuiStringHandler,
 } from '@taiga-ui/cdk';
 import { ConditionName } from '@ghs/game/model/Condition';
-import { LocalDataManagerService } from '@app/shared/local-data-manager.service';
-import { EditionBaseData } from '@app/shared/models/base-data';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import {
   TuiAlertService,
   TuiNotification,
   TuiValueContentContext,
 } from '@taiga-ui/core';
+import {
+  BaseEditionData,
+  BaseEditionDataService,
+} from '@app/core/services/base-edition-data.service';
 
 @Component({
   selector: 'ghse-editor',
@@ -30,7 +32,7 @@ export class EditionEditorComponent implements OnInit {
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly dataService: PredefinedEditionsDataService,
-    private readonly localDataService: LocalDataManagerService,
+    private readonly baseEditionDataService: BaseEditionDataService,
     private readonly destroy$: TuiDestroyService,
     private readonly alertService: TuiAlertService
   ) {
@@ -46,8 +48,7 @@ export class EditionEditorComponent implements OnInit {
         this.availableEditionsIds = data.map((e) => e.prefix);
       });
 
-    this.localDataService.baseData
-      .get()
+    this.baseEditionDataService.baseEditionData$
       .pipe(takeUntil(this.destroy$))
       .subscribe((data) => {
         if (data !== null) {
@@ -82,9 +83,9 @@ export class EditionEditorComponent implements OnInit {
   }
 
   save(): void {
-    const model = this.editionForm.getRawValue() as EditionBaseData;
+    const model = this.editionForm.getRawValue() as BaseEditionData;
     this.editionForm.markAsUntouched();
-    this.localDataService.baseData.save(model);
+    this.baseEditionDataService.saveToStore(model);
     this.alertService
       .open('Data saved', { status: TuiNotification.Success })
       .subscribe();

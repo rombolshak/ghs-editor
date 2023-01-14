@@ -30,8 +30,10 @@ import { PredefinedEditionsDataService } from '@app/shared/predefined-editions-d
 import { AvailableEdition } from '@app/shared/models/available-edition';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
-import { LocalDataManagerService } from '@app/shared/local-data-manager.service';
-import { EditionBaseData } from '@app/shared/models/base-data';
+import {
+  BaseEditionData,
+  BaseEditionDataService,
+} from '@app/core/services/base-edition-data.service';
 
 const edition1 = new AvailableEdition('Test 1', 'ed1');
 const edition2 = new AvailableEdition('Test 2', 'ed2');
@@ -206,22 +208,22 @@ describe('EditionEditorComponent', () => {
   });
 
   it('should load saved data automatically', () => {
-    const localDataService = TestBed.inject(LocalDataManagerService);
+    const localDataService = TestBed.inject(BaseEditionDataService);
 
     expect(component.editionForm.value.editionPrefix).toBeFalsy();
-    localDataService.baseData.save({
+    localDataService.updateFullData({
       editionName: 'name',
       editionPrefix: 'test',
-    } as EditionBaseData);
+    } as BaseEditionData);
     fixture.detectChanges();
     expect(component.editionForm.value.editionPrefix).toBe('test');
     localStorage.clear();
   });
 
   it('should save model to local data', () => {
-    const localDataService = TestBed.inject(LocalDataManagerService);
+    const localDataService = TestBed.inject(BaseEditionDataService);
     const alertService = TestBed.inject(TuiAlertService);
-    const saveSpy = spyOn(localDataService.baseData, 'save');
+    const saveSpy = spyOn(localDataService, 'saveToStore');
     const alertSpy = spyOn(alertService, 'open').and.returnValue(of(''));
     component.editionForm.setValue({
       editionName: 'qwf',

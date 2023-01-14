@@ -14,7 +14,7 @@ import {
 
 @Component({
   template:
-    '<ng-container *ngTemplateOutlet="modal"></ng-container> <ghse-menu></app-menu>',
+    '<ng-container *ngTemplateOutlet="modal"></ng-container> <ghse-menu></ghse-menu>',
 })
 class WrapperComponent implements AfterContentInit {
   @ViewChild(MenuComponent, { static: true }) componentRef!: MenuComponent;
