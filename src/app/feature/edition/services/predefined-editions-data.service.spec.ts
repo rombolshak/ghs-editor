@@ -13,6 +13,7 @@ describe('PredefinedEditionsDataService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
+      providers: [PredefinedEditionsDataService],
     });
     httpTestingController = TestBed.inject(HttpTestingController);
     service = TestBed.inject(PredefinedEditionsDataService);
