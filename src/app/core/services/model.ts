@@ -8,7 +8,7 @@ export class Model<T> {
   data$: Observable<T>;
 
   constructor(
-    initialData: any,
+    initialData: T,
     private immutable: boolean,
     sharedSubscription: boolean,
     private clone?: (data: T) => T
@@ -51,7 +51,7 @@ export class Model<T> {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ModelFactory<T> {
   create(initialData: T): Model<T> {
