@@ -9,8 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'edition',
-    loadChildren: () =>
-      import('./feature/edition/edition.module').then((m) => m.EditionModule),
+    loadChildren: () => import('./feature/edition/edition.module').then(m => m.EditionModule),
+  },
+  {
+    path: 'scenarios',
+    loadChildren: () => import('./feature/scenarios/scenarios.module').then(m => m.ScenariosModule),
   },
   { path: '**', redirectTo: 'edition', pathMatch: 'full' },
 ];
