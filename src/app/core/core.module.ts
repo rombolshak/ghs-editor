@@ -10,6 +10,7 @@ import {
   TuiAlertModule,
   TuiDialogModule,
   TuiRootModule,
+  TuiSvgModule,
 } from '@taiga-ui/core';
 import { HttpClientModule } from '@angular/common/http';
 import {
@@ -33,6 +34,7 @@ import { LayoutComponent } from './layout/layout.component';
     TuiAlertModule,
     HttpClientModule,
     HttpCacheInterceptorModule.forRoot(),
+    TuiSvgModule,
   ],
   providers: [
     { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },

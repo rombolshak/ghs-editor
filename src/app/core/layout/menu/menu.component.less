@@ -23,28 +23,36 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     height: 1rem;
 
     &:hover {
       cursor: pointer;
       background-color: var(--tui-base-03);
+
+      .icon {
+        color: var(--tui-base-06);
+      }
     }
 
     &.active {
       background-color: var(--tui-primary-active);
       color: var(--tui-text-01-night);
+
+      .icon {
+        color: var(--tui-base-01);
+      }
     }
   }
 
   .menu-title {
-    font: var(--tui-font-text-m);
+    font: var(--tui-font-text-s);
   }
 
   .some-figure {
     border-radius: 100%;
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
 
     &.item-edition {
       background-color: var(--tui-support-17);
@@ -70,8 +78,8 @@
       background-color: var(--tui-support-11);
     }
 
-    &.item-about {
-      background-color: var(--tui-support-07);
+    &.icon {
+      color: var(--tui-base-05);
     }
   }
 }

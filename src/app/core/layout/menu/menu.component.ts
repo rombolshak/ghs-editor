@@ -18,7 +18,19 @@ import ghsPackageJson from '../../../../../gloomhavensecretariat/package.json';
 export class MenuComponent {
   constructor(private readonly dialogService: TuiDialogService) {}
 
-  items = ['edition', 'scenarios', 'monsters', 'decks', 'characters', 'items'];
+  dataItems = [
+    'edition',
+    'scenarios',
+    'monsters',
+    'decks',
+    'characters',
+    'items',
+  ];
+
+  managerItems = [
+    { name: 'import', icon: 'tuiIconLoginLarge' },
+    { name: 'export', icon: 'tuiIconLogoutLarge' },
+  ];
 
   productName = 'Gloomhaven Secretariat Data Editor';
   appVersion = appPackageJson.version;

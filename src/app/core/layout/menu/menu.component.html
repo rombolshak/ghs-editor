@@ -6,7 +6,7 @@
 <div class="menu-content">
   <div
     class="menu-row"
-    *ngFor="let item of items"
+    *ngFor="let item of dataItems"
     routerLinkActive="active"
     [routerLink]="item"
   >
@@ -16,9 +16,22 @@
 </div>
 
 <div class="menu-footer">
+  <div
+    class="menu-row"
+    *ngFor="let item of managerItems"
+    routerLinkActive="active"
+    [routerLink]="item.name"
+  >
+    <h3 class="menu-title">{{ item.name | titlecase }}</h3>
+    <div class="some-figure icon">
+      <tui-svg [src]="item.icon"></tui-svg>
+    </div>
+  </div>
   <div class="menu-row" (click)="showAbout(header, content)">
     <h3 class="menu-title">About</h3>
-    <div class="some-figure item-about"></div>
+    <div class="some-figure icon">
+      <tui-svg src="tuiIconInfoCircleLarge"></tui-svg>
+    </div>
   </div>
 </div>
 
