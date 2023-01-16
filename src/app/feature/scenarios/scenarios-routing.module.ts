@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ScenariosListComponent } from '@app/feature/scenarios/pages/scenarios-list/scenarios-list.component';
+import { ScenarioDetailComponent } from '@app/feature/scenarios/pages/scenario-detail/scenario-detail.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
     component: ScenariosListComponent,
+  },
+  {
+    path: ':id',
+    component: ScenarioDetailComponent,
   },
 ];
 
