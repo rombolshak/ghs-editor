@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  TemplateRef,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, TemplateRef, ViewChild } from '@angular/core';
 import { TuiDialogService } from '@taiga-ui/core';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import appPackageJson from '../../../../../package.json';
@@ -18,14 +13,7 @@ import ghsPackageJson from '../../../../../gloomhavensecretariat/package.json';
 export class MenuComponent {
   constructor(private readonly dialogService: TuiDialogService) {}
 
-  dataItems = [
-    'edition',
-    'scenarios',
-    'monsters',
-    'decks',
-    'characters',
-    'items',
-  ];
+  dataItems = ['edition', 'scenarios', 'monsters', 'decks', 'characters', 'items'];
 
   managerItems = [
     { name: 'import', icon: 'tuiIconLoginLarge' },

@@ -5,7 +5,7 @@ export abstract class ModelManagerService<T> {
     const savedData = this.loadFromStore();
     if (savedData) this.model.set(savedData);
 
-    this.model.data$.subscribe((data) => this.saveToStore(data));
+    this.model.data$.subscribe(data => this.saveToStore(data));
   }
   private loadFromStore(): T | null {
     const data = localStorage.getItem(`ghse-data-${this.storeKey}`);

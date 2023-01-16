@@ -12,13 +12,7 @@ describe('LayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        BrowserAnimationsModule,
-        TuiRootModule,
-        TuiDialogModule,
-        TuiAlertModule,
-      ],
+      imports: [RouterTestingModule, BrowserAnimationsModule, TuiRootModule, TuiDialogModule, TuiAlertModule],
       declarations: [LayoutComponent, MenuComponent],
     }).compileComponents();
 

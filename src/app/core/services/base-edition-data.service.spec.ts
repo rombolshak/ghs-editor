@@ -1,10 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import {
-  BaseEditionData,
-  BaseEditionDataService,
-  initialModel,
-} from './base-edition-data.service';
+import { BaseEditionData, BaseEditionDataService, initialModel } from './base-edition-data.service';
 
 describe('BaseEditionDataService', () => {
   let service: BaseEditionDataService;
@@ -19,9 +15,7 @@ describe('BaseEditionDataService', () => {
   });
 
   it('should return null if no data saved', () => {
-    service.baseEditionData$.subscribe((data) =>
-      expect(data).toEqual(initialModel)
-    );
+    service.baseEditionData$.subscribe(data => expect(data).toEqual(initialModel));
   });
 
   it('should return saved data', () => {
@@ -29,7 +23,7 @@ describe('BaseEditionDataService', () => {
     data.editionPrefix = 'test';
     data.extendedEditions = ['aaa'];
     service.updateFullData(data);
-    service.baseEditionData$.subscribe((loadedData) => {
+    service.baseEditionData$.subscribe(loadedData => {
       expect(loadedData).toEqual(data);
     });
     localStorage.clear();

@@ -1,10 +1,4 @@
-import {
-  ComponentFixture,
-  discardPeriodicTasks,
-  fakeAsync,
-  TestBed,
-  tick,
-} from '@angular/core/testing';
+import { ComponentFixture, discardPeriodicTasks, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { EditionEditorComponent } from './edition-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -28,10 +22,7 @@ import {
 } from '@taiga-ui/core';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
-import {
-  BaseEditionData,
-  BaseEditionDataService,
-} from '@app/core/services/base-edition-data.service';
+import { BaseEditionData, BaseEditionDataService } from '@app/core/services/base-edition-data.service';
 import {
   AvailableEdition,
   PredefinedEditionsDataService,
@@ -105,62 +96,35 @@ describe('EditionEditorComponent', () => {
     fixture.detectChanges();
     tick(1);
     fixture.detectChanges();
-    const selector = fixture.debugElement.query(
-      By.css('[data-automation="edition.extendedEditions"]')
-    );
+    const selector = fixture.debugElement.query(By.css('[data-automation="edition.extendedEditions"]'));
     expect(selector.nativeElement.innerText).not.toContain('\n');
     expect(selector.nativeElement.innerText).toContain(edition1.toString());
     discardPeriodicTasks();
   }));
 
   it('should return edition conditions', () => {
-    const spy = spyOn(
-      editionsDataService,
-      'getEditionConditions'
-    ).and.callThrough();
+    const spy = spyOn(editionsDataService, 'getEditionConditions').and.callThrough();
 
     component.editionForm.controls.extendedEditions.setValue([edition1.prefix]);
-    expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(
-      edition1.prefix
-    );
-    expect(component.editionForm.controls.conditions.value).toEqual([
-      'cond1',
-      'cond2',
-    ]);
+    expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(edition1.prefix);
+    expect(component.editionForm.controls.conditions.value).toEqual(['cond1', 'cond2']);
 
     spy.calls.reset();
-    component.editionForm.controls.extendedEditions.setValue([
-      edition1.prefix,
-      edition2.prefix,
-    ]);
-    expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(
-      edition1.prefix
-    );
-    expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(
-      edition2.prefix
-    );
-    expect(component.editionForm.controls.conditions.value).toEqual([
-      'cond1',
-      'cond2',
-      'cond3',
-    ]);
+    component.editionForm.controls.extendedEditions.setValue([edition1.prefix, edition2.prefix]);
+    expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(edition1.prefix);
+    expect(editionsDataService.getEditionConditions).toHaveBeenCalledWith(edition2.prefix);
+    expect(component.editionForm.controls.conditions.value).toEqual(['cond1', 'cond2', 'cond3']);
 
     spy.calls.reset();
     component.editionForm.controls.extendedEditions.setValue([]);
     expect(editionsDataService.getEditionConditions).not.toHaveBeenCalled();
-    expect(component.editionForm.controls.conditions.value).toEqual([
-      'cond1',
-      'cond2',
-      'cond3',
-    ]);
+    expect(component.editionForm.controls.conditions.value).toEqual(['cond1', 'cond2', 'cond3']);
   });
 
   it('should display selected conditions', fakeAsync(() => {
     component.editionForm.controls.conditions.setValue(['cond1', 'cond2']);
     fixture.detectChanges();
-    const el = fixture.debugElement.query(
-      By.css('[data-automation="edition.conditions"]')
-    );
+    const el = fixture.debugElement.query(By.css('[data-automation="edition.conditions"]'));
     tick(1);
     fixture.detectChanges();
     expect(el.nativeElement.innerText.trim()).toBe('cond1 \n cond2');
@@ -203,9 +167,7 @@ describe('EditionEditorComponent', () => {
       editionPrefix: 'asd',
     });
 
-    fixture.debugElement
-      .query(By.css('[data-automation="reset-button"]'))
-      .triggerEventHandler('click');
+    fixture.debugElement.query(By.css('[data-automation="reset-button"]')).triggerEventHandler('click');
     expect(component.editionForm.value.editionName).not.toBeTruthy();
     expect(component.editionForm.value.editionPrefix).not.toBeTruthy();
   });

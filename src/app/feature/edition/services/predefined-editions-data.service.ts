@@ -26,17 +26,14 @@ export class PredefinedEditionsDataService {
         context: withCache({ ttl: 86_400_000 }),
       })
       .pipe(
-        mergeMap((data) => {
+        mergeMap(data => {
           return forkJoin(
-            data.map((edition) => {
-              return this.http.get<LabelData>(
-                `assets/json/ghs-data/${edition}/label.json`,
-                { context: withCache() }
-              );
+            data.map(edition => {
+              return this.http.get<LabelData>(`assets/json/ghs-data/${edition}/label.json`, { context: withCache() });
             })
           ).pipe(
-            map((data) =>
-              data.map((entry) => {
+            map(data =>
+              data.map(entry => {
                 const prefix = Object.keys(entry.en.edition)[0];
                 const name = entry.en.edition[prefix];
                 return new AvailableEdition(name, prefix);
@@ -49,10 +46,7 @@ export class PredefinedEditionsDataService {
 
   getEditionConditions(edition: string): Observable<string[]> {
     return this.http
-      .get<{ conditions: string[] }>(
-        `assets/json/ghs-data/${edition}/base.json`,
-        { context: withCache() }
-      )
-      .pipe(map((data) => data.conditions));
+      .get<{ conditions: string[] }>(`assets/json/ghs-data/${edition}/base.json`, { context: withCache() })
+      .pipe(map(data => data.conditions));
   }
 }
