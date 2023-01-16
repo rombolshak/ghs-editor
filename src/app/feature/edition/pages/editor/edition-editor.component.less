@@ -1,32 +1,11 @@
-@import '~@taiga-ui/core/styles/taiga-ui-local';
+@import '../../../../shared/mixins';
 
 :host {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  .feature-page;
 
-  .page-header {
-    padding: 3rem 3rem;
-    .inset-border(bottom);
-
-    h2 {
-      margin: 0;
-    }
+  form {
+    width: 40rem;
   }
-
-  .page-content {
-    display: flex;
-    padding: 3rem 3rem;
-
-    tui-loader {
-      flex: 1;
-    }
-
-    form {
-      width: 40rem;
-    }
-  }
-
   .form-row {
     margin-bottom: 1rem;
   }

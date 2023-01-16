@@ -16,12 +16,11 @@ import {
   TuiLabelModule,
   TuiSvgModule,
   TuiErrorModule,
-  TuiButtonModule,
   TuiTooltipModule,
   TuiHintModule,
-  TuiLoaderModule,
 } from '@taiga-ui/core';
 import { EditionServicesModule } from '@app/feature/edition/edition-services.module';
+import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
   declarations: [EditionEditorComponent],
@@ -39,11 +38,10 @@ import { EditionServicesModule } from '@app/feature/edition/edition-services.mod
     TuiSvgModule,
     TuiErrorModule,
     TuiFieldErrorPipeModule,
-    TuiButtonModule,
     TuiCheckboxBlockModule,
     TuiTooltipModule,
     TuiHintModule,
-    TuiLoaderModule,
+    SharedModule,
   ],
   exports: [EditionEditorComponent],
 })

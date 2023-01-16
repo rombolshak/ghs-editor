@@ -1,0 +1,25 @@
+@import '~@taiga-ui/core/styles/taiga-ui-local';
+
+.feature-page() {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .page-header {
+    padding: 3rem 3rem;
+    .inset-border(bottom);
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .page-content {
+    display: flex;
+    padding: 3rem 3rem;
+
+    tui-loader {
+      flex: 1;
+    }
+  }
+}
