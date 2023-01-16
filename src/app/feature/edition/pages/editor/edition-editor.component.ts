@@ -1,6 +1,13 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { forkJoin, mergeMap, takeUntil } from 'rxjs';
+import {
+  BehaviorSubject,
+  finalize,
+  forkJoin,
+  mergeMap,
+  take,
+  takeUntil,
+} from 'rxjs';
 import {
   TUI_DEFAULT_MATCHER,
   TuiDestroyService,
@@ -27,10 +34,13 @@ import {
   selector: 'ghse-editor',
   templateUrl: './edition-editor.component.html',
   styleUrls: ['./edition-editor.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [TuiDestroyService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditionEditorComponent implements OnInit {
+  loading = new BehaviorSubject(true);
+  availableEditionsIds = new BehaviorSubject(<string[]>[]);
+  conditionSearch: string | null = null;
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly dataService: PredefinedEditionsDataService,
@@ -42,19 +52,22 @@ export class EditionEditorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataService
-      .getAvailableEditions()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((data) => {
-        this.availableEditions = data;
-        this.availableEditionsIds = data.map((e) => e.prefix);
-      });
+    forkJoin([
+      this.dataService.getAvailableEditions(),
+      this.baseEditionDataService.baseEditionData$.pipe(take(1)),
+    ])
+      .pipe(
+        takeUntil(this.destroy$),
+        finalize(() => this.loading.next(false))
+      )
+      .subscribe(([editions, savedFormData]) => {
+        console.log('qq');
+        this.availableEditions = editions;
+        this.availableEditionsIds.next(editions.map((e) => e.prefix));
 
-    this.baseEditionDataService.baseEditionData$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((data) => {
-        if (data !== null) {
-          this.editionForm.patchValue(data);
+        if (savedFormData !== null) {
+          this.savedFormData = savedFormData;
+          this.editionForm.patchValue(savedFormData);
         }
       });
   }
@@ -66,12 +79,9 @@ export class EditionEditorComponent implements OnInit {
     conditions: [<string[]>[]],
   });
 
-  availableEditionsIds: string[] = [];
-
-  conditionSearch: string | null = null;
-
   getName: TuiStringHandler<string> = (id) =>
-    this.availableEditions.find((e) => e.prefix === id)!.toString();
+    this.availableEditions.find((e) => e.prefix === id)?.toString() ??
+    '<unknown edition>';
 
   getNameForList: PolymorpheusContent<TuiValueContentContext<string>> = ({
     $implicit,
@@ -86,11 +96,18 @@ export class EditionEditorComponent implements OnInit {
 
   save(): void {
     const model = this.editionForm.getRawValue() as BaseEditionData;
-    this.editionForm.markAsUntouched();
-    this.baseEditionDataService.saveToStore(model);
+    this.baseEditionDataService.updateFullData(model);
+    this.editionForm.markAsPristine();
     this.alertService
       .open('Data saved', { status: TuiNotification.Success })
       .subscribe();
+    this.savedFormData = model;
+  }
+
+  reset(): void {
+    if (this.savedFormData) this.editionForm.patchValue(this.savedFormData);
+    else this.editionForm.reset();
+    this.editionForm.markAsPristine();
   }
 
   private setEditionConditionsOnExtendedEditionsChange() {
@@ -115,4 +132,5 @@ export class EditionEditorComponent implements OnInit {
   }
 
   private availableEditions: AvailableEdition[] = [];
+  private savedFormData: BaseEditionData | null = null;
 }

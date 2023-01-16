@@ -81,6 +81,7 @@ describe('EditionEditorComponent', () => {
       ],
     }).compileComponents();
 
+    localStorage.clear();
     editionsDataService = TestBed.inject(PredefinedEditionsDataService);
     spyOn(editionsDataService, 'getAvailableEditions').and.callThrough();
 
@@ -96,7 +97,7 @@ describe('EditionEditorComponent', () => {
 
   it('should request available editions', () => {
     expect(editionsDataService.getAvailableEditions).toHaveBeenCalled();
-    expect(component.availableEditionsIds.length).toBe(2);
+    expect(component.availableEditionsIds.value.length).toBe(2);
   });
 
   it('should show selected editions', fakeAsync(() => {
@@ -217,6 +218,7 @@ describe('EditionEditorComponent', () => {
       editionName: 'name',
       editionPrefix: 'test',
     } as BaseEditionData);
+    component.ngOnInit();
     fixture.detectChanges();
     expect(component.editionForm.value.editionPrefix).toBe('test');
     localStorage.clear();
@@ -225,7 +227,7 @@ describe('EditionEditorComponent', () => {
   it('should save model to local data', () => {
     const localDataService = TestBed.inject(BaseEditionDataService);
     const alertService = TestBed.inject(TuiAlertService);
-    const saveSpy = spyOn(localDataService, 'saveToStore');
+
     const alertSpy = spyOn(alertService, 'open').and.returnValue(of(''));
     component.editionForm.setValue({
       editionName: 'qwf',
@@ -234,7 +236,7 @@ describe('EditionEditorComponent', () => {
       conditions: ['wfp'],
     });
     component.save();
-    expect(saveSpy).toHaveBeenCalled();
+    expect(localStorage.getItem('ghse-data-base')).toBeTruthy();
     expect(alertSpy).toHaveBeenCalled();
     expect(component.editionForm.touched).toBeFalse();
     expect(component.editionForm.valid).toBeTrue();

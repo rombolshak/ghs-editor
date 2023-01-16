@@ -19,6 +19,7 @@ import {
   TuiButtonModule,
   TuiTooltipModule,
   TuiHintModule,
+  TuiLoaderModule,
 } from '@taiga-ui/core';
 import { EditionServicesModule } from '@app/feature/edition/edition-services.module';
 
@@ -42,6 +43,7 @@ import { EditionServicesModule } from '@app/feature/edition/edition-services.mod
     TuiCheckboxBlockModule,
     TuiTooltipModule,
     TuiHintModule,
+    TuiLoaderModule,
   ],
   exports: [EditionEditorComponent],
 })

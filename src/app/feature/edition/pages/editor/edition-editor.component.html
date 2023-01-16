@@ -2,7 +2,17 @@
   <h2 class="tui-text_h2">Edition data</h2>
 </div>
 <div class="page-content">
-  <form [formGroup]="editionForm" class="tui-form">
+  <tui-loader
+    [showLoader]="true"
+    size="xxl"
+    *ngIf="loading | async"
+  ></tui-loader>
+  <form
+    *ngIf="(loading | async) === false"
+    [formGroup]="editionForm"
+    (ngSubmit)="save()"
+    class="tui-form"
+  >
     <div class="name-fields form-row">
       <div>
         <tui-input
@@ -47,7 +57,7 @@
         <tui-data-list-wrapper
           *tuiDataList
           tuiMultiSelectGroup
-          [items]="availableEditionsIds"
+          [items]="availableEditionsIds | async"
           [itemContent]="getNameForList"
           data-automation="edition.extendedEditions.list"
         ></tui-data-list-wrapper>
@@ -80,10 +90,9 @@
     <div class="form-row buttons">
       <button
         tuiButton
-        type="button"
+        type="submit"
         size="m"
-        [disabled]="!editionForm.valid || !editionForm.touched"
-        (click)="save()"
+        [disabled]="!editionForm.valid || editionForm.pristine"
       >
         Save
       </button>
@@ -92,7 +101,7 @@
         type="button"
         appearance="outline"
         size="m"
-        (click)="editionForm.reset()"
+        (click)="reset()"
         data-automation="reset-button"
       >
         Reset
