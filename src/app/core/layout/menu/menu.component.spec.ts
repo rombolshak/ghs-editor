@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenuComponent } from './menu.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TuiDialogService } from '@taiga-ui/core';
+import { TuiDialogService, TuiSvgModule } from '@taiga-ui/core';
 import { from } from 'rxjs';
 import { By } from '@angular/platform-browser';
 import { AfterContentInit, Component, TemplateRef, ViewChild } from '@angular/core';
@@ -26,7 +26,7 @@ describe('MenuComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [WrapperComponent, MenuComponent],
-      imports: [RouterTestingModule.withRoutes([])],
+      imports: [RouterTestingModule.withRoutes([]), TuiSvgModule],
       providers: [
         {
           provide: TuiDialogService,
@@ -51,7 +51,7 @@ describe('MenuComponent', () => {
 
   it('should have click handler on about', () => {
     const showAbout = spyOn(component, 'showAbout');
-    const menu = fixture.debugElement.query(By.css('.menu-footer .menu-row'));
+    const menu = fixture.debugElement.query(By.css('.menu-footer .menu-row:last-child'));
     expect(menu).toBeTruthy();
     menu.triggerEventHandler('click', null);
     expect(showAbout).toHaveBeenCalled();
