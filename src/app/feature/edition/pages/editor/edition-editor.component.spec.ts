@@ -27,6 +27,7 @@ import {
   AvailableEdition,
   PredefinedEditionsDataService,
 } from '@app/feature/edition/services/predefined-editions-data.service';
+import { SharedModule } from '@app/shared/shared.module';
 
 const edition1 = new AvailableEdition('Test 1', 'ed1');
 const edition2 = new AvailableEdition('Test 2', 'ed2');
@@ -55,13 +56,12 @@ describe('EditionEditorComponent', () => {
         TuiDataListModule,
         TuiDataListWrapperModule,
         TuiLabelModule,
-        TuiSvgModule,
         TuiErrorModule,
         TuiFieldErrorPipeModule,
-        TuiButtonModule,
         TuiCheckboxBlockModule,
         TuiTooltipModule,
         TuiHintModule,
+        SharedModule,
       ],
       declarations: [EditionEditorComponent],
       providers: [
@@ -187,7 +187,6 @@ describe('EditionEditorComponent', () => {
   });
 
   it('should save model to local data', () => {
-    const localDataService = TestBed.inject(BaseEditionDataService);
     const alertService = TestBed.inject(TuiAlertService);
 
     const alertSpy = spyOn(alertService, 'open').and.returnValue(of(''));
