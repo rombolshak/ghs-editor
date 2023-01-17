@@ -8,9 +8,8 @@ describe('ScenarioSectionsEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScenarioSectionsEditorComponent ]
-    })
-    .compileComponents();
+      declarations: [ScenarioSectionsEditorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ScenarioSectionsEditorComponent);
     component = fixture.componentInstance;

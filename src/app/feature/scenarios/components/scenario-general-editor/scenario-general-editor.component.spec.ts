@@ -8,9 +8,8 @@ describe('ScenarioGeneralEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScenarioGeneralEditorComponent ]
-    })
-    .compileComponents();
+      declarations: [ScenarioGeneralEditorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ScenarioGeneralEditorComponent);
     component = fixture.componentInstance;

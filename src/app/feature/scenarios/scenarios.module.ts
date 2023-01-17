@@ -15,7 +15,16 @@ import { ScenarioRulesEditorComponent } from './components/scenario-rules-editor
 import { ScenarioSectionsEditorComponent } from './components/scenario-sections-editor/scenario-sections-editor.component';
 
 @NgModule({
-  declarations: [ScenariosListComponent, ScenarioDetailComponent, ScenarioGeneralEditorComponent, ScenarioPropertiesEditorComponent, ScenarioMonstersEditorComponent, ScenarioRoomsEditorComponent, ScenarioRulesEditorComponent, ScenarioSectionsEditorComponent],
+  declarations: [
+    ScenariosListComponent,
+    ScenarioDetailComponent,
+    ScenarioGeneralEditorComponent,
+    ScenarioPropertiesEditorComponent,
+    ScenarioMonstersEditorComponent,
+    ScenarioRoomsEditorComponent,
+    ScenarioRulesEditorComponent,
+    ScenarioSectionsEditorComponent,
+  ],
   imports: [
     CommonModule,
     ScenariosRoutingModule,
