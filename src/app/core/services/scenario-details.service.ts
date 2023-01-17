@@ -27,6 +27,6 @@ export class ScenarioDetailsService extends ModelManagerService<ScenarioDetails>
   }
 
   public initializeWithId(id: string) {
-    this.initialize(id, this.factory.create(initialDetails));
+    this.initialize(`scenario-${id}`, this.factory.create(initialDetails));
   }
 }

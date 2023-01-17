@@ -23,4 +23,12 @@ describe('ScenarioDetailsService', () => {
       done();
     });
   });
+
+  it('should not save initial model to storage', done => {
+    service.initializeWithId('test');
+    service.scenarioDetails$?.subscribe(_ => {
+      expect(localStorage.getItem('ghse-data-scenario-test')).toBeNull();
+      done();
+    });
+  });
 });

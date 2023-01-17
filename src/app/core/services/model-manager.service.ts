@@ -1,4 +1,5 @@
 import { Model } from '@app/core/services/model';
+import { skip } from 'rxjs';
 
 export abstract class ModelManagerService<T> {
   protected model: Model<T> | null = null;
@@ -7,7 +8,7 @@ export abstract class ModelManagerService<T> {
     const savedData = this.loadFromStore();
     if (savedData) model.set(savedData);
 
-    model.data$.subscribe(data => this.saveToStore(data));
+    model.data$.pipe(skip(1)).subscribe(data => this.saveToStore(data));
     this.model = model;
   }
   private loadFromStore(): T | null {
