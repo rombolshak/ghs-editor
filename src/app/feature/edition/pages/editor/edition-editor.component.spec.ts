@@ -2,24 +2,7 @@ import { ComponentFixture, discardPeriodicTasks, fakeAsync, TestBed, tick } from
 
 import { EditionEditorComponent } from './edition-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {
-  TuiCheckboxBlockModule,
-  TuiDataListWrapperModule,
-  TuiFieldErrorPipeModule,
-  TuiInputModule,
-  TuiMultiSelectModule,
-} from '@taiga-ui/kit';
-import {
-  TuiAlertService,
-  TuiButtonModule,
-  TuiDataListModule,
-  TuiErrorModule,
-  TuiHintModule,
-  TuiLabelModule,
-  TuiSvgModule,
-  TuiTextfieldControllerModule,
-  TuiTooltipModule,
-} from '@taiga-ui/core';
+import { TuiAlertService, TuiHintModule, TuiTooltipModule } from '@taiga-ui/core';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
 import { BaseEditionData, BaseEditionDataService } from '@app/core/services/base-edition-data.service';
@@ -48,21 +31,7 @@ describe('EditionEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        ReactiveFormsModule,
-        TuiInputModule,
-        TuiMultiSelectModule,
-        TuiTextfieldControllerModule,
-        TuiDataListModule,
-        TuiDataListWrapperModule,
-        TuiLabelModule,
-        TuiErrorModule,
-        TuiFieldErrorPipeModule,
-        TuiCheckboxBlockModule,
-        TuiTooltipModule,
-        TuiHintModule,
-        SharedModule,
-      ],
+      imports: [ReactiveFormsModule, TuiTooltipModule, TuiHintModule, SharedModule],
       declarations: [EditionEditorComponent],
       providers: [
         {
