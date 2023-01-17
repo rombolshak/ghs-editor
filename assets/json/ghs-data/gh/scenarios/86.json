@@ -2,25 +2,82 @@
   "index": "86",
   "name": "Harried Village",
   "edition": "gh",
+  "unlocks": [
+    "87"
+  ],
   "monsters": [
     "cave-bear",
     "lurker",
     "vermling-scout",
     "vermling-shaman"
   ],
-  "unlocks": [
-    "87"
+  "objectives": [
+    {
+      "name": "Villager",
+      "escort": true,
+      "health": "3+L",
+      "marker": "a",
+      "count": 11
+    }
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "f"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "a4a",
+      "ref": "b1b",
       "initial": true,
+      "rooms": [
+        2,
+        3
+      ],
       "monster": [
-        {
-          "name": "vermling-shaman",
-          "type": "elite"
-        },
         {
           "name": "cave-bear",
           "player2": "normal",
@@ -33,20 +90,12 @@
         },
         {
           "name": "lurker",
-          "player4": "normal"
-        },
-        {
-          "name": "lurker",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "vermling-shaman",
+          "name": "lurker",
           "player4": "normal"
-        },
-        {
-          "name": "vermling-shaman",
-          "type": "normal"
         },
         {
           "name": "vermling-scout",
@@ -57,11 +106,26 @@
         {
           "name": "vermling-scout",
           "player4": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player4": "normal"
         }
       ],
-      "rooms": [
-        2,
-        3
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1
       ]
     },
     {
@@ -69,16 +133,21 @@
       "ref": "b2a",
       "monster": [
         {
-          "name": "vermling-shaman",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
           "name": "vermling-scout",
           "player2": "elite",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player3": "normal",
+          "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     },
     {
@@ -86,10 +155,6 @@
       "ref": "b3a",
       "monster": [
         {
-          "name": "vermling-shaman",
-          "type": "normal"
-        },
-        {
           "name": "vermling-scout",
           "player3": "normal",
           "player4": "normal"
@@ -97,7 +162,16 @@
         {
           "name": "vermling-scout",
           "player4": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     }
   ]

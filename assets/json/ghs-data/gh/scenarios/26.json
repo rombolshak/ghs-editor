@@ -2,12 +2,6 @@
   "index": "26",
   "name": "Ancient Cistern",
   "edition": "gh",
-  "monsters": [
-    "black-imp",
-    "living-corpse",
-    "night-demon",
-    "ooze"
-  ],
   "unlocks": [
     "22"
   ],
@@ -18,6 +12,122 @@
     [
       "43"
     ]
+  ],
+  "monsters": [
+    "black-imp",
+    "living-corpse",
+    "night-demon",
+    "ooze"
+  ],
+  "objectives": [
+    {
+      "name": "Water Pump",
+      "health": 0,
+      "marker": "a",
+      "count": 2
+    },
+    {
+      "name": "Water Pump",
+      "health": 0,
+      "marker": "b",
+      "count": "C > 2 ? 1 : 0"
+    },
+    {
+      "name": "Water Pump",
+      "health": 0,
+      "marker": "c",
+      "count": "C > 3 ? 1 : 0"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "edition": "gh",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:3",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "type": "normal"
+          },
+          "marker": "a",
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Water Pump",
+            "marker": "a"
+          },
+          "type": "present"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "type": "normal"
+          },
+          "marker": "b",
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Water Pump",
+            "marker": "b"
+          },
+          "type": "present"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "type": "normal"
+          },
+          "marker": "c",
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Water Pump",
+            "marker": "c"
+          },
+          "type": "present"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -35,16 +145,12 @@
         {
           "name": "living-corpse",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "living-corpse",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "ooze",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "ooze",
@@ -53,6 +159,10 @@
         {
           "name": "ooze",
           "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
         }
       ]
     },
@@ -67,39 +177,39 @@
       ],
       "monster": [
         {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
           "name": "ooze",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "ooze",
-          "type": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "type": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "c1a",
+      "marker": "1",
       "monster": [
         {
           "name": "black-imp",
@@ -111,12 +221,11 @@
           "player4": "elite"
         },
         {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "living-corpse",
+          "type": "normal"
         },
         {
-          "name": "night-demon",
+          "name": "living-corpse",
           "player4": "normal"
         },
         {
@@ -124,14 +233,20 @@
           "type": "elite"
         },
         {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
+          "name": "night-demon",
           "player3": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        "2:C > 2 ? 1 : 0",
+        "3:C > 3 ? 1 : 0"
       ]
     }
   ]

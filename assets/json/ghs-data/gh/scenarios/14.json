@@ -7,6 +7,24 @@
     "hound",
     "living-spirit"
   ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "edition": "gh",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:3",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -18,16 +36,6 @@
       "monster": [
         {
           "name": "hound",
-          "player4": "normal"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
           "type": "normal"
         },
         {
@@ -42,10 +50,16 @@
         },
         {
           "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
           "player4": "normal"
         },
         {
-          "name": "living-spirit",
+          "name": "hound",
           "player4": "normal"
         },
         {
@@ -55,6 +69,10 @@
         {
           "name": "living-spirit",
           "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
           "player4": "normal"
         }
       ]
@@ -67,7 +85,11 @@
       ],
       "monster": [
         {
-          "name": "living-spirit",
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
@@ -80,18 +102,14 @@
         },
         {
           "name": "frost-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "frost-demon",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "frost-demon",
-          "type": "normal"
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     },
@@ -103,33 +121,6 @@
       ],
       "monster": [
         {
-          "name": "living-spirit",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
           "name": "frost-demon",
           "type": "elite"
         },
@@ -139,6 +130,33 @@
         },
         {
           "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
           "player4": "normal"
         }
       ]

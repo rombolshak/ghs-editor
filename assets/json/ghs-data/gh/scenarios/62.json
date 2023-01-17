@@ -36,40 +36,54 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "m1a",
+      "ref": "b2b",
       "initial": true,
+      "rooms": [
+        2
+      ],
       "treasures": [
         59
       ],
       "monster": [
-        {
-          "name": "living-spirit",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "normal"
-        },
         {
           "name": "living-bones",
           "type": "elite"
         },
         {
           "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
           "player4": "normal"
         },
         {
           "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
           "player3": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "",
+      "marker": "1",
+      "monster": [
+        {
+          "name": "hungry-soul",
+          "type": "boss"
         }
       ]
     }

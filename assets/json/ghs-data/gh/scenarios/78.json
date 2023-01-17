@@ -7,6 +7,7 @@
     "bandit-guard",
     "black-imp",
     "cultist",
+    "cultist-78",
     "living-bones"
   ],
   "rooms": [
@@ -19,6 +20,18 @@
       ],
       "monster": [
         {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
           "name": "bandit-guard",
           "type": "elite"
         },
@@ -31,25 +44,13 @@
           "name": "bandit-guard",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "bandit-archer",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "m1a",
+      "marker": "1",
       "rooms": [
         3
       ],
@@ -60,14 +61,28 @@
         },
         {
           "name": "bandit-archer",
-          "player3": "normal",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "bandit-archer",
-          "player2": "normal",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "type": "normal"
+        },
+        {
+          "name": "cultist-78",
+          "type": "elite",
+          "marker": "b"
+        },
+        {
+          "name": "cultist-78",
+          "type": "elite",
+          "marker": "b"
         },
         {
           "name": "cultist",
@@ -78,18 +93,6 @@
         {
           "name": "cultist",
           "player4": "normal"
-        },
-        {
-          "name": "cultist",
-          "type": "elite"
-        },
-        {
-          "name": "cultist",
-          "type": "elite"
-        },
-        {
-          "name": "cultist",
-          "type": "normal"
         },
         {
           "name": "cultist",
@@ -103,18 +106,11 @@
       "monster": [
         {
           "name": "black-imp",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "elite"
         },
         {
           "name": "black-imp",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "black-imp",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "elite"
         },
         {
           "name": "black-imp",
@@ -130,11 +126,18 @@
         },
         {
           "name": "black-imp",
-          "type": "elite"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "black-imp",
-          "type": "elite"
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "cultist",

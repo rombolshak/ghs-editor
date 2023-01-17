@@ -3,7 +3,7 @@
   "name": "Palace of Ice",
   "edition": "gh",
   "monsters": [
-    "cave-bear",
+    "cave-bear-54",
     "frost-demon",
     "harrower-infester",
     "living-spirit"
@@ -18,25 +18,25 @@
       ],
       "monster": [
         {
-          "name": "cave-bear",
-          "player4": "normal"
+          "name": "cave-bear-54",
+          "type": "normal"
         },
         {
-          "name": "cave-bear",
+          "name": "cave-bear-54",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "cave-bear",
-          "type": "normal"
+          "name": "cave-bear-54",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "n1a",
+      "marker": "1",
       "treasures": [
         25
       ],
@@ -44,30 +44,13 @@
         {
           "name": "frost-demon",
           "player2": "normal",
-          "player4": "normal"
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "frost-demon",
           "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
         },
         {
           "name": "harrower-infester",
@@ -78,6 +61,23 @@
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     }

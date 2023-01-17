@@ -2,37 +2,6 @@
   "index": "42",
   "name": "Realm of the Voice",
   "edition": "gh",
-  "monsters": [
-    "living-spirit",
-    "night-demon",
-    "wind-demon"
-  ],
-  "objectives": [
-    {
-      "name": "Vocal Cord 1",
-      "health": "2+(LxC/2)"
-    },
-    {
-      "name": "Vocal Cord 2",
-      "health": "2+(LxC/2)"
-    },
-    {
-      "name": "Vocal Cord 3",
-      "health": "2+(LxC/2)"
-    },
-    {
-      "name": "Vocal Cord 4",
-      "health": "2+(LxC/2)"
-    },
-    {
-      "name": "Vocal Cord 5",
-      "health": "2+(LxC/2)"
-    },
-    {
-      "name": "Vocal Cord 6",
-      "health": "2+(LxC/2)"
-    }
-  ],
   "requires": [
     [
       "30"
@@ -45,41 +14,154 @@
     "40",
     "41"
   ],
+  "monsters": [
+    "living-spirit",
+    "night-demon",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Vocal Cord",
+      "health": "[2+(LxC/2){%math.floor}]",
+      "marker": "1"
+    },
+    {
+      "name": "Vocal Cord",
+      "health": "[2+(LxC/2){%math.floor}]",
+      "marker": "2"
+    },
+    {
+      "name": "Vocal Cord",
+      "health": "[2+(LxC/2){%math.floor}]",
+      "marker": "3"
+    },
+    {
+      "name": "Vocal Cord",
+      "health": "[2+(LxC/2){%math.floor}]",
+      "marker": "4"
+    },
+    {
+      "name": "Vocal Cord",
+      "health": "[2+(LxC/2){%math.floor}]",
+      "marker": "5"
+    },
+    {
+      "name": "Vocal Cord",
+      "health": "[2+(LxC/2){%math.floor}]",
+      "marker": "6"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.1%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "1"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.2%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "2"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.3%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "3"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.4%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "4"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.5%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "5"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.6%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "6"
+          }
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "l2a",
+      "ref": "j1b",
       "initial": true,
       "treasures": [
-        55,
-        30
+        30,
+        55
       ],
       "monster": [
         {
-          "name": "night-demon",
-          "type": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player4": "normal"
-        },
-        {
           "name": "living-spirit",
           "type": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "type": "normal"
         },
         {
           "name": "living-spirit",
@@ -91,6 +173,14 @@
           "player4": "normal"
         },
         {
+          "name": "living-spirit",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
           "name": "night-demon",
           "player2": "normal",
           "player3": "normal",
@@ -101,7 +191,29 @@
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ]
     }
   ]

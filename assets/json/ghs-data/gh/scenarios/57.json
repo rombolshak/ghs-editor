@@ -2,14 +2,78 @@
   "index": "57",
   "name": "Investigation",
   "edition": "gh",
+  "unlocks": [
+    "58"
+  ],
   "monsters": [
     "city-archer",
     "city-guard",
     "hound",
     "infiltrator:+1"
   ],
-  "unlocks": [
-    "58"
+  "rules": [
+    {
+      "round": "once",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "city-guard",
+            "marker": "2"
+          },
+          "type": "dead"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "infiltrator:+1",
+            "type": "boss"
+          }
+        }
+      ]
+    },
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "city-guard",
+            "player2": "normal"
+          },
+          "count": 2,
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "city-guard",
+            "player3": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "city-guard",
+            "player3": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "city-guard",
+            "player4": "elite"
+          },
+          "count": 2,
+          "marker": "a"
+        }
+      ],
+      "requiredRooms": [
+        5
+      ]
+    }
   ],
   "rooms": [
     {
@@ -25,17 +89,12 @@
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "c1a",
+      "marker": "1",
       "monster": [
         {
           "name": "city-guard",
           "type": "normal"
-        },
-        {
-          "name": "hound",
-          "player3": "normal",
-          "player4": "elite"
         },
         {
           "name": "hound",
@@ -51,49 +110,59 @@
         },
         {
           "name": "hound",
-          "player4": "normal"
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "hound",
           "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
           "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "3",
-      "ref": "c2b",
+      "ref": "i1b",
+      "marker": "2",
       "monster": [
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite",
+          "marker": "2"
+        },
         {
           "name": "city-guard",
           "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "city-guard",
-          "player2": "elite",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "city-guard",
-          "type": "normal"
-        },
-        {
-          "name": "city-archer",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "city-archer",
-          "player3": "elite",
+          "name": "city-guard",
           "player4": "normal"
-        },
-        {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "elite"
         }
       ]
     },
@@ -107,42 +176,38 @@
     },
     {
       "roomNumber": 5,
-      "marker": "2",
-      "ref": "i1b",
+      "ref": "c2b",
+      "marker": "3",
       "monster": [
         {
-          "name": "city-guard",
+          "name": "city-archer",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "city-guard",
-          "player2": "normal",
+          "name": "city-archer",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "city-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "city-guard",
-          "type": "elite"
-        },
-        {
           "name": "city-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "city-archer",
-          "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
-          "name": "city-archer",
-          "player3": "normal",
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     }
