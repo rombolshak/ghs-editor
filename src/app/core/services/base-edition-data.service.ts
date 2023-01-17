@@ -22,13 +22,14 @@ export const initialModel = {
 })
 export class BaseEditionDataService extends ModelManagerService<BaseEditionData> {
   constructor(factory: ModelFactory<BaseEditionData>) {
-    super('base', factory.create(initialModel));
-    this.baseEditionData$ = this.model.data$;
+    super();
+    this.initialize('base', factory.create(initialModel));
+    this.baseEditionData$ = this.model!.data$;
   }
 
   baseEditionData$: Observable<BaseEditionData>;
 
   updateFullData(data: BaseEditionData) {
-    this.model.set(data);
+    this.model!.set(data);
   }
 }

@@ -1,11 +1,14 @@
 import { Model } from '@app/core/services/model';
 
 export abstract class ModelManagerService<T> {
-  protected constructor(private storeKey: string, protected model: Model<T>) {
+  protected model: Model<T> | null = null;
+  protected initialize(storeKey: string, model: Model<T>) {
+    this.storeKey = storeKey;
     const savedData = this.loadFromStore();
-    if (savedData) this.model.set(savedData);
+    if (savedData) model.set(savedData);
 
-    this.model.data$.subscribe(data => this.saveToStore(data));
+    model.data$.subscribe(data => this.saveToStore(data));
+    this.model = model;
   }
   private loadFromStore(): T | null {
     const data = localStorage.getItem(`ghse-data-${this.storeKey}`);
@@ -14,4 +17,6 @@ export abstract class ModelManagerService<T> {
   private saveToStore(model: T): void {
     localStorage.setItem(`ghse-data-${this.storeKey}`, JSON.stringify(model));
   }
+
+  private storeKey = '';
 }

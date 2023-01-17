@@ -1,15 +1,15 @@
 <div class="page-header with-link">
   <a tuiLink routerLink=".."><tui-svg src="tuiIconChevronLeft"></tui-svg> Scenarios</a>
-  <h2 class="tui-text_h2">New scenario</h2>
+  <h2 class="tui-text_h2">{{ model.name }}</h2>
 </div>
 <div class="page-content">
   <tui-stepper>
     <button tuiStep routerLink="." routerLinkActive>General info</button>
-    <button tuiStep routerLink="properties" routerLinkActive disabled>Scenario properties</button>
-    <button tuiStep routerLink="monsters" routerLinkActive disabled>Monsters</button>
-    <button tuiStep routerLink="rooms" routerLinkActive disabled>Rooms</button>
-    <button tuiStep routerLink="rules" routerLinkActive disabled>Special rules</button>
-    <button tuiStep routerLink="sections" routerLinkActive disabled>Sections</button>
+    <button tuiStep routerLink="properties" routerLinkActive [disabled]="areStepsDisabled">Scenario properties</button>
+    <button tuiStep routerLink="monsters" routerLinkActive [disabled]="areStepsDisabled">Monsters</button>
+    <button tuiStep routerLink="rooms" routerLinkActive [disabled]="areStepsDisabled">Rooms</button>
+    <button tuiStep routerLink="rules" routerLinkActive [disabled]="areStepsDisabled">Special rules</button>
+    <button tuiStep routerLink="sections" routerLinkActive [disabled]="areStepsDisabled">Sections</button>
   </tui-stepper>
   <router-outlet></router-outlet>
 </div>

@@ -39,7 +39,6 @@ export class EditionEditorComponent implements OnInit {
         finalize(() => this.loading.next(false))
       )
       .subscribe(([editions, savedFormData]) => {
-        console.log('qq');
         this.availableEditions = editions;
         this.availableEditionsIds.next(editions.map(e => e.prefix));
 
