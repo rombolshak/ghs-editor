@@ -2,6 +2,16 @@
   <h2 class="tui-text_h2">Edition data</h2>
 </div>
 <div class="page-content">
+  <tui-island>
+    <h3 class="tui-island__title">Welcome to GHS Editor</h3>
+    <p class="tui-island__paragraph">You will need to specify your edition properties.</p>
+    <p class="tui-island__paragraph">
+      Edition prefix is mandatory, it will be specified in all other entities you create.
+    </p>
+    <p class="tui-island__paragraph">
+      Extended editions selection defines which monsters will be available for scenarios.
+    </p>
+  </tui-island>
   <tui-loader [showLoader]="true" size="xxl" *ngIf="loading | async"></tui-loader>
   <form *ngIf="(loading | async) === false" [formGroup]="editionForm" (ngSubmit)="save()" class="tui-form">
     <div class="name-fields form-row">

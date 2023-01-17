@@ -7,6 +7,7 @@ import {
   TuiDataListWrapperModule,
   TuiFieldErrorPipeModule,
   TuiInputModule,
+  TuiIslandModule,
   TuiMultiSelectModule,
 } from '@taiga-ui/kit';
 import { EditionRoutingModule } from '@app/feature/edition/edition-routing.module';
@@ -40,6 +41,7 @@ import { SharedModule } from '@app/shared/shared.module';
     TuiTooltipModule,
     TuiHintModule,
     SharedModule,
+    TuiIslandModule,
   ],
   exports: [EditionEditorComponent],
 })
