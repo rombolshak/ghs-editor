@@ -1,1 +1,31 @@
-<p>scenario-general-editor works!</p>
+<form [formGroup]="form">
+  <div class="form-row">
+    <tui-input [formControl]="form.controls.name" class="prefixName" data-automation="edition.prefix">
+      Scenario name
+      <span class="tui-required"></span>
+    </tui-input>
+    <tui-error [formControl]="form.controls.name" [error]="[] | tuiFieldError | async"></tui-error>
+  </div>
+
+  <div class="form-row multi-field">
+    <div class="scenario-index">
+      <tui-input [formControl]="form.controls.index" class="prefixName" data-automation="edition.prefix">
+        Scenario #
+        <span class="tui-required"></span>
+      </tui-input>
+      <tui-error [formControl]="form.controls.index" [error]="[] | tuiFieldError | async"></tui-error>
+    </div>
+    <div class="scenario-group">
+      <tui-input [formControl]="form.controls.group" class="prefixName" data-automation="edition.prefix">
+        Scenario group
+        <input tuiTextfield placeholder="solo" />
+      </tui-input>
+      <tui-error [formControl]="form.controls.group" [error]="[] | tuiFieldError | async"></tui-error>
+    </div>
+  </div>
+  <div class="form-row">
+    <tui-checkbox-labeled [formControl]="form.controls.initial" size="l"
+      >It is initial scenario of a campaign</tui-checkbox-labeled
+    >
+  </div>
+</form>

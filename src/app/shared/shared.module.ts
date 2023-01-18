@@ -20,9 +20,11 @@ import {
   TuiMarkerIconModule,
   TuiMultiSelectModule,
 } from '@taiga-ui/kit';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const tuiModules = [
   CommonModule,
+  ReactiveFormsModule,
   TuiButtonModule,
   TuiLoaderModule,
   TuiLinkModule,
