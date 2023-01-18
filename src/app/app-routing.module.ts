@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EditionDataLoaderGuard } from '@app/core/guards/edition-data-loader.guard';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
   {
     path: 'scenarios',
     loadChildren: () => import('./feature/scenarios/scenarios.module').then(m => m.ScenariosModule),
+    canLoad: [EditionDataLoaderGuard],
   },
   { path: '**', redirectTo: 'edition', pathMatch: 'full' },
 ];
