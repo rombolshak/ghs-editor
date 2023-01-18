@@ -14,7 +14,7 @@
   </tui-island>
   <tui-loader [showLoader]="true" size="xxl" *ngIf="loading | async"></tui-loader>
   <form *ngIf="(loading | async) === false" [formGroup]="editionForm" (ngSubmit)="save()" class="tui-form">
-    <div class="name-fields form-row">
+    <div class="form-row multi-field">
       <div>
         <tui-input [formControl]="editionForm.controls.editionName" class="fullName" data-automation="edition.fullname">
           Edition full name
@@ -72,8 +72,8 @@
 
     <div class="form-row buttons">
       <div>
-        <button tuiButton type="submit" size="m" [disabled]="!editionForm.valid || editionForm.pristine">Save</button>
-        <button tuiButton type="button" appearance="outline" size="m" (click)="reset()" data-automation="reset-button">
+        <button tuiButton type="submit" [disabled]="!editionForm.valid || editionForm.pristine">Save</button>
+        <button tuiButton type="button" appearance="outline" (click)="reset()" data-automation="reset-button">
           Reset
         </button>
       </div>
@@ -82,7 +82,6 @@
           tuiButton
           type="button"
           appearance="secondary-destructive"
-          size="m"
           (click)="dialogService.open(clearAllConfirmation, { size: 'l' }).subscribe()"
           data-automation="clear-all-button">
           Clear all data

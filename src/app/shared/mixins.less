@@ -34,3 +34,28 @@
     }
   }
 }
+
+.ghse-form() {
+  form {
+    margin-top: 1.5rem;
+    width: 40rem;
+
+    .form-row {
+      margin-bottom: 1.5rem;
+
+      &.multi-field {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      button:not(:last-child) {
+        margin-right: 1.5rem;
+      }
+    }
+  }
+}

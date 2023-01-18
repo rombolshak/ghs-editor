@@ -2,45 +2,24 @@
 
 :host {
   .feature-page;
+  .ghse-form;
 
   tui-island {
     width: 38rem;
     background: var(--tui-base-02);
+    margin-bottom: 1.5rem;
   }
-
-  form {
-    margin-top: 2rem;
-    width: 40rem;
+  .fullName {
+    width: 30rem;
   }
-  .form-row {
-    margin-bottom: 1rem;
-  }
-
-  .name-fields {
-    display: flex;
-    justify-content: space-between;
-
-    .fullName {
-      width: 30rem;
-    }
-    .prefixName {
-      width: 9rem;
-    }
+  .prefixName {
+    width: 9rem;
   }
 
   .checkbox-content {
     width: 35.75rem;
     display: flex;
     justify-content: space-between;
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-    button:not(:last-child) {
-      margin-right: 1rem;
-    }
   }
 }
 

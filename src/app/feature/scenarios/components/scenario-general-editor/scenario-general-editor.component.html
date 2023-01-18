@@ -24,8 +24,17 @@
     </div>
   </div>
   <div class="form-row">
-    <tui-checkbox-labeled [formControl]="form.controls.initial" size="l"
-      >It is initial scenario of a campaign</tui-checkbox-labeled
-    >
+    <tui-checkbox-labeled [formControl]="form.controls.initial" size="l">
+      It is initial scenario of a campaign
+    </tui-checkbox-labeled>
+  </div>
+
+  <div class="form-row buttons">
+    <div>
+      <button tuiButton type="submit" [disabled]="!form.valid || form.pristine">Save</button>
+      <button tuiButton type="button" appearance="outline" (click)="form.reset()" data-automation="reset-button">
+        Reset
+      </button>
+    </div>
   </div>
 </form>
