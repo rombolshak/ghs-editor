@@ -19,7 +19,7 @@ describe('ScenarioDetailsService', () => {
     service.initializeWithId('test');
     expect(service.scenarioDetails$).not.toBeNull();
     service.scenarioDetails$?.subscribe(model => {
-      expect(model.id).toEqual('new');
+      expect(model.generalInfo.index).toEqual('new');
       done();
     });
   });

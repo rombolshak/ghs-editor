@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { initialDetails, ScenarioDetails, ScenarioDetailsService } from '@app/core/services/scenario-details.service';
+import { ScenarioDetailsService } from '@app/core/services/scenario-details.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { takeUntil } from 'rxjs';
+import { initialScenario, Scenario } from '@app/core/services/models/scenario.models';
 
 @Component({
   selector: 'ghse-scenario-detail',
@@ -19,9 +20,9 @@ export class ScenarioDetailComponent implements OnInit {
     private destroy$: TuiDestroyService
   ) {}
 
-  model: ScenarioDetails = initialDetails;
+  model: Scenario = initialScenario;
   get areStepsDisabled(): boolean {
-    return this.model.id === this.newScenarioId;
+    return this.model.id === '';
   }
 
   ngOnInit() {
@@ -29,6 +30,4 @@ export class ScenarioDetailComponent implements OnInit {
     this.detailsService.initializeWithId(id!);
     this.detailsService.scenarioDetails$?.pipe(takeUntil(this.destroy$)).subscribe(model => (this.model = model));
   }
-
-  private newScenarioId = 'new';
 }

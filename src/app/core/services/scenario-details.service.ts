@@ -1,25 +1,15 @@
 import { Injectable } from '@angular/core';
 import { ModelManagerService } from '@app/core/services/model-manager.service';
 import { ModelFactory } from '@app/core/services/model';
-
-export interface ScenarioDetails {
-  id: string;
-  name: string;
-  group: string;
-}
-
-export const initialDetails: ScenarioDetails = {
-  id: 'new',
-  name: 'New scenario',
-  group: '',
-};
+import { initialScenario, Scenario } from '@app/core/services/models/scenario.models';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ScenarioDetailsService extends ModelManagerService<ScenarioDetails> {
-  constructor(private factory: ModelFactory<ScenarioDetails>) {
+export class ScenarioDetailsService extends ModelManagerService<Scenario> {
+  constructor(private factory: ModelFactory<Scenario>) {
     super();
+    indexedDB.open('qq');
   }
 
   get scenarioDetails$() {
@@ -27,6 +17,6 @@ export class ScenarioDetailsService extends ModelManagerService<ScenarioDetails>
   }
 
   public initializeWithId(id: string) {
-    this.initialize(`scenario-${id}`, this.factory.create(initialDetails));
+    this.initialize(`scenario-${id}`, this.factory.create(initialScenario));
   }
 }

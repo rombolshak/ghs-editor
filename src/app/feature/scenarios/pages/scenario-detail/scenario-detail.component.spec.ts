@@ -7,8 +7,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ScenariosServicesModule } from '@app/feature/scenarios/scenarios-services.module';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TuiAlertService } from '@taiga-ui/core';
-import { initialDetails } from '@app/core/services/scenario-details.service';
 import { By } from '@angular/platform-browser';
+import { initialScenario } from '@app/core/services/models/scenario.models';
 
 describe('ScenarioDetailComponent [New Scenario]', () => {
   let component: ScenarioDetailComponent;
@@ -38,12 +38,12 @@ describe('ScenarioDetailComponent [New Scenario]', () => {
   });
 
   it('should get initial model', () => {
-    expect(component.model).toEqual(initialDetails);
+    expect(component.model).toEqual(initialScenario);
   });
 
   it('should display new scenario header', () => {
     const header = fixture.debugElement.query(By.css('.page-header h2')).nativeElement.innerText;
-    expect(header).toBe(initialDetails.name);
+    expect(header).toBe(initialScenario.generalInfo.name);
   });
 
   it('should disable steps', () => {
