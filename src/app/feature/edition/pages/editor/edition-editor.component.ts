@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { BehaviorSubject, finalize, forkJoin, mergeMap, take, takeUntil } from 'rxjs';
+import { BehaviorSubject, finalize, forkJoin, mergeMap, Observer, take, takeUntil } from 'rxjs';
 import { TUI_DEFAULT_MATCHER, TuiDestroyService, tuiPure, TuiStringHandler } from '@taiga-ui/cdk';
 import { ConditionName } from '@ghs/game/model/Condition';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
-import { TuiAlertService, TuiNotification, TuiValueContentContext } from '@taiga-ui/core';
+import { TuiAlertService, TuiDialogService, TuiNotification, TuiValueContentContext } from '@taiga-ui/core';
 import { BaseEditionData, BaseEditionDataService } from '@app/core/services/base-edition-data.service';
 import {
   AvailableEdition,
@@ -27,7 +27,8 @@ export class EditionEditorComponent implements OnInit {
     private readonly dataService: PredefinedEditionsDataService,
     private readonly baseEditionDataService: BaseEditionDataService,
     private readonly destroy$: TuiDestroyService,
-    private readonly alertService: TuiAlertService
+    private readonly alertService: TuiAlertService,
+    readonly dialogService: TuiDialogService
   ) {
     this.setEditionConditionsOnExtendedEditionsChange();
   }
@@ -56,6 +57,8 @@ export class EditionEditorComponent implements OnInit {
     conditions: [<string[]>[]],
   });
 
+  @ViewChild('clearAllConfirmation', { static: true }) clearDataDialog!: TemplateRef<any>;
+
   getName: TuiStringHandler<string> = id =>
     this.availableEditions.find(e => e.prefix === id)?.toString() ?? '<unknown edition>';
 
@@ -78,6 +81,12 @@ export class EditionEditorComponent implements OnInit {
     if (this.savedFormData) this.editionForm.patchValue(this.savedFormData);
     else this.editionForm.reset();
     this.editionForm.markAsPristine();
+  }
+
+  clearAll(observer: Observer<any>): void {
+    localStorage.clear();
+    observer.complete();
+    window.location.reload();
   }
 
   private setEditionConditionsOnExtendedEditionsChange() {

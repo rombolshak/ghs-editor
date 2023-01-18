@@ -11,6 +11,7 @@ import {
   PredefinedEditionsDataService,
 } from '@app/feature/edition/services/predefined-editions-data.service';
 import { SharedModule } from '@app/shared/shared.module';
+import { AfterContentInit, Component, TemplateRef, ViewChild } from '@angular/core';
 
 const edition1 = new AvailableEdition('Test 1', 'ed1');
 const edition2 = new AvailableEdition('Test 2', 'ed2');
@@ -24,15 +25,26 @@ class FakePredefinedEditionsDataService {
   }
 }
 
+@Component({
+  template: '<ng-container *ngTemplateOutlet="modal"></ng-container> <ghse-editor></ghse-editor>',
+})
+class WrapperComponent implements AfterContentInit {
+  @ViewChild(EditionEditorComponent, { static: true }) componentRef!: EditionEditorComponent;
+  modal!: TemplateRef<any>;
+  ngAfterContentInit() {
+    this.modal = this.componentRef.clearDataDialog;
+  }
+}
+
 describe('EditionEditorComponent', () => {
   let component: EditionEditorComponent;
-  let fixture: ComponentFixture<EditionEditorComponent>;
+  let fixture: ComponentFixture<WrapperComponent>;
   let editionsDataService: PredefinedEditionsDataService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, TuiTooltipModule, TuiHintModule, SharedModule],
-      declarations: [EditionEditorComponent],
+      declarations: [EditionEditorComponent, WrapperComponent],
       providers: [
         {
           provide: PredefinedEditionsDataService,
@@ -45,8 +57,8 @@ describe('EditionEditorComponent', () => {
     editionsDataService = TestBed.inject(PredefinedEditionsDataService);
     spyOn(editionsDataService, 'getAvailableEditions').and.callThrough();
 
-    fixture = TestBed.createComponent(EditionEditorComponent);
-    component = fixture.componentInstance;
+    fixture = TestBed.createComponent(WrapperComponent);
+    component = fixture.debugElement.componentInstance.componentRef;
     component.ngOnInit();
     fixture.detectChanges();
   });
@@ -171,5 +183,22 @@ describe('EditionEditorComponent', () => {
     expect(component.editionForm.touched).toBeFalse();
     expect(component.editionForm.valid).toBeTrue();
     localStorage.clear();
+  });
+
+  it('should not delete data on dialog cancel', () => {
+    localStorage.setItem('ghse-data-base', 'test');
+    const cancelButton = fixture.debugElement.query(By.css('[data-automation="clear-data-cancel"]'));
+    cancelButton.nativeElement.click();
+    fixture.detectChanges();
+    expect(localStorage.getItem('ghse-data-base')).toEqual('test');
+    localStorage.clear();
+  });
+
+  it('should delete all data on dialog confirmation', () => {
+    localStorage.setItem('ghse-data-base', 'test');
+    const confirmButton = fixture.debugElement.query(By.css('[data-automation="clear-data-confirm"]'));
+    confirmButton.nativeElement.click();
+    fixture.detectChanges();
+    expect(localStorage.length).toBe(0);
   });
 });

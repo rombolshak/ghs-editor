@@ -4,17 +4,20 @@ import {
   TuiButtonModule,
   TuiDataListModule,
   TuiErrorModule,
+  TuiHintModule,
   TuiLabelModule,
   TuiLinkModule,
   TuiLoaderModule,
   TuiSvgModule,
   TuiTextfieldControllerModule,
+  TuiTooltipModule,
 } from '@taiga-ui/core';
 import {
   TuiDataListWrapperModule,
   TuiFieldErrorPipeModule,
   TuiInputModule,
   TuiIslandModule,
+  TuiMarkerIconModule,
   TuiMultiSelectModule,
 } from '@taiga-ui/kit';
 
@@ -33,6 +36,9 @@ const tuiModules = [
   TuiFieldErrorPipeModule,
   TuiInputModule,
   TuiMultiSelectModule,
+  TuiTooltipModule,
+  TuiHintModule,
+  TuiMarkerIconModule,
 ];
 @NgModule({
   declarations: [],

@@ -35,9 +35,57 @@
   }
 
   .buttons {
+    display: flex;
+    justify-content: space-between;
     margin-top: 2rem;
-    button {
+    button:not(:last-child) {
       margin-right: 1rem;
+    }
+  }
+}
+
+.dialog {
+  header {
+    width: calc(100% + 4rem);
+    margin-top: -2rem;
+    margin-left: -2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    word-wrap: break-word;
+    background: var(--tui-accent);
+    border-radius: 1rem 1rem 0 0;
+
+    section {
+      position: relative;
+      height: 7.25rem;
+
+      h3 {
+        font: var(--tui-font-heading-3);
+        text-align: center;
+        margin: 0;
+        padding-top: 1rem;
+        color: var(--tui-text-01-night);
+      }
+
+      tui-marker-icon {
+        margin-top: 1rem;
+        color: var(--tui-base-02);
+        background: var(--tui-accent);
+        box-shadow: 0 0 0 2px var(--tui-base-02);
+      }
+    }
+  }
+
+  ul {
+    font: var(--tui-font-text-m);
+  }
+
+  .buttons {
+    margin-top: 2rem;
+    text-align: center;
+
+    button {
+      margin-right: 3rem;
     }
   }
 }

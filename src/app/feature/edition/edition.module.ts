@@ -4,7 +4,6 @@ import { EditionEditorComponent } from './pages/editor/edition-editor.component'
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { EditionRoutingModule } from '@app/feature/edition/edition-routing.module';
-import { TuiTooltipModule, TuiHintModule } from '@taiga-ui/core';
 import { EditionServicesModule } from '@app/feature/edition/edition-services.module';
 import { SharedModule } from '@app/shared/shared.module';
 
@@ -16,8 +15,6 @@ import { SharedModule } from '@app/shared/shared.module';
     EditionServicesModule,
     ReactiveFormsModule,
     ReactiveFormsModule,
-    TuiTooltipModule,
-    TuiHintModule,
     SharedModule,
   ],
   exports: [EditionEditorComponent],

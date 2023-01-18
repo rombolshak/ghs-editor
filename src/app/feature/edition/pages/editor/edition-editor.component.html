@@ -71,10 +71,23 @@
     </label>
 
     <div class="form-row buttons">
-      <button tuiButton type="submit" size="m" [disabled]="!editionForm.valid || editionForm.pristine">Save</button>
-      <button tuiButton type="button" appearance="outline" size="m" (click)="reset()" data-automation="reset-button">
-        Reset
-      </button>
+      <div>
+        <button tuiButton type="submit" size="m" [disabled]="!editionForm.valid || editionForm.pristine">Save</button>
+        <button tuiButton type="button" appearance="outline" size="m" (click)="reset()" data-automation="reset-button">
+          Reset
+        </button>
+      </div>
+      <div>
+        <button
+          tuiButton
+          type="button"
+          appearance="secondary-destructive"
+          size="m"
+          (click)="dialogService.open(clearAllConfirmation, { size: 'l' }).subscribe()"
+          data-automation="clear-all-button">
+          Clear all data
+        </button>
+      </div>
     </div>
   </form>
 </div>
@@ -83,5 +96,39 @@
   <div class="condition-option">
     <tui-svg [src]="'assets/images/ghs/condition/' + condition + '.svg'"></tui-svg>
     {{ condition }}
+  </div>
+</ng-template>
+
+<ng-template #clearAllConfirmation let-observer>
+  <div class="dialog">
+    <header>
+      <section>
+        <h3>Data clear</h3>
+        <tui-marker-icon src="tuiIconAlertCircleLarge"></tui-marker-icon>
+      </section>
+    </header>
+    <ul class="tui-text_body-m">
+      <li>This will clear all saved data from browser storage, including scenarios, monsters and characters.</li>
+      <li>State of the app will be completely empty as if you just loaded it for the first time.</li>
+      <li>Be sure to export neccesary data before proceeding.</li>
+    </ul>
+    <div class="buttons">
+      <button
+        tuiButton
+        type="submit"
+        appearance="accent"
+        (click)="clearAll(observer)"
+        data-automation="clear-data-confirm">
+        Clear data
+      </button>
+      <button
+        tuiButton
+        type="button"
+        appearance="outline"
+        (click)="observer.complete()"
+        data-automation="clear-data-cancel">
+        Cancel
+      </button>
+    </div>
   </div>
 </ng-template>
