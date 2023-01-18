@@ -8,6 +8,7 @@ import { ScenarioMonstersEditorComponent } from '@app/feature/scenarios/componen
 import { ScenarioRoomsEditorComponent } from '@app/feature/scenarios/components/scenario-rooms-editor/scenario-rooms-editor.component';
 import { ScenarioRulesEditorComponent } from '@app/feature/scenarios/components/scenario-rules-editor/scenario-rules-editor.component';
 import { ScenarioSectionsEditorComponent } from '@app/feature/scenarios/components/scenario-sections-editor/scenario-sections-editor.component';
+import { NewScenarioStepsGuard } from '@app/feature/scenarios/services/new-scenario-steps.guard';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
   {
     path: ':id',
     component: ScenarioDetailComponent,
+    canActivateChild: [NewScenarioStepsGuard],
     children: [
       {
         path: '',
