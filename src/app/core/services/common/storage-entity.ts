@@ -2,6 +2,7 @@ import { defer, Observable, of } from 'rxjs';
 
 export class StorageEntity<T> {
   constructor(private readonly id: string) {}
+
   get(): Observable<T | null> {
     return defer(() => {
       const loaded = localStorage.getItem(this.id);
