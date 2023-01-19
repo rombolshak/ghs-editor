@@ -23,7 +23,7 @@ describe('ScenarioDetailsService', () => {
   it('should load initial values', done => {
     expect(service.generalInfo$).not.toBeNull();
     service.generalInfo$?.subscribe(model => {
-      expect(model.index).toEqual('new');
+      expect(model.index).toEqual('');
       done();
     });
   });

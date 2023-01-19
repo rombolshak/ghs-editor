@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ScenarioGeneralEditorComponent } from './scenario-general-editor.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { TuiCheckboxLabeledModule } from '@taiga-ui/kit';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ScenarioGeneralEditorComponent', () => {
   let component: ScenarioGeneralEditorComponent;
@@ -11,7 +12,7 @@ describe('ScenarioGeneralEditorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ScenarioGeneralEditorComponent],
-      imports: [SharedModule, TuiCheckboxLabeledModule],
+      imports: [SharedModule, TuiCheckboxLabeledModule, RouterTestingModule.withRoutes([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ScenarioGeneralEditorComponent);

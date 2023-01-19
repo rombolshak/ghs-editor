@@ -24,7 +24,11 @@ export class ScenarioDetailComponent implements OnInit {
   model: GeneralScenarioInfo | undefined;
 
   get areStepsDisabled(): boolean {
-    return this.model?.index === 'new';
+    return this.model?.index === '';
+  }
+
+  get header(): string {
+    return !this.model || this.model.name === '' ? 'New scenario' : this.model.name;
   }
 
   ngOnInit() {

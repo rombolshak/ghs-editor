@@ -13,8 +13,8 @@ export interface GeneralScenarioInfo {
 }
 
 export const initialGeneralInfo: GeneralScenarioInfo = {
-  index: 'new',
-  name: 'New scenario',
+  index: '',
+  name: '',
   group: '',
   initial: false,
 };

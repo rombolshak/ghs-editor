@@ -5,17 +5,15 @@ import { SharedModule } from '@app/shared/shared.module';
 import { TuiStepperModule } from '@taiga-ui/kit';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ScenariosServicesModule } from '@app/feature/scenarios/scenarios-services.module';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TuiAlertService } from '@taiga-ui/core';
+import { ActivatedRoute } from '@angular/router';
 import { By } from '@angular/platform-browser';
 import { initialGeneralInfo } from '@app/core/models/scenario.models';
+import { ScenarioDetailsServiceFactory } from '@app/core/services/business/scenario-details-service.factory';
 
 describe('ScenarioDetailComponent [New Scenario]', () => {
   let component: ScenarioDetailComponent;
   let fixture: ComponentFixture<ScenarioDetailComponent>;
-  let router: Router;
   let route: ActivatedRoute;
-  let alertService: TuiAlertService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -23,15 +21,15 @@ describe('ScenarioDetailComponent [New Scenario]', () => {
       imports: [RouterTestingModule.withRoutes([]), SharedModule, TuiStepperModule, ScenariosServicesModule],
     }).compileComponents();
 
-    router = TestBed.inject(Router);
     route = TestBed.inject(ActivatedRoute);
-    alertService = TestBed.inject(TuiAlertService);
-    spyOn(route.snapshot.paramMap, 'get').and.returnValue('new');
+    spyOn(route.snapshot.paramMap, 'get').and.returnValue('test');
     fixture = TestBed.createComponent(ScenarioDetailComponent);
     component = fixture.componentInstance;
     component.ngOnInit();
     fixture.detectChanges();
   });
+
+  afterEach(() => localStorage.clear());
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -43,7 +41,13 @@ describe('ScenarioDetailComponent [New Scenario]', () => {
 
   it('should display new scenario header', () => {
     const header = fixture.debugElement.query(By.css('.page-header h2')).nativeElement.innerText;
-    expect(header).toBe(initialGeneralInfo.name);
+    expect(header).toBe('New scenario');
+  });
+
+  it('should display saved scenario name', () => {
+    const service = TestBed.inject(ScenarioDetailsServiceFactory).create('test');
+    service.updateGeneralInfo({ ...initialGeneralInfo, name: 'Test scenario', index: '1' });
+    expect(component.header).toBe('Test scenario');
   });
 
   it('should disable steps', () => {
