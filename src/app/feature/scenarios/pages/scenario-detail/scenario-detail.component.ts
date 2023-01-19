@@ -28,7 +28,9 @@ export class ScenarioDetailComponent implements OnInit {
   }
 
   get header(): string {
-    return !this.model || this.model.name === '' ? 'New scenario' : this.model.name;
+    return !this.model || this.model.name === ''
+      ? 'New scenario'
+      : `#${this.model.index}${this.model.group !== '' ? '-' : ''}${this.model.group}: ${this.model.name}`;
   }
 
   ngOnInit() {

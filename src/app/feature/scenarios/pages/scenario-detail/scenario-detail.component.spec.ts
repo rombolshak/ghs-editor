@@ -47,7 +47,7 @@ describe('ScenarioDetailComponent [New Scenario]', () => {
   it('should display saved scenario name', () => {
     const service = TestBed.inject(ScenarioDetailsServiceFactory).create('test');
     service.updateGeneralInfo({ ...initialGeneralInfo, name: 'Test scenario', index: '1' });
-    expect(component.header).toBe('Test scenario');
+    expect(component.header).toBe('#1: Test scenario');
   });
 
   it('should disable steps', () => {

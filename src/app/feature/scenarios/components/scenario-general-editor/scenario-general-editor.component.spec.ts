@@ -9,6 +9,7 @@ import { of } from 'rxjs';
 import { ScenarioDetailsService } from '@app/core/services/business/scenario-details.service';
 import { GhseDataStorageService } from '@app/core/services/business/ghse-data-storage.service';
 import { initialGeneralInfo } from '@app/core/models/scenario.models';
+import { TuiAlertService } from '@taiga-ui/core';
 
 describe('ScenarioGeneralEditorComponent', () => {
   let component: ScenarioGeneralEditorComponent;
@@ -16,7 +17,11 @@ describe('ScenarioGeneralEditorComponent', () => {
   let detailsService: ScenarioDetailsService;
 
   beforeEach(async () => {
-    detailsService = new ScenarioDetailsService(new GhseDataStorageService(), 'test');
+    detailsService = new ScenarioDetailsService(
+      TestBed.inject(GhseDataStorageService),
+      TestBed.inject(TuiAlertService),
+      'test'
+    );
     await TestBed.configureTestingModule({
       declarations: [ScenarioGeneralEditorComponent],
       imports: [SharedModule, TuiCheckboxLabeledModule, RouterTestingModule.withRoutes([])],

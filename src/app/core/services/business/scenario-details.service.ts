@@ -1,9 +1,14 @@
 import { GeneralScenarioInfo, initialScenario, Scenario } from '@app/core/models/scenario.models';
 import { GhseDataStorageService } from '@app/core/services/business/ghse-data-storage.service';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
+import { TuiAlertService, TuiNotification } from '@taiga-ui/core';
 
 export class ScenarioDetailsService {
-  constructor(private readonly storageService: GhseDataStorageService, private readonly scenarioId: string) {
+  constructor(
+    private readonly storageService: GhseDataStorageService,
+    private readonly alertService: TuiAlertService,
+    private readonly scenarioId: string
+  ) {
     this._model = new BehaviorSubject<Scenario>(initialScenario);
 
     storageService.scenarios
@@ -28,8 +33,13 @@ export class ScenarioDetailsService {
     this.storageService.scenarios
       .withId(this.scenarioId)
       .set(newModel)
-      .subscribe(() => this._model.next(newModel));
+      .pipe(
+        tap(() => this._model.next(newModel)),
+        switchMap(() => this._dataSaved$)
+      )
+      .subscribe();
   }
 
+  private _dataSaved$ = this.alertService.open('Data saved', { status: TuiNotification.Success });
   private _model: BehaviorSubject<Scenario>;
 }

@@ -3,13 +3,18 @@ import { TestBed } from '@angular/core/testing';
 import { ScenarioDetailsService } from './scenario-details.service';
 import { GhseDataStorageService } from '@app/core/services/business/ghse-data-storage.service';
 import { initialScenario } from '@app/core/models/scenario.models';
+import { TuiAlertService } from '@taiga-ui/core';
 
 describe('ScenarioDetailsService', () => {
   let service: ScenarioDetailsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = new ScenarioDetailsService(TestBed.inject(GhseDataStorageService), 'test');
+    service = new ScenarioDetailsService(
+      TestBed.inject(GhseDataStorageService),
+      TestBed.inject(TuiAlertService),
+      'test'
+    );
   });
 
   afterEach(() => {
