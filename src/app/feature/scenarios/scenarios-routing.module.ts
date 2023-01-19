@@ -9,6 +9,7 @@ import { ScenarioRoomsEditorComponent } from '@app/feature/scenarios/components/
 import { ScenarioRulesEditorComponent } from '@app/feature/scenarios/components/scenario-rules-editor/scenario-rules-editor.component';
 import { ScenarioSectionsEditorComponent } from '@app/feature/scenarios/components/scenario-sections-editor/scenario-sections-editor.component';
 import { NewScenarioStepsGuard } from '@app/feature/scenarios/services/new-scenario-steps.guard';
+import { ScenarioDetailsResolver } from '@app/feature/scenarios/services/scenario-details.resolver';
 
 const routes: Routes = [
   {
@@ -25,26 +26,44 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         component: ScenarioGeneralEditorComponent,
+        resolve: {
+          detailsService: ScenarioDetailsResolver,
+        },
       },
       {
         path: 'properties',
         component: ScenarioPropertiesEditorComponent,
+        resolve: {
+          detailsService: ScenarioDetailsResolver,
+        },
       },
       {
         path: 'monsters',
         component: ScenarioMonstersEditorComponent,
+        resolve: {
+          detailsService: ScenarioDetailsResolver,
+        },
       },
       {
         path: 'rooms',
         component: ScenarioRoomsEditorComponent,
+        resolve: {
+          detailsService: ScenarioDetailsResolver,
+        },
       },
       {
         path: 'rules',
         component: ScenarioRulesEditorComponent,
+        resolve: {
+          detailsService: ScenarioDetailsResolver,
+        },
       },
       {
         path: 'sections',
         component: ScenarioSectionsEditorComponent,
+        resolve: {
+          detailsService: ScenarioDetailsResolver,
+        },
       },
     ],
   },

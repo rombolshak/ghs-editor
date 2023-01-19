@@ -6,6 +6,12 @@ import { GhseDataStorageService } from '@app/core/services/business/ghse-data-st
 export class ScenarioDetailsServiceFactory {
   constructor(private readonly storageService: GhseDataStorageService) {}
   create(id: string) {
-    return new ScenarioDetailsService(this.storageService, id);
+    if (!this.services.has(id)) {
+      this.services.set(id, new ScenarioDetailsService(this.storageService, id));
+    }
+
+    return this.services.get(id) as ScenarioDetailsService;
   }
+
+  private services = new Map<string, ScenarioDetailsService>();
 }
