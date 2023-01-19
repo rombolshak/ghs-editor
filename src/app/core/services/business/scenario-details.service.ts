@@ -10,11 +10,16 @@ export class ScenarioDetailsService {
       .withId(scenarioId)
       .get()
       .subscribe(data => {
-        if (data !== null) this._model.next(data);
+        if (data !== null) {
+          this._model.next(data);
+        }
       });
 
     this.generalInfo$ = this._model.asObservable().pipe(map(model => model.generalInfo));
+    this.exists$ = this._model.asObservable().pipe(map(model => model.generalInfo.index !== ''));
   }
+
+  exists$: Observable<boolean>;
 
   generalInfo$: Observable<GeneralScenarioInfo>;
 
