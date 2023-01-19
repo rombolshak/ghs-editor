@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BaseEditionData, BaseEditionDataService, initialModel } from './base-edition-data.service';
-import { ModelFactory } from '@app/core/services/model';
+import { BaseEditionDataService } from './base-edition-data.service';
+import { BaseEditionData, initialBaseDataModel } from '@app/core/models/edition-base.models';
+import { GhseDataStorageService } from '@app/core/services/business/ghse-data-storage.service';
 
 describe('BaseEditionDataService', () => {
   let service: BaseEditionDataService;
@@ -16,15 +17,15 @@ describe('BaseEditionDataService', () => {
   });
 
   it('should return null if no data saved', () => {
-    service.baseEditionData$.subscribe(data => expect(data).toEqual(initialModel));
+    service.baseEditionData$.subscribe(data => expect(data).toEqual(initialBaseDataModel));
   });
 
   it('should return saved data', () => {
     const data = {} as BaseEditionData;
     data.editionPrefix = 'test';
     data.extendedEditions = ['aaa'];
-    localStorage.setItem('ghse-data-base', JSON.stringify(data));
-    const service = new BaseEditionDataService(new ModelFactory<BaseEditionData>());
+    localStorage.setItem('ghse-data/base', JSON.stringify(data));
+    const service = new BaseEditionDataService(new GhseDataStorageService());
     service.baseEditionData$.subscribe(model => {
       expect(model).toEqual(data);
     });

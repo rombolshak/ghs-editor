@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ScenarioDetailsService } from '@app/core/services/scenario-details.service';
+import { ScenarioDetailsService } from '@app/core/services/business/scenario-details.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { takeUntil } from 'rxjs';
-import { initialScenario, Scenario } from '@app/core/services/models/scenario.models';
+import { GeneralScenarioInfo } from '@app/core/models/scenario.models';
+import { ScenarioDetailsServiceFactory } from '@app/core/services/business/scenario-details-service.factory';
 
 @Component({
   selector: 'ghse-scenario-detail',
@@ -14,20 +15,23 @@ import { initialScenario, Scenario } from '@app/core/services/models/scenario.mo
 })
 export class ScenarioDetailComponent implements OnInit {
   constructor(
-    private detailsService: ScenarioDetailsService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private destroy$: TuiDestroyService
+    private readonly detailsServiceFactory: ScenarioDetailsServiceFactory,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+    private readonly destroy$: TuiDestroyService
   ) {}
 
-  model: Scenario = initialScenario;
+  model: GeneralScenarioInfo | undefined;
+
   get areStepsDisabled(): boolean {
-    return this.model.id === '';
+    return this.model?.index === 'new';
   }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.detailsService.initializeWithId(id!);
-    this.detailsService.scenarioDetails$?.pipe(takeUntil(this.destroy$)).subscribe(model => (this.model = model));
+    this.detailsService = this.detailsServiceFactory.create(id!);
+    this.detailsService.generalInfo$?.pipe(takeUntil(this.destroy$)).subscribe(model => (this.model = model));
   }
+
+  private detailsService: ScenarioDetailsService | undefined;
 }

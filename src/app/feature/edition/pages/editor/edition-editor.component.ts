@@ -5,11 +5,12 @@ import { TUI_DEFAULT_MATCHER, TuiDestroyService, tuiPure, TuiStringHandler } fro
 import { ConditionName } from '@ghs/game/model/Condition';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import { TuiAlertService, TuiDialogService, TuiNotification, TuiValueContentContext } from '@taiga-ui/core';
-import { BaseEditionData, BaseEditionDataService } from '@app/core/services/base-edition-data.service';
 import {
   AvailableEdition,
   PredefinedEditionsDataService,
 } from '@app/feature/edition/services/predefined-editions-data.service';
+import { BaseEditionData } from '@app/core/models/edition-base.models';
+import { BaseEditionDataService } from '@app/core/services/business/base-edition-data.service';
 
 @Component({
   selector: 'ghse-editor',

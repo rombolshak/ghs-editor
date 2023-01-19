@@ -1,8 +1,8 @@
 import { CanLoad, Route, UrlSegment, UrlTree } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { BaseEditionDataService } from '@app/core/services/base-edition-data.service';
 import { Injectable } from '@angular/core';
 import { TuiAlertService, TuiNotification } from '@taiga-ui/core';
+import { BaseEditionDataService } from '@app/core/services/business/base-edition-data.service';
 
 @Injectable({ providedIn: 'root' })
 export class EditionDataLoaderGuard implements CanLoad {

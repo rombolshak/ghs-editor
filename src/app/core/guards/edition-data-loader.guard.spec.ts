@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { EditionDataLoaderGuard } from '@app/core/guards/edition-data-loader.guard';
 import { Observable, of } from 'rxjs';
-import { BaseEditionData, BaseEditionDataService } from '@app/core/services/base-edition-data.service';
+import { BaseEditionData } from '@app/core/models/edition-base.models';
+import { BaseEditionDataService } from '@app/core/services/business/base-edition-data.service';
 
 class FakeDataService {
   baseEditionData$: Observable<BaseEditionData> | undefined;

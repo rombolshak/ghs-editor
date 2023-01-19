@@ -5,13 +5,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TuiAlertService, TuiHintModule, TuiTooltipModule } from '@taiga-ui/core';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
-import { BaseEditionData, BaseEditionDataService } from '@app/core/services/base-edition-data.service';
+import { BaseEditionDataService } from '@app/core/services/business/base-edition-data.service';
 import {
   AvailableEdition,
   PredefinedEditionsDataService,
 } from '@app/feature/edition/services/predefined-editions-data.service';
 import { SharedModule } from '@app/shared/shared.module';
 import { AfterContentInit, Component, TemplateRef, ViewChild } from '@angular/core';
+import { BaseEditionData } from '@app/core/models/edition-base.models';
 
 const edition1 = new AvailableEdition('Test 1', 'ed1');
 const edition2 = new AvailableEdition('Test 2', 'ed2');
@@ -178,7 +179,7 @@ describe('EditionEditorComponent', () => {
       conditions: ['wfp'],
     });
     component.save();
-    expect(localStorage.getItem('ghse-data-base')).toBeTruthy();
+    expect(localStorage.getItem('ghse-data/base')).toBeTruthy();
     expect(alertSpy).toHaveBeenCalled();
     expect(component.editionForm.touched).toBeFalse();
     expect(component.editionForm.valid).toBeTrue();
@@ -186,16 +187,16 @@ describe('EditionEditorComponent', () => {
   });
 
   it('should not delete data on dialog cancel', () => {
-    localStorage.setItem('ghse-data-base', 'test');
+    localStorage.setItem('ghse-data/base', 'test');
     const cancelButton = fixture.debugElement.query(By.css('[data-automation="clear-data-cancel"]'));
     cancelButton.nativeElement.click();
     fixture.detectChanges();
-    expect(localStorage.getItem('ghse-data-base')).toEqual('test');
+    expect(localStorage.getItem('ghse-data/base')).toEqual('test');
     localStorage.clear();
   });
 
   it('should delete all data on dialog confirmation', () => {
-    localStorage.setItem('ghse-data-base', 'test');
+    localStorage.setItem('ghse-data/base', 'test');
     const confirmButton = fixture.debugElement.query(By.css('[data-automation="clear-data-confirm"]'));
     confirmButton.nativeElement.click();
     fixture.detectChanges();
