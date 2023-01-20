@@ -4,7 +4,7 @@
 </div>
 <div class="page-content">
   <tui-stepper>
-    <button tuiStep routerLink="." routerLinkActive>General info</button>
+    <button tuiStep routerLink="." routerLinkActive [stepState]="model?.index ? 'pass' : 'normal'">General info</button>
     <button tuiStep routerLink="properties" routerLinkActive [disabled]="areStepsDisabled">Scenario properties</button>
     <button tuiStep routerLink="monsters" routerLinkActive [disabled]="areStepsDisabled">Monsters</button>
     <button tuiStep routerLink="rooms" routerLinkActive [disabled]="areStepsDisabled">Rooms</button>
