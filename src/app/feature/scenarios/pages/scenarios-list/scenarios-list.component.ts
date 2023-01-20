@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './scenarios-list.component.html',
   styleUrls: ['./scenarios-list.component.less'],
 })
-export class ScenariosListComponent {}
+export class ScenariosListComponent {
+  newScenarioId = crypto.randomUUID();
+}
