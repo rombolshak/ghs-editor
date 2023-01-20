@@ -1,4 +1,4 @@
-import { StorageEntity, StorageEntityList } from '@app/core/services/common/storage-entity';
+import { StorageEntity, StorageEntityList } from './storage-entity';
 import { switchMap } from 'rxjs';
 
 interface TestModel {

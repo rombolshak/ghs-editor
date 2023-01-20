@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { BaseEditionData, initialBaseDataModel } from '@app/core/models/edition-base.models';
-import { GhseDataStorageService } from '@app/core/services/business/ghse-data-storage.service';
+import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-storage.service';
 
 @Injectable({
   providedIn: 'root',

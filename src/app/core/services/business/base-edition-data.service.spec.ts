@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { BaseEditionDataService } from './base-edition-data.service';
 import { BaseEditionData, initialBaseDataModel } from '@app/core/models/edition-base.models';
-import { GhseDataStorageService } from '@app/core/services/business/ghse-data-storage.service';
+import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-storage.service';
 
 describe('BaseEditionDataService', () => {
   let service: BaseEditionDataService;

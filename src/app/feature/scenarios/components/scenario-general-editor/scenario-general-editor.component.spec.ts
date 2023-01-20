@@ -7,7 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { ScenarioDetailsService } from '@app/core/services/business/scenario-details.service';
-import { GhseDataStorageService } from '@app/core/services/business/ghse-data-storage.service';
+import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-storage.service';
 import { initialGeneralInfo } from '@app/core/models/scenario.models';
 import { TuiAlertService } from '@taiga-ui/core';
 

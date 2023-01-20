@@ -1,5 +1,5 @@
 import { GeneralScenarioInfo, initialScenario, Scenario } from '@app/core/models/scenario.models';
-import { GhseDataStorageService } from '@app/core/services/business/ghse-data-storage.service';
+import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-storage.service';
 import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
 import { TuiAlertService, TuiNotification } from '@taiga-ui/core';
 
@@ -30,6 +30,7 @@ export class ScenarioDetailsService {
 
   updateGeneralInfo(data: GeneralScenarioInfo) {
     const newModel = { ...this._model.value, generalInfo: data };
+    if (this._model.value.id === '') newModel.id = this.scenarioId;
     this.storageService.scenarios
       .withId(this.scenarioId)
       .set(newModel)
@@ -38,6 +39,12 @@ export class ScenarioDetailsService {
         switchMap(() => this._dataSaved$)
       )
       .subscribe();
+  }
+
+  updateOrder(newOrder: number) {
+    const newModel = { ...this._model.value, order: newOrder };
+    this.storageService.scenarios.withId(this.scenarioId).set(newModel).subscribe();
+    console.log(`${this.scenarioId} new order ${newOrder}`);
   }
 
   private _dataSaved$ = this.alertService.open('Data saved', { status: TuiNotification.Success });

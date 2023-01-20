@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { StorageEntity, StorageEntityList } from '@app/core/services/common/storage-entity';
+import { StorageEntity, StorageEntityList } from './storage-entity';
 import { Scenario } from '@app/core/models/scenario.models';
 import { BaseEditionData } from '@app/core/models/edition-base.models';
 
