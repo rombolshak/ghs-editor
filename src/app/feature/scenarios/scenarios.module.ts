@@ -6,7 +6,7 @@ import { ScenariosServicesModule } from './scenarios-services.module';
 import { ScenariosListComponent } from './pages/scenarios-list/scenarios-list.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { ScenarioDetailComponent } from './pages/scenario-detail/scenario-detail.component';
-import { TuiCheckboxLabeledModule, TuiStepperModule } from '@taiga-ui/kit';
+import { TuiCheckboxLabeledModule, TuiStepperModule, TuiTilesModule } from '@taiga-ui/kit';
 import { ScenarioGeneralEditorComponent } from './components/scenario-general-editor/scenario-general-editor.component';
 import { ScenarioPropertiesEditorComponent } from './components/scenario-properties-editor/scenario-properties-editor.component';
 import { ScenarioMonstersEditorComponent } from './components/scenario-monsters-editor/scenario-monsters-editor.component';
@@ -32,6 +32,7 @@ import { ScenarioSectionsEditorComponent } from './components/scenario-sections-
     SharedModule,
     TuiStepperModule,
     TuiCheckboxLabeledModule,
+    TuiTilesModule,
   ],
 })
 export class ScenariosModule {}

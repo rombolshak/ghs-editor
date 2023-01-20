@@ -6,4 +6,52 @@
   .no-items {
     text-align: center;
   }
+
+  .tiles {
+    gap: 1rem;
+    grid: auto-flow minmax(5rem, auto) / repeat(3, 1fr);
+  }
+
+  .tile:before {
+    content: 'Drop here';
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    color: var(--tui-base-04);
+    border-radius: var(--tui-radius-l);
+    border: 2px dashed var(--tui-base-03);
+  }
+
+  .scenario {
+    .transition(box-shadow);
+    height: 100%;
+    padding: 1rem;
+    background: var(--tui-base-01);
+    box-sizing: border-box;
+    border-radius: var(--tui-radius-l);
+    border: 1px solid var(--tui-base-03);
+    overflow: hidden;
+
+    tui-tile._dragged & {
+      .shadow(5);
+    }
+  }
+}
+
+.handle {
+  .transition(opacity);
+  position: absolute;
+  right: 0.75rem;
+  top: 1rem;
+  background: var(--tui-base-01);
+  color: var(--tui-text-01);
+  opacity: 0;
+  cursor: move;
+
+  tui-tiles:not(._dragged) tui-tile:hover &,
+  tui-tile._dragged & {
+    opacity: 0.7;
+  }
 }
