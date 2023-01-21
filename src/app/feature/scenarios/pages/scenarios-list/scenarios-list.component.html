@@ -1,19 +1,15 @@
-<div class="page-header">
+<div class="page-header" [class.with-button]="scenarios.length !== 0">
   <h2 class="tui-text_h2">Scenarios</h2>
+  <button tuiButton size="s" icon="tuiIconPlusLarge" [routerLink]="newScenarioId" *ngIf="scenarios.length !== 0">
+    Add scenario
+  </button>
 </div>
 <div class="page-content">
   <tui-loader size="xxl" [showLoader]="isLoading" [overlay]="true">
     <div class="no-items" *ngIf="scenarios.length === 0">
       <h3 class="tui-text_h3">No scenarios yet</h3>
       <p class="tui-text_body-l">Add a scenario using button below or by importing existig json in the main menu</p>
-      <button
-        tuiButton
-        size="m"
-        icon="tuiIconPlusLarge"
-        [routerLink]="newScenarioId"
-        [queryParams]="{ order: scenarios.length }">
-        Add scenario
-      </button>
+      <button tuiButton size="xl" icon="tuiIconPlusLarge" [routerLink]="newScenarioId">Add scenario</button>
     </div>
 
     <div class="items" *ngIf="scenarios.length !== 0 && scenariosOrder">
@@ -23,8 +19,7 @@
           *ngFor="let scenario of scenarios; let index = index"
           [style.order]="scenariosOrder.get(index)">
           <div class="scenario">
-            {{ scenario.generalInfo.name }}
-            <tui-svg tuiTileHandle src="tuiIconDragLarge" class="handle"></tui-svg>
+            #{{ scenario.generalInfo.index }}: {{ scenario.generalInfo.name }}
             <tui-svg tuiTileHandle src="tuiIconDragLarge" class="handle"></tui-svg>
           </div>
         </tui-tile>

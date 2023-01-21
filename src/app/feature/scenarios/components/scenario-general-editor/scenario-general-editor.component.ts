@@ -25,11 +25,6 @@ export class ScenarioGeneralEditorComponent {
         this.reset();
       });
     });
-
-    activatedRoute.queryParamMap.pipe(takeUntil(this.destroy$)).subscribe(data => {
-      const order = data.get('order');
-      if (order) this.scenarioOrder = parseInt(order);
-    });
   }
 
   form = this.formBuilder.group({
@@ -41,7 +36,6 @@ export class ScenarioGeneralEditorComponent {
 
   save() {
     this.detailsService?.updateGeneralInfo(this.form.getRawValue());
-    if (this.scenarioOrder) this.detailsService?.updateOrder(this.scenarioOrder);
   }
 
   reset() {
@@ -52,5 +46,4 @@ export class ScenarioGeneralEditorComponent {
 
   private detailsService: ScenarioDetailsService | undefined;
   private savedModel: GeneralScenarioInfo | undefined;
-  private scenarioOrder: number | undefined;
 }

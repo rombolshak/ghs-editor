@@ -10,6 +10,7 @@ import { ScenarioDetailsService } from '@app/core/services/business/scenario-det
 import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-storage.service';
 import { initialGeneralInfo } from '@app/core/models/scenario.models';
 import { TuiAlertService } from '@taiga-ui/core';
+import { ScenariosListService } from '@app/core/services/business/scenarios-list.service';
 
 describe('ScenarioGeneralEditorComponent', () => {
   let component: ScenarioGeneralEditorComponent;
@@ -18,6 +19,7 @@ describe('ScenarioGeneralEditorComponent', () => {
 
   beforeEach(async () => {
     detailsService = new ScenarioDetailsService(
+      TestBed.inject(ScenariosListService),
       TestBed.inject(GhseDataStorageService),
       TestBed.inject(TuiAlertService),
       'test'

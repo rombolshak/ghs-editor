@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ScenariosListService } from '@app/core/services/business/scenarios-list.service';
 import { Scenario } from '@app/core/models/scenario.models';
-import { BehaviorSubject, finalize, max } from 'rxjs';
 
 @Component({
   selector: 'ghse-scenarios-list',
@@ -26,7 +25,6 @@ export class ScenariosListComponent implements OnInit {
   }
 
   reorder($event: Map<number, number>) {
-    const newMap = new Map(this.scenarios.map((scenario, index) => [scenario.id, $event.get(index)!]));
-    this.scenariosService.setScenariosOrder(newMap);
+    this.scenariosService.setScenariosOrder($event);
   }
 }

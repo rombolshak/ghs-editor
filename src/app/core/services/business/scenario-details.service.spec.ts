@@ -4,6 +4,7 @@ import { ScenarioDetailsService } from './scenario-details.service';
 import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-storage.service';
 import { initialScenario } from '@app/core/models/scenario.models';
 import { TuiAlertService } from '@taiga-ui/core';
+import { ScenariosListService } from '@app/core/services/business/scenarios-list.service';
 
 describe('ScenarioDetailsService', () => {
   let service: ScenarioDetailsService;
@@ -11,6 +12,7 @@ describe('ScenarioDetailsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = new ScenarioDetailsService(
+      TestBed.inject(ScenariosListService),
       TestBed.inject(GhseDataStorageService),
       TestBed.inject(TuiAlertService),
       'test'

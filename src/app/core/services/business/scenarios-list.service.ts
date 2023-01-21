@@ -1,35 +1,43 @@
 import { Injectable } from '@angular/core';
 import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-storage.service';
-import { BehaviorSubject, forkJoin, Observable, switchMap } from 'rxjs';
+import { BehaviorSubject, forkJoin, map, Observable, switchMap } from 'rxjs';
 import { Scenario } from '@app/core/models/scenario.models';
-import { ScenarioDetailsServiceFactory } from '@app/core/services/business/scenario-details-service.factory';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ScenariosListService {
-  constructor(
-    private readonly storage: GhseDataStorageService,
-    private readonly detailsFactory: ScenarioDetailsServiceFactory
-  ) {
+  constructor(private readonly storage: GhseDataStorageService) {
     this._model = new BehaviorSubject<Array<Scenario>>([]);
-    this.storage.scenarios
-      .getAllIds()
-      .pipe(switchMap(ids => forkJoin(ids.map(id => this.storage.scenarios.withId(id).get()))))
-      .subscribe(data => {
-        this._model.next(data.filter(s => s !== null).map<Scenario>(s => s!));
-      });
-
     this.scenarios$ = this._model.asObservable();
+    this.totalCount$ = this._model.pipe(map(model => model.length));
+    this.reload();
   }
 
   scenarios$: Observable<Array<Scenario>>;
 
-  setScenariosOrder(order: Map<string, number>): void {
+  totalCount$: Observable<number>;
+
+  reload() {
+    console.log('reload list');
+    this.storage.scenarios
+      .getAllIds()
+      .pipe(switchMap(ids => forkJoin(ids.map(id => this.storage.scenarios.withId(id).get()))))
+      .subscribe(data => {
+        console.log(`loaded ${data.length} scenarios`);
+        this._model.next(data.filter(s => s !== null).map<Scenario>(s => s!));
+      });
+  }
+
+  setScenariosOrder(order: Map<number, number>): void {
+    const scenariosCopy = Array.from(this._model.value);
     order.forEach((order, id) => {
-      this.detailsFactory.create(id).updateOrder(order);
+      const newScenarioModel = { ...this._model.value.at(id), order: order } as Scenario;
+      this.storage.scenarios.withId(newScenarioModel.id).set(newScenarioModel).subscribe();
+      scenariosCopy.at(id)!.order = order;
     });
-    this._model.next(this._model.value);
+
+    this._model.next(scenariosCopy);
   }
 
   private _model: BehaviorSubject<Array<Scenario>>;
