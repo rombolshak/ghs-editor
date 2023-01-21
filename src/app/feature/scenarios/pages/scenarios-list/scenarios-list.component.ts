@@ -27,4 +27,8 @@ export class ScenariosListComponent implements OnInit {
   reorder($event: Map<number, number>) {
     this.scenariosService.setScenariosOrder($event);
   }
+
+  removeScenario(scenario: Scenario) {
+    this.scenariosService.remove(scenario.id);
+  }
 }

@@ -21,6 +21,7 @@
           <div class="scenario">
             #{{ scenario.generalInfo.index }}: {{ scenario.generalInfo.name }}
             <tui-svg tuiTileHandle src="tuiIconDragLarge" class="handle"></tui-svg>
+            <tui-svg src="tuiIconTrashLarge" class="remove" (click)="removeScenario(scenario)"></tui-svg>
           </div>
         </tui-tile>
       </tui-tiles>

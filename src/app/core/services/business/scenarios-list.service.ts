@@ -41,4 +41,12 @@ export class ScenariosListService {
   }
 
   private _model: BehaviorSubject<Array<Scenario>>;
+
+  remove(id: string) {
+    this.storage.scenarios.withId(id).remove().subscribe();
+    const scenariosCopy = Array.from(this._model.value);
+    const toRemove = scenariosCopy.findIndex(s => s.id === id);
+    scenariosCopy.splice(toRemove, 1);
+    this._model.next(scenariosCopy);
+  }
 }
