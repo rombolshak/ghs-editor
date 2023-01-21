@@ -24,7 +24,7 @@ export class ScenarioDetailsService {
 
     this.generalInfo$ = this._model.asObservable().pipe(map(model => model.generalInfo));
     this.exists$ = this._model.asObservable().pipe(map(model => model.generalInfo.index !== ''));
-    this.listService.totalCount$.subscribe(value => (this._totalCount = value));
+    this.listService.maxOrder$.subscribe(value => (this._maxOrder = value));
   }
 
   exists$: Observable<boolean>;
@@ -34,7 +34,7 @@ export class ScenarioDetailsService {
   updateGeneralInfo(data: GeneralScenarioInfo) {
     const newModel = { ...this._model.value, generalInfo: data };
     if (this._model.value.id === '') newModel.id = this.scenarioId;
-    if (this._model.value.order === 0) newModel.order = this._totalCount + 1;
+    if (this._model.value.order === 0) newModel.order = this._maxOrder + 1;
     this.storageService.scenarios
       .withId(this.scenarioId)
       .set(newModel)
@@ -46,13 +46,7 @@ export class ScenarioDetailsService {
       .subscribe();
   }
 
-  updateOrder(newOrder: number) {
-    const newModel = { ...this._model.value, order: newOrder };
-    this.storageService.scenarios.withId(this.scenarioId).set(newModel).subscribe();
-    console.log(`${this.scenarioId} new order ${newOrder}`);
-  }
-
   private _dataSaved$ = this.alertService.open('Data saved', { status: TuiNotification.Success });
   private _model: BehaviorSubject<Scenario>;
-  private _totalCount = 0;
+  private _maxOrder = 0;
 }

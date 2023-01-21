@@ -10,13 +10,13 @@ export class ScenariosListService {
   constructor(private readonly storage: GhseDataStorageService) {
     this._model = new BehaviorSubject<Array<Scenario>>([]);
     this.scenarios$ = this._model.asObservable();
-    this.totalCount$ = this._model.pipe(map(model => model.length));
+    this.maxOrder$ = this._model.pipe(map(model => Math.max(...model.map(s => s.order), 0)));
     this.reload();
   }
 
   scenarios$: Observable<Array<Scenario>>;
 
-  totalCount$: Observable<number>;
+  maxOrder$: Observable<number>;
 
   reload() {
     console.log('reload list');
