@@ -18,7 +18,7 @@
           class="tile"
           *ngFor="let scenario of scenarios; let index = index"
           [style.order]="scenariosOrder.get(index)">
-          <div class="scenario">
+          <div class="scenario" [routerLink]="scenario.id">
             #{{ scenario.generalInfo.index }}: {{ scenario.generalInfo.name }}
             <tui-svg tuiTileHandle src="tuiIconDragLarge" class="handle"></tui-svg>
             <tui-svg src="tuiIconTrashLarge" class="remove" (click)="removeScenario(scenario)"></tui-svg>
