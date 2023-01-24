@@ -9,8 +9,9 @@ import { of } from 'rxjs';
 import { ScenarioDetailsService } from '@app/core/services/business/scenario-details.service';
 import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-storage.service';
 import { initialGeneralInfo } from '@app/core/models/scenario.models';
-import { TuiAlertService } from '@taiga-ui/core';
+import { TuiAlertOptions, TuiAlertService } from '@taiga-ui/core';
 import { ScenariosListService } from '@app/core/services/business/scenarios-list.service';
+import { TuiIdService } from '@taiga-ui/cdk';
 
 describe('ScenarioGeneralEditorComponent', () => {
   let component: ScenarioGeneralEditorComponent;
@@ -18,10 +19,11 @@ describe('ScenarioGeneralEditorComponent', () => {
   let detailsService: ScenarioDetailsService;
 
   beforeEach(async () => {
+    const storage = new GhseDataStorageService();
     detailsService = new ScenarioDetailsService(
-      TestBed.inject(ScenariosListService),
-      TestBed.inject(GhseDataStorageService),
-      TestBed.inject(TuiAlertService),
+      new ScenariosListService(storage),
+      storage,
+      new TuiAlertService({} as TuiAlertOptions<any>, new TuiIdService()),
       'test'
     );
     await TestBed.configureTestingModule({

@@ -25,6 +25,7 @@ export class ScenariosListService {
       .pipe(switchMap(ids => forkJoin(ids.map(id => this.storage.scenarios.withId(id).get()))))
       .subscribe(data => {
         console.log(`loaded ${data.length} scenarios`);
+        console.log(data);
         this._model.next(data.filter(s => s !== null).map<Scenario>(s => s!));
       });
   }
