@@ -19,14 +19,11 @@ export class ScenariosListService {
   maxOrder$: Observable<number>;
 
   reload() {
-    console.log('reload list');
     this.storage.scenarios
       .getAllIds()
       .pipe(switchMap(ids => forkJoin(ids.map(id => this.storage.scenarios.withId(id).get()))))
       .subscribe(data => {
-        console.log(`loaded ${data.length} scenarios`);
-        console.log(data);
-        this._model.next(data.filter(s => s !== null).map<Scenario>(s => s!));
+        this._model.next(data.filter((s): s is Scenario => s !== null));
       });
   }
 

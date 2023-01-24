@@ -20,8 +20,6 @@ describe('ScenarioDetailsService', () => {
     service = new ScenarioDetailsService(listService, storageService, TestBed.inject(TuiAlertService), 'test');
   });
 
-  afterEach(() => {});
-
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
@@ -35,7 +33,7 @@ describe('ScenarioDetailsService', () => {
   });
 
   it('should not save initial model to storage', done => {
-    service.generalInfo$?.subscribe(_ => {
+    service.generalInfo$?.subscribe(() => {
       expect(localStorage.getItem('ghse-data/scenarios/test')).toBeNull();
       done();
     });
@@ -78,8 +76,8 @@ describe('ScenarioDetailsService', () => {
         expect(scenarios.length).toBe(4);
         const s = scenarios.find(s => s.id === 'test');
         expect(s).toBeDefined();
-        expect(s!.order).toBe(6);
-        expect(s!.id).toBe('test');
+        expect(s?.order).toBe(6);
+        expect(s?.id).toBe('test');
       })
       .unsubscribe();
   });
