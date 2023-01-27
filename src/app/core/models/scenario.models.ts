@@ -8,6 +8,7 @@ export interface Scenario {
   order: number;
 
   generalInfo: GeneralScenarioInfo;
+  properties: ScenarioProperties;
 }
 
 export interface GeneralScenarioInfo {
@@ -49,15 +50,24 @@ export interface ScenarioProperties {
   objectives: ObjectiveData[];
 }
 
-export const initialGeneralInfo: GeneralScenarioInfo = {
+export const initialGeneralInfo = {
   index: '',
   name: '',
   group: '',
   initial: false,
-};
+} satisfies GeneralScenarioInfo;
 
-export const initialScenario: Scenario = {
+export const initialProperties = {
+  blocks: [],
+  unlocks: [],
+  requires: [],
+  objectives: [],
+  lootDeckConfig: {},
+} satisfies ScenarioProperties;
+
+export const initialScenario = {
   id: '',
   order: 0,
   generalInfo: initialGeneralInfo,
-};
+  properties: initialProperties,
+} satisfies Scenario;
