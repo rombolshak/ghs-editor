@@ -3,7 +3,10 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { GeneralScenarioInfo } from '@app/core/models/scenario.models';
-import { ScenarioDetailsBaseComponent } from '@app/feature/scenarios/components/scenario-details-base.component';
+import {
+  buildForm,
+  ScenarioDetailsBaseComponent,
+} from '@app/feature/scenarios/components/scenario-details-base.component';
 
 @Component({
   selector: 'ghse-scenario-general-editor',
@@ -13,11 +16,11 @@ import { ScenarioDetailsBaseComponent } from '@app/feature/scenarios/components/
 })
 export class ScenarioGeneralEditorComponent extends ScenarioDetailsBaseComponent<GeneralScenarioInfo> {
   constructor(activatedRoute: ActivatedRoute, formBuilder: NonNullableFormBuilder, destroy$: TuiDestroyService) {
-    const form = formBuilder.group({
+    const form = buildForm<GeneralScenarioInfo>({
       index: ['', Validators.required],
-      group: '',
+      group: [''],
       name: ['', Validators.required],
-      initial: false,
+      initial: [false],
     });
 
     super(

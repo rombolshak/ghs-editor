@@ -1,4 +1,4 @@
-import { GeneralScenarioInfo, initialScenario, Scenario } from '@app/core/models/scenario.models';
+import { GeneralScenarioInfo, initialScenario, Scenario, ScenarioProperties } from '@app/core/models/scenario.models';
 import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-storage.service';
 import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
 import { TuiAlertService, TuiNotification } from '@taiga-ui/core';
@@ -22,19 +22,31 @@ export class ScenarioDetailsService {
         }
       });
 
-    this.generalInfo$ = this._model.asObservable().pipe(map(model => model.generalInfo));
     this.exists$ = this._model.asObservable().pipe(map(model => model.generalInfo.index !== ''));
     this.listService.maxOrder$.subscribe(value => (this._maxOrder = value));
+
+    this.generalInfo$ = this._model.asObservable().pipe(map(model => model.generalInfo));
+    this.properties$ = this._model.asObservable().pipe(map(model => model.properties));
   }
 
   exists$: Observable<boolean>;
 
   generalInfo$: Observable<GeneralScenarioInfo>;
 
+  properties$: Observable<ScenarioProperties>;
+
   updateGeneralInfo(data: GeneralScenarioInfo) {
     const newModel = { ...this._model.value, generalInfo: data };
     if (this._model.value.id === '') newModel.id = this.scenarioId;
     if (this._model.value.order === 0) newModel.order = this._maxOrder + 1;
+    this.notifyUpdated(newModel);
+  }
+
+  updateProperties(data: ScenarioProperties) {
+    this.notifyUpdated({ ...this._model.value, properties: data });
+  }
+
+  private notifyUpdated(newModel: Scenario) {
     this.storageService.scenarios
       .withId(this.scenarioId)
       .set(newModel)

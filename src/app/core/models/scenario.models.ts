@@ -46,8 +46,8 @@ export interface ScenarioProperties {
   unlocks: string[];
   blocks: string[];
   requires: string[][];
-  lootDeckConfig: LootDeckConfig;
-  objectives: ObjectiveData[];
+  // lootDeckConfig: LootDeckConfig;
+  // objectives: ObjectiveData[];
 }
 
 export const initialGeneralInfo = {
@@ -61,8 +61,8 @@ export const initialProperties = {
   blocks: [],
   unlocks: [],
   requires: [],
-  objectives: [],
-  lootDeckConfig: {},
+  // objectives: [],
+  // lootDeckConfig: {},
 } satisfies ScenarioProperties;
 
 export const initialScenario = {

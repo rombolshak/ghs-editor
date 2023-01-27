@@ -1,13 +1,34 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ActivatedRoute } from '@angular/router';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormControlState, FormGroup, ValidatorFn } from '@angular/forms';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { Observable, takeUntil } from 'rxjs';
 import { ScenarioDetailsService } from '@app/core/services/business/scenario-details.service';
 
 export type ControlsOf<T extends Record<string, any>> = {
-  [K in keyof T]: T[K] extends Record<any, any> ? FormGroup<ControlsOf<T[K]>> : FormControl<T[K]>;
+  [K in keyof T]: FormControl<T[K]>;
 };
+
+type GroupConfig<T> = {
+  [K in keyof T]: ControlConfig<T, K>;
+};
+
+type ControlConfig<T, K extends keyof T> = readonly [
+  initialValue: T[K] | FormControlState<T[K]>,
+  validators?: ValidatorFn | ValidatorFn[]
+];
+
+export function buildForm<T extends Record<any, any>>(config: GroupConfig<T>): FormGroup<ControlsOf<T>> {
+  return new FormGroup(
+    Object.entries(config).reduce(
+      (acc, [key, [value, validators]]: [keyof T, ControlConfig<T, keyof T>]) => ({
+        ...acc,
+        [key]: new FormControl(value, { validators, nonNullable: true }),
+      }),
+      {} as ControlsOf<T>
+    )
+  );
+}
 
 export abstract class ScenarioDetailsBaseComponent<TDetails extends Record<string, any>> {
   protected constructor(

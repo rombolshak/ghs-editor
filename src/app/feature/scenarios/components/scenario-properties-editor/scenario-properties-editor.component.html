@@ -1,1 +1,18 @@
-<p>scenario-properties-editor works!</p>
+<form [formGroup]="form" (ngSubmit)="save()">
+  <label tuiLabel="Scenario blocks these:" class="form-row">
+    <tui-input-tag [formControl]="form.controls.blocks" [tuiTextfieldLabelOutside]="true">
+      Scenario blocks
+      <tui-data-list-wrapper *tuiDataList></tui-data-list-wrapper>
+    </tui-input-tag>
+    <tui-error [formControl]="form.controls.blocks" [error]="[] | tuiFieldError | async"></tui-error>
+  </label>
+
+  <div class="form-row buttons">
+    <div>
+      <button tuiButton type="submit" [disabled]="!form.valid || form.pristine">Save</button>
+      <button tuiButton type="button" appearance="outline" (click)="reset()" data-automation="reset-button">
+        Reset
+      </button>
+    </div>
+  </div>
+</form>
