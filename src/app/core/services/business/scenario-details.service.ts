@@ -3,6 +3,7 @@ import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-sto
 import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
 import { TuiAlertService, TuiNotification } from '@taiga-ui/core';
 import { ScenariosListService } from '@app/core/services/business/scenarios-list.service';
+import { ScenarioHelper } from '@app/core/services/business/scenario.helper';
 
 export class ScenarioDetailsService {
   constructor(
@@ -22,12 +23,15 @@ export class ScenarioDetailsService {
         }
       });
 
+    this.businessId$ = this._model.asObservable().pipe(map(model => ScenarioHelper.getBusinessId(model)));
     this.exists$ = this._model.asObservable().pipe(map(model => model.generalInfo.index !== ''));
     this.listService.maxOrder$.subscribe(value => (this._maxOrder = value));
 
     this.generalInfo$ = this._model.asObservable().pipe(map(model => model.generalInfo));
     this.properties$ = this._model.asObservable().pipe(map(model => model.properties));
   }
+
+  businessId$: Observable<string>;
 
   exists$: Observable<boolean>;
 

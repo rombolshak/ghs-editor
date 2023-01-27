@@ -1,8 +1,15 @@
 <form [formGroup]="form" (ngSubmit)="save()">
   <label tuiLabel="Scenario blocks these:" class="form-row">
-    <tui-input-tag [formControl]="form.controls.blocks" [tuiTextfieldLabelOutside]="true">
+    <tui-input-tag
+      [formControl]="form.controls.blocks"
+      [tuiTextfieldLabelOutside]="true"
+      (searchChange)="onSearchChange($event)">
       Scenario blocks
-      <tui-data-list-wrapper *tuiDataList></tui-data-list-wrapper>
+      <tui-data-list-wrapper
+        [itemContent]="scenarioName"
+        *tuiDataList
+        [items]="filteredItems$ | async"
+        emptyContent="No such scenario currently exists. You can insert it now but be sure to create said scenario later."></tui-data-list-wrapper>
     </tui-input-tag>
     <tui-error [formControl]="form.controls.blocks" [error]="[] | tuiFieldError | async"></tui-error>
   </label>

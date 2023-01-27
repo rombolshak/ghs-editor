@@ -8,6 +8,6 @@ export class ScenarioHelper {
   }
 
   static getFullName(scenario: Scenario): string {
-    return `${ScenarioHelper.getBusinessId(scenario)}: ${scenario.generalInfo.name}`;
+    return `#${ScenarioHelper.getBusinessId(scenario)}: ${scenario.generalInfo.name}`;
   }
 }

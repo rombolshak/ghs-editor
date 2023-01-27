@@ -41,6 +41,7 @@ export abstract class ScenarioDetailsBaseComponent<TDetails extends Record<strin
     activatedRoute.data.pipe(takeUntil(this.destroy$)).subscribe(({ detailsService }) => {
       this.detailsService = detailsService;
       if (this.detailsService) {
+        this.detailsService.businessId$.subscribe(data => (this.currentScenarioId = data));
         details$(this.detailsService).subscribe(data => {
           this.savedModel = data;
           this.reset();
@@ -48,6 +49,8 @@ export abstract class ScenarioDetailsBaseComponent<TDetails extends Record<strin
       }
     });
   }
+
+  protected currentScenarioId = '';
 
   save() {
     if (this.detailsService) {
