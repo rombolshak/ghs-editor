@@ -1,5 +1,40 @@
 <form [formGroup]="form" (ngSubmit)="save()">
-  <label tuiLabel="Scenario blocks these:" class="form-row">
+  <label tuiLabel="Scenario requirements:" class="form-row">
+    <div class="multi-field">
+      <ng-container *ngFor="let requirement of form.controls.requires.controls; let i = index">
+        <tui-input-tag
+          class="requirement"
+          [formControl]="requirement"
+          [tuiTextfieldLabelOutside]="true"
+          (searchChange)="onSearchChange($event)">
+          Scenario requires
+          <tui-data-list-wrapper
+            [itemContent]="scenarioName"
+            *tuiDataList
+            [items]="filteredItems$ | async"
+            emptyContent="No such scenario currently exists. You can insert it now but be sure to create said scenario later."></tui-data-list-wrapper>
+        </tui-input-tag>
+        <span *ngIf="i === 0" class="separator">-- OR --</span>
+      </ng-container>
+    </div>
+  </label>
+
+  <label tuiLabel="Scenario unlocks:" class="form-row">
+    <tui-input-tag
+      [formControl]="form.controls.unlocks"
+      [tuiTextfieldLabelOutside]="true"
+      (searchChange)="onSearchChange($event)">
+      Scenario unlocks
+      <tui-data-list-wrapper
+        [itemContent]="scenarioName"
+        *tuiDataList
+        [items]="filteredItems$ | async"
+        emptyContent="Be sure to create said scenario later."></tui-data-list-wrapper>
+    </tui-input-tag>
+    <tui-error [formControl]="form.controls.unlocks" [error]="[] | tuiFieldError | async"></tui-error>
+  </label>
+
+  <label tuiLabel="Scenario blocks:" class="form-row">
     <tui-input-tag
       [formControl]="form.controls.blocks"
       [tuiTextfieldLabelOutside]="true"

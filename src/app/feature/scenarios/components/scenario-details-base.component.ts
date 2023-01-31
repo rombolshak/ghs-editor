@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ActivatedRoute } from '@angular/router';
-import { FormControl, FormControlState, FormGroup, ValidatorFn } from '@angular/forms';
+import { FormArray, FormControl, FormControlState, FormGroup, ValidatorFn } from '@angular/forms';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { Observable, takeUntil } from 'rxjs';
 import { ScenarioDetailsService } from '@app/core/services/business/scenario-details.service';
 
 export type ControlsOf<T extends Record<string, any>> = {
-  [K in keyof T]: FormControl<T[K]>;
+  [K in keyof T]: T[K] extends Array<Array<infer A>> ? FormArray<FormControl<A[]>> : FormControl<T[K]>;
 };
 
 type GroupConfig<T> = {
   [K in keyof T]: ControlConfig<T, K>;
 };
 
-type ControlConfig<T, K extends keyof T> = readonly [
+export type ControlConfig<T, K extends keyof T> = readonly [
   initialValue: T[K] | FormControlState<T[K]>,
   validators?: ValidatorFn | ValidatorFn[]
 ];

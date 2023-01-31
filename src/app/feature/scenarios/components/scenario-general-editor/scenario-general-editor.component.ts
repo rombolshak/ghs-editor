@@ -15,7 +15,7 @@ import {
   providers: [{ provide: TuiDestroyService }],
 })
 export class ScenarioGeneralEditorComponent extends ScenarioDetailsBaseComponent<GeneralScenarioInfo> {
-  constructor(activatedRoute: ActivatedRoute, formBuilder: NonNullableFormBuilder, destroy$: TuiDestroyService) {
+  constructor(activatedRoute: ActivatedRoute, destroy$: TuiDestroyService) {
     const form = buildForm<GeneralScenarioInfo>({
       index: ['', Validators.required],
       group: [''],
