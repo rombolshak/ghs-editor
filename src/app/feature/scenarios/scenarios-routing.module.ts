@@ -10,6 +10,7 @@ import { ScenarioRulesEditorComponent } from '@app/feature/scenarios/components/
 import { ScenarioSectionsEditorComponent } from '@app/feature/scenarios/components/scenario-sections-editor/scenario-sections-editor.component';
 import { NewScenarioStepsGuard } from '@app/feature/scenarios/services/new-scenario-steps.guard';
 import { ScenarioDetailsResolver } from '@app/feature/scenarios/services/scenario-details.resolver';
+import { ScenarioObjectivesComponent } from '@app/feature/scenarios/components/scenario-objectives/scenario-objectives.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,13 @@ const routes: Routes = [
       {
         path: 'properties',
         component: ScenarioPropertiesEditorComponent,
+        resolve: {
+          detailsService: ScenarioDetailsResolver,
+        },
+      },
+      {
+        path: 'objectives',
+        component: ScenarioObjectivesComponent,
         resolve: {
           detailsService: ScenarioDetailsResolver,
         },

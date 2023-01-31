@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NonNullableFormBuilder } from '@angular/forms';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { ScenarioDetailsBaseComponent } from '@app/feature/scenarios/components/scenario-details-base.component';
-import { Scenario, ScenarioProperties } from '@app/core/models/scenario.models';
-import { ObjectiveData } from '@ghs/game/model/data/ObjectiveData';
-import { LootDeckConfig } from '@ghs/game/model/Loot';
+import { ScenarioProperties } from '@app/core/models/scenario.models';
 import { ScenariosListService } from '@app/core/services/business/scenarios-list.service';
 import { Observable, of, startWith, Subject, switchMap, takeUntil } from 'rxjs';
 import { ScenarioHelper } from '@app/core/services/business/scenario.helper';
@@ -17,6 +15,7 @@ import { TuiValueContentContext } from '@taiga-ui/core';
   templateUrl: './scenario-properties-editor.component.html',
   styleUrls: ['./scenario-properties-editor.component.less'],
   providers: [{ provide: TuiDestroyService }],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScenarioPropertiesEditorComponent
   extends ScenarioDetailsBaseComponent<ScenarioProperties>

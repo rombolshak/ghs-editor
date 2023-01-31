@@ -13,6 +13,7 @@ import { ScenarioMonstersEditorComponent } from './components/scenario-monsters-
 import { ScenarioRoomsEditorComponent } from './components/scenario-rooms-editor/scenario-rooms-editor.component';
 import { ScenarioRulesEditorComponent } from './components/scenario-rules-editor/scenario-rules-editor.component';
 import { ScenarioSectionsEditorComponent } from './components/scenario-sections-editor/scenario-sections-editor.component';
+import { ScenarioObjectivesComponent } from './components/scenario-objectives/scenario-objectives.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ScenarioSectionsEditorComponent } from './components/scenario-sections-
     ScenarioRoomsEditorComponent,
     ScenarioRulesEditorComponent,
     ScenarioSectionsEditorComponent,
+    ScenarioObjectivesComponent,
   ],
   imports: [
     CommonModule,
