@@ -4,8 +4,16 @@
 </div>
 <div class="page-content">
   <tui-stepper>
-    <button tuiStep routerLink="." routerLinkActive [stepState]="model?.index ? 'pass' : 'normal'">General</button>
-    <button tuiStep routerLink="properties" routerLinkActive [disabled]="areStepsDisabled">Properties</button>
+    <button tuiStep routerLink="." routerLinkActive [stepState]="generalState">General</button>
+    <button
+      tuiStep
+      routerLink="properties"
+      routerLinkActive
+      [stepState]="propertiesState"
+      [disabled]="areStepsDisabled">
+      Properties
+    </button>
+    <button tuiStep routerLink="objectives" routerLinkActive [disabled]="areStepsDisabled">Objectives</button>
     <button tuiStep routerLink="monsters" routerLinkActive [disabled]="areStepsDisabled">Monsters</button>
     <button tuiStep routerLink="rooms" routerLinkActive [disabled]="areStepsDisabled">Rooms</button>
     <button tuiStep routerLink="rules" routerLinkActive [disabled]="areStepsDisabled">Special rules</button>

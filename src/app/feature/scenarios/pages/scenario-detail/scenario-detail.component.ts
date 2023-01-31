@@ -3,8 +3,9 @@ import { ScenarioDetailsService } from '@app/core/services/business/scenario-det
 import { ActivatedRoute, Router } from '@angular/router';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 import { takeUntil } from 'rxjs';
-import { GeneralScenarioInfo } from '@app/core/models/scenario.models';
+import { Scenario } from '@app/core/models/scenario.models';
 import { ScenarioDetailsServiceFactory } from '@app/core/services/business/scenario-details-service.factory';
+import { ScenarioHelper } from '@app/core/services/business/scenario.helper';
 
 @Component({
   selector: 'ghse-scenario-detail',
@@ -21,23 +22,33 @@ export class ScenarioDetailComponent implements OnInit {
     private readonly destroy$: TuiDestroyService
   ) {}
 
-  model: GeneralScenarioInfo | undefined;
-
-  get areStepsDisabled(): boolean {
-    return this.model?.index === '';
-  }
-
-  get header(): string {
-    return !this.model || this.model.name === ''
-      ? 'New scenario'
-      : `#${this.model.index}${this.model.group !== '' ? '-' : ''}${this.model.group}: ${this.model.name}`;
-  }
-
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.detailsService = this.detailsServiceFactory.create(id!);
-    this.detailsService.generalInfo$?.pipe(takeUntil(this.destroy$)).subscribe(model => (this.model = model));
+    this.detailsService.fullModel$?.pipe(takeUntil(this.destroy$)).subscribe(model => (this.model = model));
   }
 
+  get areStepsDisabled(): boolean {
+    return this.model?.generalInfo.index === '';
+  }
+
+  get header(): string {
+    return !this.model || this.model.generalInfo.name === '' ? 'New scenario' : ScenarioHelper.getFullName(this.model);
+  }
+
+  get generalState(): 'error' | 'normal' | 'pass' {
+    return this.model?.generalInfo.index !== '' ? 'pass' : 'normal';
+  }
+
+  get propertiesState(): 'error' | 'normal' | 'pass' {
+    return ((this.model?.properties.requires.length ?? 0) > 0 &&
+      (this.model?.properties.requires[0].length ?? 0) > 0) ||
+      (this.model?.properties.unlocks.length ?? 0) > 0 ||
+      (this.model?.properties.blocks.length ?? 0) > 0
+      ? 'pass'
+      : 'normal';
+  }
+
+  private model: Scenario | undefined;
   private detailsService: ScenarioDetailsService | undefined;
 }

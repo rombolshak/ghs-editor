@@ -27,6 +27,7 @@ export class ScenarioDetailsService {
     this.exists$ = this._model.asObservable().pipe(map(model => model.generalInfo.index !== ''));
     this.listService.maxOrder$.subscribe(value => (this._maxOrder = value));
 
+    this.fullModel$ = this._model.asObservable();
     this.generalInfo$ = this._model.asObservable().pipe(map(model => model.generalInfo));
     this.properties$ = this._model.asObservable().pipe(map(model => model.properties));
   }
@@ -34,6 +35,8 @@ export class ScenarioDetailsService {
   businessId$: Observable<string>;
 
   exists$: Observable<boolean>;
+
+  fullModel$: Observable<Scenario>;
 
   generalInfo$: Observable<GeneralScenarioInfo>;
 
