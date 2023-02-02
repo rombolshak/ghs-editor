@@ -54,10 +54,10 @@ export interface ScenarioObjective {
   id: number;
   marker: string;
   name: string;
-  health: number | string;
+  health: string;
   escort: boolean;
-  initiative: number | undefined;
-  count: number | string;
+  initiative: number;
+  count: string;
 }
 
 export const initialGeneralInfo = {
@@ -75,10 +75,10 @@ export const initialProperties = {
 } satisfies ScenarioProperties;
 
 export const initialObjective = {
-  id: 0,
-  count: 0,
+  id: -1,
+  count: '0',
   escort: false,
-  health: 0,
+  health: '0',
   initiative: 0,
   name: '',
   marker: '',

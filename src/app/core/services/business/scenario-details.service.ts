@@ -1,4 +1,10 @@
-import { GeneralScenarioInfo, initialScenario, Scenario, ScenarioProperties } from '@app/core/models/scenario.models';
+import {
+  GeneralScenarioInfo,
+  initialScenario,
+  Scenario,
+  ScenarioObjective,
+  ScenarioProperties,
+} from '@app/core/models/scenario.models';
 import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-storage.service';
 import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
 import { TuiAlertService, TuiNotification } from '@taiga-ui/core';
@@ -30,17 +36,16 @@ export class ScenarioDetailsService {
     this.fullModel$ = this._model.asObservable();
     this.generalInfo$ = this._model.asObservable().pipe(map(model => model.generalInfo));
     this.properties$ = this._model.asObservable().pipe(map(model => model.properties));
+    this.objectives$ = this._model.asObservable().pipe(map(model => model.objectives));
   }
 
   businessId$: Observable<string>;
-
   exists$: Observable<boolean>;
 
   fullModel$: Observable<Scenario>;
-
   generalInfo$: Observable<GeneralScenarioInfo>;
-
   properties$: Observable<ScenarioProperties>;
+  objectives$: Observable<ScenarioObjective[]>;
 
   updateGeneralInfo(data: GeneralScenarioInfo) {
     const newModel = { ...this._model.value, generalInfo: data };
@@ -51,6 +56,10 @@ export class ScenarioDetailsService {
 
   updateProperties(data: ScenarioProperties) {
     this.notifyUpdated({ ...this._model.value, properties: data });
+  }
+
+  updateObjectives(data: ScenarioObjective[]) {
+    this.notifyUpdated({ ...this._model.value, objectives: data });
   }
 
   private notifyUpdated(newModel: Scenario) {

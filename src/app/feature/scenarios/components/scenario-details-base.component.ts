@@ -9,7 +9,7 @@ export type ControlsOf<T extends Record<string, any>> = {
   [K in keyof T]: T[K] extends Array<Array<infer A>> ? FormArray<FormControl<A[]>> : FormControl<T[K]>;
 };
 
-type GroupConfig<T> = {
+export type GroupConfig<T> = {
   [K in keyof T]: ControlConfig<T, K>;
 };
 
@@ -17,6 +17,17 @@ export type ControlConfig<T, K extends keyof T> = readonly [
   initialValue: T[K] | FormControlState<T[K]>,
   validators?: ValidatorFn | ValidatorFn[]
 ];
+
+type DetailsListForm<TDetails extends Array<TInstance>, TInstance extends Record<string, any>> = FormArray<
+  FormGroup<ControlsOf<TInstance>>
+>;
+type DetailsSingleForm<TDetails extends Record<string, any>> = FormGroup<ControlsOf<TDetails>>;
+
+type DetailsFormType<TDetails extends Record<string, any> | Array<Record<string, any>>> = TDetails extends Array<
+  infer TInstance extends Record<string, any>
+>
+  ? DetailsListForm<TDetails, TInstance>
+  : DetailsSingleForm<TDetails>;
 
 export function buildForm<T extends Record<any, any>>(config: GroupConfig<T>): FormGroup<ControlsOf<T>> {
   return new FormGroup(
@@ -36,7 +47,7 @@ export abstract class ScenarioDetailsBaseComponent<TDetails extends Record<strin
     protected readonly destroy$: TuiDestroyService,
     private readonly details$: (service: ScenarioDetailsService) => Observable<TDetails>,
     private readonly updateDetails: (service: ScenarioDetailsService, data: TDetails) => void,
-    public readonly form: FormGroup<ControlsOf<TDetails>>
+    public readonly form: DetailsFormType<TDetails>
   ) {
     activatedRoute.data.pipe(takeUntil(this.destroy$)).subscribe(({ detailsService }) => {
       this.detailsService = detailsService;
@@ -67,4 +78,27 @@ export abstract class ScenarioDetailsBaseComponent<TDetails extends Record<strin
 
   private detailsService: ScenarioDetailsService | undefined;
   private savedModel: TDetails | undefined;
+}
+
+export class ScenarioDetailsListBaseComponent<
+  TInstance extends Record<string, any>
+> extends ScenarioDetailsBaseComponent<TInstance[]> {
+  constructor(
+    activatedRoute: ActivatedRoute,
+    destroy$: TuiDestroyService,
+    details$: (service: ScenarioDetailsService) => Observable<TInstance[]>,
+    updateDetails: (service: ScenarioDetailsService, data: TInstance[]) => void,
+    private readonly instanceFormCreator: () => FormGroup<ControlsOf<TInstance>>
+  ) {
+    const form = new FormArray<FormGroup<ControlsOf<TInstance>>>([]);
+    super(activatedRoute, destroy$, details$, updateDetails, form);
+  }
+
+  public addNew() {
+    this.form.controls.push(this.instanceFormCreator());
+  }
+
+  public remove(index: number) {
+    this.form.controls.splice(index, 1);
+  }
 }
