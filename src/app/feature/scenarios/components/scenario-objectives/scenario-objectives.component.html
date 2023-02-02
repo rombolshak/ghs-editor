@@ -18,12 +18,24 @@
     </tui-radio-block>
   </div>
   <div class="form-row">
-    <div class="multi-field">
-      <tui-input [formControl]="objective.controls.health">Health</tui-input>
-      <tui-input [formControl]="objective.controls.count">Count</tui-input>
-      <tui-input-number [formControl]="objective.controls.initiative">Initiative</tui-input-number>
+    <div class="multi-field expression-fields">
+      <tui-input [formControl]="objective.controls.health" class="health">Health</tui-input>
+      <tui-input [formControl]="objective.controls.count" class="count">Count</tui-input>
+      <tui-input-number [formControl]="objective.controls.initiative" class="initiative">Initiative</tui-input-number>
+      <tui-tooltip [content]="expressionsDescription"></tui-tooltip>
     </div>
-    <div class="expressions-description">rstrstenrsetnrst</div>
+    <ng-template #expressionsDescription>
+      <p>You can use mathematical expressions for the above fields. Substitution list:</p>
+      <ul>
+        <li>L — scenario level</li>
+        <li>C — characters count</li>
+        <li>x - multiply symbol ('*' works as well)</li>
+      </ul>
+      <p>
+        You may also use functions such as <i>math.floor</i> and <i>math.ceil</i> using following format as an example:
+        [(2+L)xC/2&lbrace;%math.floor}]
+      </p>
+    </ng-template>
   </div>
 </form>
 

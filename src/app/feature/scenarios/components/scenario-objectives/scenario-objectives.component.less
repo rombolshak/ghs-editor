@@ -21,12 +21,50 @@
   }
 
   .objective-form {
+    width: 30rem;
     border: 1px solid var(--tui-base-03);
     border-radius: var(--tui-radius-m);
     padding: 1rem;
 
     .form-row:last-child {
       margin-bottom: 0;
+    }
+
+    .marker {
+      margin-right: 1rem;
+    }
+
+    .name {
+      flex: 1;
+    }
+
+    .expression-fields {
+      & > * {
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+      }
+
+      .health {
+        flex-grow: 2;
+      }
+
+      .count {
+        flex-grow: 1;
+      }
+
+      .initiative {
+        flex: none;
+      }
+
+      tui-tooltip {
+        flex: none;
+      }
+    }
+
+    .expressions-description {
+      margin-top: 0.5rem;
+      color: var(--tui-text-02);
     }
   }
 
