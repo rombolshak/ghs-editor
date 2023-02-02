@@ -27,9 +27,10 @@ export class ScenarioObjectivesComponent extends ScenarioDetailsListBaseComponen
           escort: [false],
           initiative: [0],
           count: ['0'],
-          id: [-1],
           marker: [''],
         })
     );
+
+    this.reset();
   }
 }

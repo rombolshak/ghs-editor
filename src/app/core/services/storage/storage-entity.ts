@@ -1,12 +1,12 @@
 import { defer, Observable, of } from 'rxjs';
 
 export class StorageEntity<T> {
-  constructor(private readonly id: string) {}
+  constructor(private readonly id: string, private readonly defaultEntity: T) {}
 
   get(): Observable<T | null> {
     return defer(() => {
       const loaded = localStorage.getItem(this.id);
-      return of(loaded ? JSON.parse(loaded) : null);
+      return of(loaded ? { ...this.defaultEntity, ...JSON.parse(loaded) } : null);
     });
   }
 
@@ -20,7 +20,7 @@ export class StorageEntity<T> {
 }
 
 export class StorageEntityList<T> {
-  constructor(private readonly id: string) {}
+  constructor(private readonly id: string, private readonly defaultEntity: T) {}
 
   getAllIds(): Observable<Array<string>> {
     return defer(() => {
@@ -33,6 +33,6 @@ export class StorageEntityList<T> {
   }
 
   withId(id: string): StorageEntity<T> {
-    return new StorageEntity(`${this.id}/${id}`);
+    return new StorageEntity(`${this.id}/${id}`, this.defaultEntity);
   }
 }

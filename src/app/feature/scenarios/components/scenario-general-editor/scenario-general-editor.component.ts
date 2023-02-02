@@ -30,5 +30,7 @@ export class ScenarioGeneralEditorComponent extends ScenarioDetailsBaseComponent
       (service, data) => service.updateGeneralInfo(data),
       form
     );
+
+    this.reset();
   }
 }

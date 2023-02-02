@@ -40,6 +40,8 @@ export class ScenarioPropertiesEditorComponent
       (service, data) => service.updateProperties(data),
       form
     );
+
+    this.reset();
   }
 
   ngOnInit() {

@@ -51,9 +51,8 @@ export interface ScenarioProperties {
 }
 
 export interface ScenarioObjective {
-  id: number;
-  marker: string;
   name: string;
+  marker: string;
   health: string;
   escort: boolean;
   initiative: number;
@@ -75,7 +74,6 @@ export const initialProperties = {
 } satisfies ScenarioProperties;
 
 export const initialObjective = {
-  id: -1,
   count: '0',
   escort: false,
   health: '0',

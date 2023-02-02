@@ -1,1 +1,36 @@
-<p>scenario-objectives works!</p>
+<div class="new-buttons">
+  <button tuiAction (click)="addNew()" type="button" icon="tuiIconPlusLarge">Add objective</button>
+</div>
+
+<form *ngFor="let objective of form.controls" [formGroup]="objective" class="objective-form">
+  <div class="form-row">
+    <tui-input [formControl]="objective.controls.name">Name</tui-input>
+  </div>
+  <div class="form-row" tuiGroup>
+    <tui-radio-block [formControl]="objective.controls.escort" [item]="false">
+      <div class="objective-type">
+        <tui-svg src="assets/images/ghs/objective/objective.svg" width="32"></tui-svg> Objective
+      </div>
+    </tui-radio-block>
+    <tui-radio-block [formControl]="objective.controls.escort" [item]="true">
+      <div class="objective-type"><tui-svg src="assets/images/ghs/objective/escort.svg"></tui-svg> Escort</div>
+    </tui-radio-block>
+  </div>
+  <div class="form-row multi-field">
+    <tui-input [formControl]="objective.controls.name">Health</tui-input>
+    <tui-input [formControl]="objective.controls.name">Count</tui-input>
+    <tui-input [formControl]="objective.controls.name">Initiative</tui-input>
+    <tui-input [formControl]="objective.controls.name">Marker</tui-input>
+  </div>
+</form>
+
+<form>
+  <div class="form-row buttons">
+    <div>
+      <button tuiButton type="button" [disabled]="!form.valid || form.pristine" (click)="save()">Save</button>
+      <button tuiButton type="button" appearance="outline" (click)="reset()" data-automation="reset-button">
+        Reset
+      </button>
+    </div>
+  </div>
+</form>

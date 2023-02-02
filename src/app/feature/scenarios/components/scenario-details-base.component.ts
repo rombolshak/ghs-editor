@@ -55,7 +55,6 @@ export abstract class ScenarioDetailsBaseComponent<TDetails extends Record<strin
         this.detailsService.businessId$.subscribe(data => (this.currentScenarioId = data));
         details$(this.detailsService).subscribe(data => {
           this.savedModel = data;
-          this.reset();
         });
       }
     });
@@ -76,8 +75,8 @@ export abstract class ScenarioDetailsBaseComponent<TDetails extends Record<strin
     } else this.form.reset();
   }
 
-  private detailsService: ScenarioDetailsService | undefined;
-  private savedModel: TDetails | undefined;
+  protected savedModel: TDetails | undefined;
+  protected detailsService: ScenarioDetailsService | undefined;
 }
 
 export class ScenarioDetailsListBaseComponent<
@@ -95,10 +94,21 @@ export class ScenarioDetailsListBaseComponent<
   }
 
   public addNew() {
-    this.form.controls.push(this.instanceFormCreator());
+    this.form.push(this.instanceFormCreator());
   }
 
   public remove(index: number) {
-    this.form.controls.splice(index, 1);
+    this.form.removeAt(index);
+  }
+
+  public override reset() {
+    if (this.savedModel) {
+      this.form.clear();
+      for (const data of this.savedModel) {
+        const control = this.instanceFormCreator();
+        control.patchValue(data);
+        this.form.push(control);
+      }
+    } else this.form.reset();
   }
 }
