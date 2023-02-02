@@ -9,6 +9,7 @@ import { ScenarioDetailComponent } from './pages/scenario-detail/scenario-detail
 import {
   TuiActionModule,
   TuiCheckboxLabeledModule,
+  TuiInputNumberModule,
   TuiInputTagModule,
   TuiRadioBlockModule,
   TuiStepperModule,
@@ -47,6 +48,7 @@ import { TuiGroupModule } from '@taiga-ui/core';
     TuiActionModule,
     TuiGroupModule,
     TuiRadioBlockModule,
+    TuiInputNumberModule,
   ],
 })
 export class ScenariosModule {}

@@ -74,9 +74,9 @@ export const initialProperties = {
 } satisfies ScenarioProperties;
 
 export const initialObjective = {
-  count: '0',
+  count: '',
   escort: false,
-  health: '0',
+  health: '',
   initiative: 0,
   name: '',
   marker: '',

@@ -3,8 +3,9 @@
 </div>
 
 <form *ngFor="let objective of form.controls" [formGroup]="objective" class="objective-form">
-  <div class="form-row">
-    <tui-input [formControl]="objective.controls.name">Name</tui-input>
+  <div class="form-row multi-field">
+    <tui-input [formControl]="objective.controls.marker" class="marker">Marker</tui-input>
+    <tui-input [formControl]="objective.controls.name" class="name">Name</tui-input>
   </div>
   <div class="form-row" tuiGroup>
     <tui-radio-block [formControl]="objective.controls.escort" [item]="false">
@@ -16,11 +17,13 @@
       <div class="objective-type"><tui-svg src="assets/images/ghs/objective/escort.svg"></tui-svg> Escort</div>
     </tui-radio-block>
   </div>
-  <div class="form-row multi-field">
-    <tui-input [formControl]="objective.controls.name">Health</tui-input>
-    <tui-input [formControl]="objective.controls.name">Count</tui-input>
-    <tui-input [formControl]="objective.controls.name">Initiative</tui-input>
-    <tui-input [formControl]="objective.controls.name">Marker</tui-input>
+  <div class="form-row">
+    <div class="multi-field">
+      <tui-input [formControl]="objective.controls.health">Health</tui-input>
+      <tui-input [formControl]="objective.controls.count">Count</tui-input>
+      <tui-input-number [formControl]="objective.controls.initiative">Initiative</tui-input-number>
+    </div>
+    <div class="expressions-description">rstrstenrsetnrst</div>
   </div>
 </form>
 

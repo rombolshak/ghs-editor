@@ -23,10 +23,10 @@ export class ScenarioObjectivesComponent extends ScenarioDetailsListBaseComponen
       () =>
         buildForm({
           name: [''],
-          health: ['0'],
+          health: [''],
           escort: [false],
-          initiative: [0],
-          count: ['0'],
+          initiative: [<number | null>null],
+          count: [''],
           marker: [''],
         })
     );

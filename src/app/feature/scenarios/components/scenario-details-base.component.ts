@@ -14,7 +14,7 @@ export type GroupConfig<T> = {
 };
 
 export type ControlConfig<T, K extends keyof T> = readonly [
-  initialValue: T[K] | FormControlState<T[K]>,
+  initialValue: T[K] | FormControlState<T[K]> | null,
   validators?: ValidatorFn | ValidatorFn[]
 ];
 
@@ -34,7 +34,7 @@ export function buildForm<T extends Record<any, any>>(config: GroupConfig<T>): F
     Object.entries(config).reduce(
       (acc, [key, [value, validators]]: [keyof T, ControlConfig<T, keyof T>]) => ({
         ...acc,
-        [key]: new FormControl(value, { validators, nonNullable: true }),
+        [key]: new FormControl(value, { validators, nonNullable: value !== null }),
       }),
       {} as ControlsOf<T>
     )
