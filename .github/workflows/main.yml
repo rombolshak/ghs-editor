@@ -25,6 +25,7 @@ jobs:
     - run: npm ci
     - run: ng lint
     - run: npx prettier --check src
+    - run: npm run prebuild
     - run: ng test --no-watch --no-progress --browsers=ChromeHeadlessCI
 
     - name: build and publish
