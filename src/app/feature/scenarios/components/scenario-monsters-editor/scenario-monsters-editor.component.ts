@@ -7,6 +7,7 @@ import {
 import { ScenarioMonster } from '@app/core/models/scenario.models';
 import { ActivatedRoute } from '@angular/router';
 import { Validators } from '@angular/forms';
+import { MonstersProviderService } from '@app/feature/scenarios/services/monsters-provider.service';
 
 @Component({
   selector: 'ghse-scenario-monsters-editor',
@@ -16,7 +17,11 @@ import { Validators } from '@angular/forms';
   providers: [TuiDestroyService],
 })
 export class ScenarioMonstersEditorComponent extends ScenarioDetailsListBaseComponent<ScenarioMonster> {
-  constructor(activatedRoute: ActivatedRoute, destroy$: TuiDestroyService) {
+  constructor(
+    activatedRoute: ActivatedRoute,
+    destroy$: TuiDestroyService,
+    private readonly monstersProvider: MonstersProviderService
+  ) {
     super(
       activatedRoute,
       destroy$,
