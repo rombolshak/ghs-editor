@@ -66,12 +66,14 @@ export abstract class ScenarioDetailsBaseComponent<TDetails extends Record<strin
     if (this.detailsService) {
       const data = this.form.getRawValue() as TDetails;
       this.updateDetails(this.detailsService, data);
+      this.form.markAsPristine();
     }
   }
 
   public reset() {
     if (this.savedModel) {
       this.form.patchValue(this.savedModel);
+      this.form.markAsPristine();
     } else this.form.reset();
   }
 
@@ -94,11 +96,13 @@ export class ScenarioDetailsListBaseComponent<
   }
 
   public addNew() {
-    this.form.push(this.instanceFormCreator());
+    this.form.insert(0, this.instanceFormCreator());
+    this.form.markAsDirty();
   }
 
   public remove(index: number) {
     this.form.removeAt(index);
+    this.form.markAsDirty();
   }
 
   public override reset() {
@@ -109,6 +113,7 @@ export class ScenarioDetailsListBaseComponent<
         control.patchValue(data);
         this.form.push(control);
       }
+      this.form.markAsPristine();
     } else this.form.reset();
   }
 }
