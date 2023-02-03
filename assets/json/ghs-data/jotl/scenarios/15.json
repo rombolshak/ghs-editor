@@ -10,13 +10,156 @@
     "blood-imp",
     "zealot"
   ],
+  "objectives": [
+    {
+      "name": "Table",
+      "health": "[(2+L)xC/2{$math.ceil}]",
+      "marker": "A",
+      "count": 2
+    },
+    {
+      "name": "Table",
+      "health": "[(2+L)xC/2{$math.ceil}]",
+      "marker": "B",
+      "count": 2
+    },
+    {
+      "name": "Table",
+      "health": "[(2+L)xC/2{$math.ceil}]",
+      "marker": "C",
+      "count": 2
+    }
+  ],
   "rules": [
     {
       "round": "true",
-      "start": true
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "player4": "normal"
+          },
+          "marker": "A",
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Table",
+            "marker": "A"
+          },
+          "type": "present"
+        }
+      ]
     },
     {
-      "round": "true"
+      "round": "true",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "player4": "normal"
+          },
+          "marker": "B",
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Table",
+            "marker": "B"
+          },
+          "type": "present"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "player4": "normal"
+          },
+          "marker": "C",
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Table",
+            "marker": "C"
+          },
+          "type": "present"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "rooms": [
+        3
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Table",
+            "marker": "A"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Table",
+            "marker": "B"
+          },
+          "type": "dead"
+        }
+      ],
+      "requiredRooms": [
+        2
+      ]
+    },
+    {
+      "round": "true",
+      "note": "%data.scenario.rules.jotl.15.1%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "blood-imp",
+            "type": "elite"
+          },
+          "summon": true,
+          "manual": true
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "zealot"
+          },
+          "type": "present"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -34,6 +177,9 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        3
       ]
     },
     {
@@ -61,11 +207,17 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        2
       ]
     },
     {
       "roomNumber": 3,
       "ref": "jotl15-6",
+      "marker": "D",
       "monster": [
         {
           "name": "zealot",
@@ -79,6 +231,12 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        2,
+        3
       ]
     }
   ]

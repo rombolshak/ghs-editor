@@ -13,6 +13,32 @@
     "chaos-demon",
     "zealot"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "blood-tumor"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "blood-tumor"
+          },
+          "type": "damage",
+          "value": "Cx2"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -20,6 +46,9 @@
       "initial": true,
       "rooms": [
         2
+      ],
+      "treasures": [
+        4
       ],
       "monster": [
         {
@@ -65,10 +94,11 @@
     {
       "roomNumber": 2,
       "ref": "jotl08-2",
+      "marker": "1",
       "monster": [
         {
           "name": "blood-tumor",
-          "type": "normal"
+          "type": "boss"
         },
         {
           "name": "zealot",

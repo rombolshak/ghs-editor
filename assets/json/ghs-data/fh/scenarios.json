@@ -1,52 +1,11 @@
 [
   {
-    "index": "9",
-    "name": "Glowing Catacombs",
-    "edition": "fh",
-    "monsters": [
-      "ice-wraith",
-      "living-doom",
-      "living-spirit",
-      "ooze"
-    ],
-    "lootDeckConfig": {
-      "money": 8,
-      "lumber": 5,
-      "metal": 3,
-      "rockroot": 2,
-      "corpsecap": 1,
-      "random_item": 1
-    }
-  },
-  {
-    "index": "10",
-    "name": "Crystal Enclosure",
-    "edition": "fh",
-    "monsters": [
-      "algox-guard",
-      "algox-priest",
-      "algox-icespeaker"
-    ],
-    "objectives": [
-      {
-        "name": "Ice Pillar",
-        "health": "[(2+L)xC/2{%math.floor}]",
-        "count": 3
-      }
-    ],
-    "lootDeckConfig": {
-      "money": 8,
-      "lumber": 4,
-      "hide": 3,
-      "axenut": 2,
-      "arrowvine": 2,
-      "random_item": 1
-    }
-  },
-  {
     "index": "11",
     "name": "Snowscorn Peak",
     "edition": "fh",
+    "unlocks": [
+      "19"
+    ],
     "monsters": [
       "algox-stormcaller",
       "frost-demon",
@@ -60,12 +19,48 @@
       "flamefruit": 1,
       "axenut": 2,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "15-A",
+        "initial": true,
+        "treasures": [
+          71
+        ],
+        "monster": [
+          {
+            "name": "algox-stormcaller",
+            "type": "boss"
+          },
+          {
+            "name": "frost-demon",
+            "type": "normal"
+          },
+          {
+            "name": "frost-demon",
+            "player4": "normal"
+          },
+          {
+            "name": "wind-demon",
+            "type": "normal"
+          },
+          {
+            "name": "wind-demon",
+            "player3": "normal",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "12",
     "name": "Temple Entrance",
     "edition": "fh",
+    "unlocks": [
+      "20"
+    ],
     "monsters": [
       "ancient-artillery",
       "night-demon",
@@ -78,12 +73,55 @@
       "rockroot": 2,
       "corpsecap": 1,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "16-C",
+        "initial": true,
+        "monster": [
+          {
+            "name": "ancient-artillery",
+            "type": "elite"
+          },
+          {
+            "name": "ancient-artillery",
+            "type": "elite"
+          },
+          {
+            "name": "ancient-artillery",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "ancient-artillery",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "ancient-artillery",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "ancient-artillery",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "13",
     "name": "Frozen Fjord",
     "edition": "fh",
+    "unlocks": [
+      "21",
+      "32"
+    ],
     "monsters": [
       "shrike-fiend",
       "snow-imp",
@@ -104,12 +142,46 @@
       "snowthistle": 1,
       "arrowvine": 2,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "07-B",
+        "initial": true,
+        "monster": [
+          {
+            "name": "shrike-fiend",
+            "type": "elite"
+          },
+          {
+            "name": "shrike-fiend",
+            "player2": "elite"
+          },
+          {
+            "name": "shrike-fiend",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "shrike-fiend",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "shrike-fiend",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "14",
     "name": "Jagged Shoals",
     "edition": "fh",
+    "unlocks": [
+      "22"
+    ],
     "monsters": [
       "abael-herder",
       "lightning-eel",
@@ -121,12 +193,143 @@
       "metal": 2,
       "hide": 5,
       "snowthistle": 2
-    }
+    },
+    "rules": [
+      {
+        "round": "R % 2 == 1",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "piranha-pig",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            },
+            "marker": "b"
+          },
+          {
+            "monster": {
+              "name": "lightning-eel",
+              "player2": "normal",
+              "player3": "normal",
+              "player4": "elite"
+            },
+            "marker": "c",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "round": "R % 2 == 0",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "piranha-pig",
+              "player2": "normal",
+              "player3": "normal",
+              "player4": "elite"
+            },
+            "marker": "d"
+          },
+          {
+            "monster": {
+              "name": "lightning-eel",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            },
+            "marker": "e",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "13-A",
+        "initial": true,
+        "treasures": [
+          64
+        ],
+        "monster": [
+          {
+            "name": "abael-herder",
+            "type": "normal"
+          },
+          {
+            "name": "abael-herder",
+            "type": "normal"
+          },
+          {
+            "name": "abael-herder",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "abael-herder",
+            "player4": "normal"
+          },
+          {
+            "name": "lightning-eel",
+            "type": "elite"
+          },
+          {
+            "name": "lightning-eel",
+            "type": "elite"
+          },
+          {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "lightning-eel",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "lightning-eel",
+            "player4": "normal"
+          },
+          {
+            "name": "lightning-eel",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "piranha-pig",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "piranha-pig",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "15",
     "name": "Ancient Spire",
     "edition": "fh",
+    "unlocks": [
+      "23",
+      "24"
+    ],
     "monsters": [
       "chaos-lieutenant",
       "robotic-boltshooter",
@@ -140,12 +343,81 @@
       "corpsecap": 1,
       "flamefruit": 1,
       "random_item": 1
-    }
+    },
+    "rules": [
+      {
+        "round": "R % 2 == 0",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "ruined-machine",
+              "type": "normal"
+            },
+            "marker": "c",
+            "count": "C-1"
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "15-D",
+        "initial": true,
+        "rooms": [
+          2
+        ],
+        "monster": [
+          {
+            "name": "robotic-boltshooter",
+            "type": "elite"
+          },
+          {
+            "name": "robotic-boltshooter",
+            "type": "elite"
+          },
+          {
+            "name": "robotic-boltshooter",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "robotic-boltshooter",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "robotic-boltshooter",
+            "player4": "normal"
+          }
+        ]
+      },
+      {
+        "roomNumber": 2,
+        "ref": "01-B",
+        "initial": true,
+        "marker": "b",
+        "treasures": [
+          40
+        ],
+        "monster": [
+          {
+            "name": "chaos-lieutenant",
+            "type": "boss"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "16",
     "name": "Derelict Elevator",
     "edition": "fh",
+    "unlocks": [
+      "25",
+      "26"
+    ],
     "monsters": [
       "ancient-artillery",
       "flaming-bladespinner",
@@ -157,12 +429,61 @@
       "metal": 5,
       "rockroot": 2,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "13-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "ancient-artillery",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "ancient-artillery",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "ruined-machine",
+            "type": "elite"
+          },
+          {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "ruined-machine",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "ruined-machine",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "ruined-machine",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "17",
     "name": "Haunted Vault",
     "edition": "fh",
+    "unlocks": [
+      "27"
+    ],
     "monsters": [
       "ice-wraith",
       "living-doom",
@@ -183,12 +504,23 @@
       "metal": 2,
       "corpsecap": 2,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "09-B",
+        "initial": true
+      }
+    ]
   },
   {
     "index": "18",
     "name": "Crystal Fields",
     "edition": "fh",
+    "unlocks": [
+      "28",
+      "29"
+    ],
     "monsters": [
       "algox-guard",
       "burrowing-blade",
@@ -205,12 +537,45 @@
       "corpsecap": 1,
       "arrowvine": 2,
       "snowthistle": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "11-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "frozen-corpse",
+            "type": "elite"
+          },
+          {
+            "name": "frozen-corpse",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "frozen-corpse",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "frozen-corpse",
+            "player3": "normal",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "19",
     "name": "Skyhall",
     "edition": "fh",
+    "unlocks": [
+      "28",
+      "30"
+    ],
     "monsters": [
       "earth-demon",
       "flame-demon",
@@ -224,12 +589,22 @@
       "rockroot": 1,
       "corpsecap": 1,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "16-B",
+        "initial": true
+      }
+    ]
   },
   {
     "index": "20",
     "name": "Temple of Liberation",
     "edition": "fh",
+    "unlocks": [
+      "31"
+    ],
     "monsters": [
       "flaming-bladespinner",
       "ruined-machine",
@@ -249,7 +624,28 @@
       "metal": 5,
       "rockroot": 1,
       "arrowvine": 2
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "15-C",
+        "initial": true,
+        "monster": [
+          {
+            "name": "steel-automaton",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "steel-automaton",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "21",
@@ -270,12 +666,49 @@
       "flamefruit": 1,
       "snowthistle": 2,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "14-B",
+        "initial": true,
+        "monster": [
+          {
+            "name": "frost-demon",
+            "type": "normal"
+          },
+          {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "frost-demon",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "type": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "22",
     "name": "Ice Floes",
     "edition": "fh",
+    "unlocks": [
+      "33"
+    ],
     "monsters": [
       "lightning-eel",
       "lurker-clawcrusher",
@@ -287,12 +720,63 @@
       "hide": 2,
       "arrowvine": 2,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "14-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "lurker-clawcrusher",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "lurker-clawcrusher",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "type": "normal"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "type": "elite"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player4": "normal"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "23",
     "name": "Spire Basement",
     "edition": "fh",
+    "unlocks": [
+      "34"
+    ],
     "monsters": [
       "living-bones",
       "living-spirit"
@@ -304,12 +788,60 @@
       "flamefruit": 1,
       "corpsecap": 2,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "11-F",
+        "initial": true,
+        "monster": [
+          {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          {
+            "name": "living-bones",
+            "type": "elite"
+          },
+          {
+            "name": "living-bones",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "living-bones",
+            "player4": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "type": "elite"
+          },
+          {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "living-spirit",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "24",
     "name": "Upper Spire",
     "edition": "fh",
+    "unlocks": [
+      "34"
+    ],
     "monsters": [
       "chaos-demon",
       "living-bones",
@@ -323,12 +855,76 @@
       "axenut": 2,
       "flamefruit": 1,
       "random_item": 1
-    }
+    },
+    "rules": [
+      {
+        "round": "R == 1",
+        "start": true,
+        "figures": [
+          {
+            "identifier": {
+              "type": "character",
+              "name": ".*"
+            },
+            "type": "amAdd",
+            "value": "curse:2",
+            "scenarioEffect": true
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "15-D",
+        "initial": true,
+        "monster": [
+          {
+            "name": "chaos-demon",
+            "type": "elite"
+          },
+          {
+            "name": "chaos-demon",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "chaos-demon",
+            "player4": "normal"
+          },
+          {
+            "name": "living-bones",
+            "type": "elite"
+          },
+          {
+            "name": "living-bones",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "living-bones",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "living-bones",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "25",
     "name": "Rusted Tunnels",
     "edition": "fh",
+    "unlocks": [
+      "35"
+    ],
+    "blocks": [
+      "26"
+    ],
     "monsters": [
       "flaming-bladespinner",
       "robotic-boltshooter",
@@ -346,6 +942,13 @@
     "index": "26",
     "name": "Quatryl Library",
     "edition": "fh",
+    "unlocks": [
+      "36",
+      "37"
+    ],
+    "blocks": [
+      "25"
+    ],
     "monsters": [
       "ancient-artillery",
       "ruined-machine",
@@ -380,6 +983,13 @@
     "index": "28",
     "name": "Summit Meeting",
     "edition": "fh",
+    "unlocks": [
+      "38"
+    ],
+    "blocks": [
+      "29",
+      "30"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -410,6 +1020,12 @@
     "index": "29",
     "name": "War of the Spire A",
     "edition": "fh",
+    "unlocks": [
+      "39"
+    ],
+    "blocks": [
+      "28"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -430,6 +1046,12 @@
     "index": "30",
     "name": "War of the Spire B",
     "edition": "fh",
+    "unlocks": [
+      "40"
+    ],
+    "blocks": [
+      "28"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -450,6 +1072,9 @@
     "index": "31",
     "name": "Crackling Tunnel",
     "edition": "fh",
+    "unlocks": [
+      "41"
+    ],
     "monsters": [
       "flaming-bladespinner",
       "robotic-boltshooter",
@@ -486,6 +1111,9 @@
     "index": "33",
     "name": "Thawed Wood",
     "edition": "fh",
+    "unlocks": [
+      "42"
+    ],
     "monsters": [
       "black-imp",
       "earth-demon",
@@ -513,6 +1141,9 @@
     "index": "35",
     "name": "Scrap Pit",
     "edition": "fh",
+    "unlocks": [
+      "43"
+    ],
     "monsters": [
       "living-bones",
       "ruined-machine",
@@ -540,6 +1171,12 @@
     "index": "36",
     "name": "Buried Ducts",
     "edition": "fh",
+    "unlocks": [
+      "44"
+    ],
+    "blocks": [
+      "37"
+    ],
     "monsters": [
       "flaming-bladespinner",
       "robotic-boltshooter",
@@ -548,22 +1185,22 @@
     "objectives": [
       {
         "name": "Door",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "health": "[((C-1)/2)x(L+3){$math.floor}]",
         "marker": "a"
       },
       {
         "name": "Door",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "health": "[((C-1)/2)x(L+3){$math.floor}]",
         "marker": "b"
       },
       {
         "name": "Door",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "health": "[((C-1)/2)x(L+3){$math.floor}]",
         "marker": "c"
       },
       {
         "name": "Door",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "health": "[((C-1)/2)x(L+3){$math.floor}]",
         "marker": "d"
       }
     ],
@@ -579,6 +1216,12 @@
     "index": "37",
     "name": "The Dead Mile",
     "edition": "fh",
+    "unlocks": [
+      "44"
+    ],
+    "blocks": [
+      "36"
+    ],
     "monsters": [
       "living-bones",
       "living-spirit",
@@ -597,6 +1240,10 @@
     "index": "38",
     "name": "The Way Forward",
     "edition": "fh",
+    "unlocks": [
+      "45",
+      "46"
+    ],
     "monsters": [
       "hound",
       "polar-bear",
@@ -631,6 +1278,9 @@
     "index": "39",
     "name": "Corrupted Camp",
     "edition": "fh",
+    "unlocks": [
+      "47"
+    ],
     "monsters": [
       "algox-guard",
       "algox-scout",
@@ -651,6 +1301,9 @@
     "index": "40",
     "name": "Relief Effort",
     "edition": "fh",
+    "unlocks": [
+      "48"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -691,6 +1344,10 @@
     "index": "42",
     "name": "Sunless Trench",
     "edition": "fh",
+    "unlocks": [
+      "49",
+      "50"
+    ],
     "monsters": [
       "deep-terror",
       "night-demon",
@@ -709,6 +1366,9 @@
     "index": "43",
     "name": "Overrun Barricade",
     "edition": "fh",
+    "unlocks": [
+      "51"
+    ],
     "monsters": [
       "robotic-boltshooter",
       "ruined-machine",
@@ -727,6 +1387,10 @@
     "index": "44",
     "name": "Nerve Center",
     "edition": "fh",
+    "unlocks": [
+      "58",
+      "59"
+    ],
     "monsters": [
       "ancient-artillery",
       "flaming-bladespinner",
@@ -752,6 +1416,9 @@
     "index": "45",
     "name": "Living Glacier",
     "edition": "fh",
+    "unlocks": [
+      "52"
+    ],
     "monsters": [
       "abael-herder",
       "abael-scout",
@@ -770,6 +1437,9 @@
     "index": "46",
     "name": "Dead Pass",
     "edition": "fh",
+    "unlocks": [
+      "52"
+    ],
     "monsters": [
       "burrowing-blade",
       "frozen-corpse",
@@ -788,6 +1458,9 @@
     "index": "47",
     "name": "Carrion Ridge",
     "edition": "fh",
+    "unlocks": [
+      "56"
+    ],
     "monsters": [
       "algox-icespeaker",
       "harrower-infester",
@@ -806,6 +1479,9 @@
     "index": "48",
     "name": "Blizzard Island",
     "edition": "fh",
+    "unlocks": [
+      "57"
+    ],
     "monsters": [
       "abael-scout",
       "frost-demon",
@@ -824,6 +1500,9 @@
     "index": "49",
     "name": "Beneath Sea and Stone",
     "edition": "fh",
+    "unlocks": [
+      "53"
+    ],
     "monsters": [
       "black-imp",
       "deep-terror",
@@ -840,6 +1519,9 @@
     "index": "50",
     "name": "Explosive Descent",
     "edition": "fh",
+    "unlocks": [
+      "54"
+    ],
     "monsters": [
       "lightning-eel",
       "lurker-clawcrusher",
@@ -864,6 +1546,10 @@
     "index": "51",
     "name": "Orphan's Halls",
     "edition": "fh",
+    "unlocks": [
+      "58",
+      "59"
+    ],
     "monsters": [
       "ancient-artillery",
       "flaming-bladespinner",
@@ -882,6 +1568,15 @@
     "index": "52",
     "name": "Fleeting Permanence",
     "edition": "fh",
+    "unlocks": [
+      "55"
+    ],
+    "requires": [
+      [
+        "45",
+        "46"
+      ]
+    ],
     "monsters": [
       "frost-demon",
       "snow-imp"
@@ -900,6 +1595,9 @@
     "index": "53",
     "name": "Underwater Throne",
     "edition": "fh",
+    "unlocks": [
+      "60"
+    ],
     "monsters": [
       "seeker-of-the-abyss",
       "lurker-clawcrusher",
@@ -920,6 +1618,9 @@
     "index": "54",
     "name": "Among the Wreckage",
     "edition": "fh",
+    "unlocks": [
+      "60"
+    ],
     "monsters": [
       "seeker-of-the-abyss",
       "lightning-eel",
@@ -997,6 +1698,9 @@
     "index": "58",
     "name": "Orphan's Core",
     "edition": "fh",
+    "blocks": [
+      "59"
+    ],
     "monsters": [
       "orphan",
       "flaming-bladespinner",
@@ -1022,6 +1726,9 @@
     "index": "59",
     "name": "Automaton Uprising",
     "edition": "fh",
+    "blocks": [
+      "58"
+    ],
     "monsters": [
       "flaming-bladespinner",
       "robotic-boltshooter",
@@ -1072,6 +1779,9 @@
     "index": "61",
     "name": "Life and Death",
     "edition": "fh",
+    "unlocks": [
+      "62"
+    ],
     "monsters": [
       "deep-terror",
       "earth-demon",
@@ -1100,6 +1810,9 @@
     "index": "62",
     "name": "The Unfettered Seal",
     "edition": "fh",
+    "unlocks": [
+      "63"
+    ],
     "monsters": [
       "black-imp",
       "chaos-demon",
@@ -1128,6 +1841,9 @@
     "index": "63",
     "name": "The Savvas Seal",
     "edition": "fh",
+    "unlocks": [
+      "64"
+    ],
     "monsters": [
       "earth-demon",
       "flame-demon",
@@ -1199,10 +1915,13 @@
     "index": "65",
     "name": "A Strong Foundation",
     "edition": "fh",
+    "unlocks": [
+      "66"
+    ],
     "monsters": [
-      "frozen-corpse",
-      "living-bones",
-      "snow-imp"
+      "frozen-corpse-scenario-65",
+      "living-bones-scenario-65",
+      "snow-imp-scenario-65"
     ],
     "lootDeckConfig": {
       "money": 8,
@@ -1217,6 +1936,9 @@
     "index": "66",
     "name": "Elemental Cores",
     "edition": "fh",
+    "unlocks": [
+      "67"
+    ],
     "monsters": [
       "earth-demon",
       "flame-demon",
@@ -1242,6 +1964,9 @@
     "index": "67",
     "name": "Core Attunement",
     "edition": "fh",
+    "unlocks": [
+      "68"
+    ],
     "monsters": [
       "chaos-demon",
       "earth-demon",
@@ -1294,6 +2019,9 @@
     "index": "69",
     "name": "Sacred Soil",
     "edition": "fh",
+    "unlocks": [
+      "70"
+    ],
     "monsters": [
       "earth-demon",
       "forest-imp",
@@ -1337,6 +2065,9 @@
     "index": "71",
     "name": "Invasion of the Dock",
     "edition": "fh",
+    "unlocks": [
+      "72"
+    ],
     "monsters": [
       "abael-scout",
       "lightning-eel",
@@ -1356,6 +2087,9 @@
     "index": "72",
     "name": "A Giant Block of Ice",
     "edition": "fh",
+    "unlocks": [
+      "73"
+    ],
     "monsters": [
       "frozen-corpse",
       "ice-wraith",
@@ -1374,6 +2108,9 @@
     "index": "73",
     "name": "Flotsam",
     "edition": "fh",
+    "unlocks": [
+      "74"
+    ],
     "monsters": [
       "fish-king",
       "abael-herder",
@@ -1393,6 +2130,10 @@
     "index": "74",
     "name": "Gaps in the Road",
     "edition": "fh",
+    "unlocks": [
+      "75",
+      "76"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -1420,6 +2161,9 @@
     "index": "75",
     "name": "Infiltrating the Lair",
     "edition": "fh",
+    "unlocks": [
+      "77"
+    ],
     "monsters": [
       "abael-herder",
       "abael-scout",
@@ -1441,6 +2185,9 @@
     "index": "76",
     "name": "Apotheosis",
     "edition": "fh",
+    "unlocks": [
+      "77"
+    ],
     "monsters": [
       "fish-king",
       "algox-archer",
@@ -1504,6 +2251,9 @@
     "index": "79",
     "name": "Relic",
     "edition": "fh",
+    "unlocks": [
+      "80"
+    ],
     "monsters": [
       "frozen-corpse",
       "ice-wraith",
@@ -1693,6 +2443,9 @@
     "index": "87",
     "name": "The Collection",
     "edition": "fh",
+    "unlocks": [
+      "88"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -1758,6 +2511,9 @@
     "index": "90",
     "name": "Frozen Treasure",
     "edition": "fh",
+    "unlocks": [
+      "91"
+    ],
     "monsters": [
       "frozen-corpse",
       "ice-wraith",
@@ -1862,6 +2618,9 @@
     "index": "94",
     "name": "A Grand View",
     "edition": "fh",
+    "unlocks": [
+      "95"
+    ],
     "monsters": [
       "ancient-artillery",
       "flaming-bladespinner",
@@ -1899,6 +2658,9 @@
     "index": "96",
     "name": "Underground Station",
     "edition": "fh",
+    "unlocks": [
+      "97"
+    ],
     "monsters": [
       "ancient-artillery",
       "black-imp",
@@ -1916,6 +2678,9 @@
     "index": "97",
     "name": "Program Control Nexus",
     "edition": "fh",
+    "unlocks": [
+      "98"
+    ],
     "monsters": [
       "program-director",
       "flaming-bladespinner",
@@ -1952,6 +2717,9 @@
     "index": "99",
     "name": "Prison Break",
     "edition": "fh",
+    "unlocks": [
+      "100"
+    ],
     "monsters": [
       "frozen-corpse",
       "robotic-boltshooter",
@@ -1969,6 +2737,9 @@
     "index": "100",
     "name": "Inside the Swarm",
     "edition": "fh",
+    "unlocks": [
+      "101"
+    ],
     "monsters": [
       "burrowing-blade",
       "earth-demon",
@@ -1983,6 +2754,9 @@
     "index": "101",
     "name": "Harrower Library",
     "edition": "fh",
+    "unlocks": [
+      "102"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -2002,6 +2776,9 @@
     "index": "102",
     "name": "Into the Black",
     "edition": "fh",
+    "unlocks": [
+      "103"
+    ],
     "monsters": [
       "chaos-demon",
       "frost-demon",
@@ -2040,6 +2817,9 @@
     "index": "104",
     "name": "Ruins of the Solstice",
     "edition": "fh",
+    "unlocks": [
+      "105"
+    ],
     "monsters": [
       "earth-demon",
       "forest-imp",
@@ -2060,6 +2840,9 @@
     "index": "105",
     "name": "Ruins of the Equinox",
     "edition": "fh",
+    "unlocks": [
+      "106"
+    ],
     "monsters": [
       "earth-demon",
       "flame-demon",
@@ -2237,6 +3020,9 @@
     "index": "114",
     "name": "Work Freeze",
     "edition": "fh",
+    "unlocks": [
+      "115"
+    ],
     "monsters": [
       "hound",
       "polar-bear",
@@ -2261,6 +3047,9 @@
     "index": "115",
     "name": "Pylon Problems",
     "edition": "fh",
+    "unlocks": [
+      "116"
+    ],
     "monsters": [
       "algox-guard",
       "algox-snowspeaker",
@@ -2377,6 +3166,9 @@
     "index": "120",
     "name": "Under the Influence",
     "edition": "fh",
+    "unlocks": [
+      "121"
+    ],
     "monsters": [
       "city-guard",
       "hound",
@@ -2414,11 +3206,6 @@
     "index": "122",
     "name": "The Eternal Crave",
     "edition": "fh",
-    "monsters": [
-      "ice-wraith",
-      "polar-bear",
-      "snow-imp"
-    ],
     "lootDeckConfig": {
       "money": 6,
       "lumber": 3,
@@ -2450,6 +3237,9 @@
     "index": "124",
     "name": "A Growing Problem",
     "edition": "fh",
+    "unlocks": [
+      "125"
+    ],
     "monsters": [
       "living-bones",
       "living-spirit"
@@ -2556,6 +3346,9 @@
     "index": "128",
     "name": "A Tall Drunken Trail",
     "edition": "fh",
+    "unlocks": [
+      "129"
+    ],
     "monsters": [
       "abael-scout",
       "lurker-wavethrower-scenario-128",
@@ -2577,6 +3370,9 @@
     "index": "129",
     "name": "How to Lay an Ambush",
     "edition": "fh",
+    "unlocks": [
+      "130"
+    ],
     "monsters": [
       "algox-guard",
       "algox-priest",

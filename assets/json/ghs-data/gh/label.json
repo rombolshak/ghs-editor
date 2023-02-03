@@ -21,12 +21,9 @@
       "bloated-regent": "Bloated Regent",
       "captain-of-the-guard": "Captain of the Guard",
       "cave-bear": "Cave Bear",
-      "cave-bear-54": "Cave Bear #54",
       "city-archer": "City Archer",
       "city-guard": "City Guard",
       "cultist": "Cultist",
-      "cultist-78": "Cultist #78",
-      "cultist-89": "Cultist #89",
       "dark-rider": "Dark Rider",
       "deep-terror": "Deep Terror",
       "earth-demon": "Earth Demon",
@@ -54,7 +51,6 @@
       "night-demon": "Night Demon",
       "ooze": "Ooze",
       "prime-demon": "Prime Demon",
-      "prime-demon-36": "Prime Demon #36",
       "prime-lieutenant": "Prime Lieutenant",
       "rending-drake": "Rending Drake",
       "savvas-icestorm": "Savvas Icestorm",
@@ -85,6 +81,12 @@
     "scenario": {
       "rules": {
         "gh": {
+          "19": {
+            "1": "towards the altar %game.mapMarker.b%"
+          },
+          "38": {
+            "1": "towards the shaman on the D tile"
+          },
           "42": {
             "1": "All monsters add +1 %game.action.attack% to all their attacks",
             "2": "All monsters gain Advantage on all their attacks",
@@ -104,6 +106,12 @@
           },
           "74": {
             "1": "Add water tile."
+          },
+          "79": {
+            "1": "Move to starting location, if moved off, then perform"
+          },
+          "86": {
+            "1": "towards the end of the docks %game.mapMarker.b%"
           }
         }
       }
@@ -351,12 +359,9 @@
       "black-imp": "Schwarzwicht",
       "captain-of-the-guard": "Hauptmann der Wache",
       "cave-bear": "Höhlenbär",
-      "cave-bear-54": "Höhlenbär #54",
       "city-archer": "Stadtschütze",
       "city-guard": "Stadtwache",
       "cultist": "Kultist",
-      "cultist-78": "Kultist #78",
-      "cultist-89": "Kultist #89",
       "dark-rider": "Der Dunkle Reiter",
       "deep-terror": "Tiefenschreck",
       "earth-demon": "Erddämon",
@@ -646,12 +651,9 @@
       "black-imp": "Diablotin Noir",
       "captain-of-the-guard": "Capitaine de la Garde",
       "cave-bear": "Ours des Cavernes",
-      "cave-bear-54": "Ours des Cavernes #54",
       "city-archer": "Archer de la Cité",
       "city-guard": "Garde de la Cité",
       "cultist": "Cultiste",
-      "cultist-78": "Cultiste #78",
-      "cultist-89": "Cultiste #89",
       "dark-rider": "Cavalier Sombre",
       "deep-terror": "Terreur des Profondeurs",
       "earth-demon": "Démon de Terre",

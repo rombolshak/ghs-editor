@@ -4,11 +4,12 @@
   "edition": "fc",
   "parent": "111",
   "monsters": [
-    "the-husk-66"
+    "the-husk-section-66"
   ],
   "rules": [
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "note": "%data.section.rules.fc.66.1%",
       "sections": [
         "67"
@@ -57,7 +58,7 @@
             "name": "the-husk"
           },
           "type": "transfer",
-          "value": "the-husk-66"
+          "value": "the-husk-section-66"
         }
       ]
     }

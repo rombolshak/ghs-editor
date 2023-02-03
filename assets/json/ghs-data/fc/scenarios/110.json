@@ -18,30 +18,30 @@
       "roomNumber": 1,
       "ref": "c1a",
       "initial": true,
-      "monster": [
-        {
-          "name": "valrath-tracker",
-          "type": "elite"
-        },
-        {
-          "name": "vermling-shaman",
-          "type": "elite"
-        },
-        {
-          "name": "savvas-lavaflow",
-          "type": "elite"
-        },
-        {
-          "name": "city-guard",
-          "type": "elite"
-        }
-      ],
       "rooms": [
         2,
         3
       ],
       "treasures": [
         84
+      ],
+      "monster": [
+        {
+          "name": "selah-naberis",
+          "type": "boss"
+        },
+        {
+          "name": "sraka-the-wise",
+          "type": "boss"
+        },
+        {
+          "name": "the-steel-lion",
+          "type": "boss"
+        },
+        {
+          "name": "uyart-ikkuma",
+          "type": "boss"
+        }
       ]
     },
     {
@@ -56,7 +56,9 @@
         },
         {
           "name": "ooze",
-          "player4": "normal"
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "ooze",
@@ -71,9 +73,7 @@
         },
         {
           "name": "ooze",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     },
@@ -88,17 +88,17 @@
         },
         {
           "name": "lurker",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
           "player3": "normal"
         },
         {
           "name": "lurker",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "lurker",
-          "player2": "normal",
-          "player4": "normal"
         }
       ]
     }
