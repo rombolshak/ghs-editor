@@ -10,6 +10,7 @@ export interface Scenario {
   generalInfo: GeneralScenarioInfo;
   properties: ScenarioProperties;
   objectives: ScenarioObjective[];
+  monsters: ScenarioMonster[];
 }
 
 export interface GeneralScenarioInfo {
@@ -17,15 +18,6 @@ export interface GeneralScenarioInfo {
   name: string;
   group: string;
   initial: boolean;
-}
-
-export interface ScenarioMonsters {
-  monsters: string[];
-  allies: string[];
-
-  drawExtra: string[]; // if two bosses in one scenario, each needs his own card from boss deck
-
-  allyDeck: boolean; // use separate deck for monster allies
 }
 
 export interface ScenarioRooms {
@@ -59,6 +51,13 @@ export interface ScenarioObjective {
   count: string;
 }
 
+export interface ScenarioMonster {
+  name: string;
+  levelAdjustment: number;
+  isAlly: boolean;
+  drawExtra: boolean;
+}
+
 export const initialGeneralInfo = {
   index: '',
   name: '',
@@ -82,10 +81,18 @@ export const initialObjective = {
   marker: '',
 } satisfies ScenarioObjective;
 
+export const initialMonster = {
+  name: '',
+  levelAdjustment: 0,
+  isAlly: false,
+  drawExtra: false,
+} satisfies ScenarioMonster;
+
 export const initialScenario = {
   id: '',
   order: 0,
   generalInfo: initialGeneralInfo,
   properties: initialProperties,
   objectives: [],
+  monsters: [],
 } satisfies Scenario;

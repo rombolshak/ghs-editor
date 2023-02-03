@@ -2,6 +2,7 @@ import {
   GeneralScenarioInfo,
   initialScenario,
   Scenario,
+  ScenarioMonster,
   ScenarioObjective,
   ScenarioProperties,
 } from '@app/core/models/scenario.models';
@@ -30,6 +31,7 @@ export class ScenarioDetailsService {
     this.generalInfo$ = this._model.asObservable().pipe(map(model => model.generalInfo));
     this.properties$ = this._model.asObservable().pipe(map(model => model.properties));
     this.objectives$ = this._model.asObservable().pipe(map(model => model.objectives));
+    this.monsters$ = this._model.asObservable().pipe(map(model => model.monsters));
   }
 
   businessId$: Observable<string>;
@@ -39,6 +41,7 @@ export class ScenarioDetailsService {
   generalInfo$: Observable<GeneralScenarioInfo>;
   properties$: Observable<ScenarioProperties>;
   objectives$: Observable<ScenarioObjective[]>;
+  monsters$: Observable<ScenarioMonster[]>;
 
   updateGeneralInfo(data: GeneralScenarioInfo) {
     const newModel = { ...this._model.value, generalInfo: data };
@@ -53,6 +56,10 @@ export class ScenarioDetailsService {
 
   updateObjectives(data: ScenarioObjective[]) {
     this.notifyUpdated({ ...this._model.value, objectives: data });
+  }
+
+  updateMonsters(data: ScenarioMonster[]) {
+    this.notifyUpdated({ ...this._model.value, monsters: data });
   }
 
   public reload() {
