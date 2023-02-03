@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TuiDestroyService } from '@taiga-ui/cdk';
+import { TuiDestroyService, TuiStringHandler } from '@taiga-ui/cdk';
 import {
   buildForm,
   ScenarioDetailsListBaseComponent,
@@ -31,5 +31,17 @@ export class ScenarioMonstersEditorComponent extends ScenarioDetailsListBaseComp
         })
     );
     this.reset();
+  }
+
+  monsters = ['qwe', 'asd', 'zxc'];
+  stringify: TuiStringHandler<string> = item => item;
+  selectedMonster: string | null = null;
+
+  addNewMonster(monster: string) {
+    if (!monster) return;
+
+    this.addNew();
+    this.form.controls.at(0)?.patchValue({ name: monster });
+    setTimeout(() => (this.selectedMonster = null), 0);
   }
 }

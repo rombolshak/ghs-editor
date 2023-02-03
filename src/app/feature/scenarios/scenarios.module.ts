@@ -8,10 +8,13 @@ import { SharedModule } from '@app/shared/shared.module';
 import { ScenarioDetailComponent } from './pages/scenario-detail/scenario-detail.component';
 import {
   TuiCheckboxLabeledModule,
+  TuiComboBoxModule,
+  TuiFilterByInputPipeModule,
   TuiInputNumberModule,
   TuiInputTagModule,
   TuiRadioBlockModule,
   TuiStepperModule,
+  TuiStringifyContentPipeModule,
   TuiTilesModule,
 } from '@taiga-ui/kit';
 import { ScenarioGeneralEditorComponent } from './components/scenario-general-editor/scenario-general-editor.component';
@@ -23,6 +26,7 @@ import { ScenarioSectionsEditorComponent } from './components/scenario-sections-
 import { ScenarioObjectivesComponent } from './components/scenario-objectives/scenario-objectives.component';
 import { TuiGroupModule } from '@taiga-ui/core';
 import { TuiAutoFocusModule } from '@taiga-ui/cdk';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,10 @@ import { TuiAutoFocusModule } from '@taiga-ui/cdk';
     TuiRadioBlockModule,
     TuiInputNumberModule,
     TuiAutoFocusModule,
+    TuiComboBoxModule,
+    TuiFilterByInputPipeModule,
+    TuiStringifyContentPipeModule,
+    FormsModule,
   ],
 })
 export class ScenariosModule {}

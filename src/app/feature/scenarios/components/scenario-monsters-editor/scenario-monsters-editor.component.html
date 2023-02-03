@@ -1,1 +1,17 @@
-<p>scenario-monsters-editor works!</p>
+<tui-combo-box
+  class="monster-search"
+  [strict]="true"
+  [stringify]="stringify"
+  [(ngModel)]="selectedMonster"
+  (ngModelChange)="addNewMonster($event)">
+  Search monsters to add
+  <input tuiTextfield placeholder="Type a name" />
+  <tui-data-list-wrapper
+    *tuiDataList
+    [items]="monsters | tuiFilterByInputWith : stringify"
+    [itemContent]="stringify | tuiStringifyContent"></tui-data-list-wrapper
+></tui-combo-box>
+
+<form *ngFor="let monster of form.controls; let i = index" class="monster-form">
+  <tui-input [formControl]="monster.controls.name"></tui-input>
+</form>
