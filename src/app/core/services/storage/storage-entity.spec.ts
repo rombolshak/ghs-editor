@@ -9,7 +9,7 @@ describe('StorageEntity', () => {
   let entity: StorageEntity<TestModel>;
 
   beforeEach(() => {
-    entity = new StorageEntity<TestModel>('test');
+    entity = new StorageEntity<TestModel>('test', { name: '' });
   });
 
   afterEach(() => {
@@ -50,7 +50,7 @@ describe('StorageEntityList', () => {
   let entityList: StorageEntityList<TestModel>;
 
   beforeEach(() => {
-    entityList = new StorageEntityList<TestModel>('test');
+    entityList = new StorageEntityList<TestModel>('test', { name: '' });
   });
 
   afterEach(() => {

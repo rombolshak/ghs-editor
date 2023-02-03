@@ -13,6 +13,7 @@ import { Validators } from '@angular/forms';
   templateUrl: './scenario-objectives.component.html',
   styleUrls: ['./scenario-objectives.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [TuiDestroyService],
 })
 export class ScenarioObjectivesComponent extends ScenarioDetailsListBaseComponent<ScenarioObjective> {
   constructor(activatedRoute: ActivatedRoute, destroy$: TuiDestroyService) {

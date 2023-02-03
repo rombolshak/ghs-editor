@@ -27,7 +27,7 @@ describe('BaseEditionDataService', () => {
     localStorage.setItem('ghse-data/base', JSON.stringify(data));
     const service = new BaseEditionDataService(new GhseDataStorageService());
     service.baseEditionData$.subscribe(model => {
-      expect(model).toEqual(data);
+      expect(model).toEqual({ ...initialBaseDataModel, ...data });
     });
     localStorage.clear();
   });

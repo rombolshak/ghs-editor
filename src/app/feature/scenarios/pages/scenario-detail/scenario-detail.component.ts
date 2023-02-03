@@ -49,6 +49,10 @@ export class ScenarioDetailComponent implements OnInit {
       : 'normal';
   }
 
-  private model: Scenario | undefined;
+  get objectivesState(): 'error' | 'normal' | 'pass' {
+    return (this.model?.objectives.length ?? 0) > 0 ? 'pass' : 'normal';
+  }
+
+  public model: Scenario | undefined;
   private detailsService: ScenarioDetailsService | undefined;
 }

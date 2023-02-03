@@ -20,15 +20,16 @@ describe('ScenarioPropertiesEditorComponent', () => {
 
   const storage = new GhseDataStorageService();
   const scenariosListService = new ScenariosListService(storage);
-  const detailsService = new ScenarioDetailsService(
-    scenariosListService,
-    storage,
-    new TuiAlertService({} as TuiAlertOptions<any>, new TuiIdService()),
-    'test'
-  );
+  let detailsService: ScenarioDetailsService;
 
   beforeEach(async () => {
     localStorage.clear();
+    detailsService = new ScenarioDetailsService(
+      scenariosListService,
+      storage,
+      new TuiAlertService({} as TuiAlertOptions<any>, new TuiIdService()),
+      'test'
+    );
     await TestBed.configureTestingModule({
       declarations: [ScenarioPropertiesEditorComponent],
       imports: [SharedModule, TuiInputTagModule, RouterTestingModule.withRoutes([])],
@@ -117,7 +118,7 @@ describe('ScenarioPropertiesEditorComponent', () => {
   });
 
   it('should save data', () => {
-    const savedData = { blocks: [], requires: [['1']], unlocks: ['2', '3'] };
+    const savedData = { blocks: [], requires: [['1'], []], unlocks: ['2', '3'] };
     component.form.setValue(savedData);
     expect(component.form.valid).toBeTrue();
 

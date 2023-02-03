@@ -55,6 +55,7 @@ describe('ScenarioGeneralEditorComponent', () => {
   it('should load saved value into form', () => {
     const data = { index: '123', name: 'ars', group: 'solo', initial: true };
     detailsService.updateGeneralInfo(data);
+    component.reset();
     expect(component.form.getRawValue()).toEqual(data);
   });
 

@@ -20,14 +20,7 @@ export class ScenarioDetailsService {
   ) {
     this._model = new BehaviorSubject<Scenario>(initialScenario);
 
-    storageService.scenarios
-      .withId(scenarioId)
-      .get()
-      .subscribe(data => {
-        if (data !== null) {
-          this._model.next(data);
-        }
-      });
+    this.reload();
 
     this.businessId$ = this._model.asObservable().pipe(map(model => ScenarioHelper.getBusinessId(model)));
     this.exists$ = this._model.asObservable().pipe(map(model => model.generalInfo.index !== ''));
@@ -60,6 +53,17 @@ export class ScenarioDetailsService {
 
   updateObjectives(data: ScenarioObjective[]) {
     this.notifyUpdated({ ...this._model.value, objectives: data });
+  }
+
+  public reload() {
+    this.storageService.scenarios
+      .withId(this.scenarioId)
+      .get()
+      .subscribe(data => {
+        if (data !== null) {
+          this._model.next(data);
+        }
+      });
   }
 
   private notifyUpdated(newModel: Scenario) {

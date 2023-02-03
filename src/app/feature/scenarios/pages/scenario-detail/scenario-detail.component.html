@@ -13,7 +13,14 @@
       [disabled]="areStepsDisabled">
       Properties
     </button>
-    <button tuiStep routerLink="objectives" routerLinkActive [disabled]="areStepsDisabled">Objectives</button>
+    <button
+      tuiStep
+      routerLink="objectives"
+      routerLinkActive
+      [stepState]="objectivesState"
+      [disabled]="areStepsDisabled">
+      Objectives
+    </button>
     <button tuiStep routerLink="monsters" routerLinkActive [disabled]="areStepsDisabled">Monsters</button>
     <button tuiStep routerLink="rooms" routerLinkActive [disabled]="areStepsDisabled">Rooms</button>
     <button tuiStep routerLink="rules" routerLinkActive [disabled]="areStepsDisabled">Special rules</button>
