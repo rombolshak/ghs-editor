@@ -5,10 +5,16 @@
 <div class="objectives">
   <form *ngFor="let objective of form.controls; let i = index" [formGroup]="objective" class="objective-form">
     <div class="form-row multi-field">
-      <tui-input [formControl]="objective.controls.marker" class="marker">Marker</tui-input>
-      <tui-input [formControl]="objective.controls.name" class="name" tuiAutoFocus>Name</tui-input>
+      <tui-input [formControl]="objective.controls.marker" class="marker" maxlength="1"
+        >Marker <input tuiTextfield maxlength="1"
+      /></tui-input>
+      <div class="row-errors name">
+        <tui-input [formControl]="objective.controls.name" tuiAutoFocus required>Name</tui-input>
+        <tui-error [formControl]="objective.controls.name" [error]="[] | tuiFieldError | async"></tui-error>
+      </div>
       <tui-svg src="tuiIconTrashLarge" class="delete" (click)="remove(i)"></tui-svg>
     </div>
+
     <div class="form-row" tuiGroup>
       <tui-radio-block [formControl]="objective.controls.escort" [item]="false">
         <div class="objective-type">
@@ -23,7 +29,9 @@
       <div class="multi-field expression-fields">
         <tui-input [formControl]="objective.controls.health" class="health">Health</tui-input>
         <tui-input [formControl]="objective.controls.count" class="count">Count</tui-input>
-        <tui-input-number [formControl]="objective.controls.initiative" class="initiative">Initiative</tui-input-number>
+        <tui-input-number [formControl]="objective.controls.initiative" class="initiative" [min]="1" [max]="99">
+          Initiative
+        </tui-input-number>
         <tui-tooltip [content]="expressionsDescription"></tui-tooltip>
       </div>
       <ng-template #expressionsDescription>

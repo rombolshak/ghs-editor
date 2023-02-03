@@ -6,6 +6,7 @@ import {
 import { ScenarioObjective } from '@app/core/models/scenario.models';
 import { ActivatedRoute } from '@angular/router';
 import { TuiDestroyService } from '@taiga-ui/cdk';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'ghse-scenario-objectives',
@@ -22,12 +23,12 @@ export class ScenarioObjectivesComponent extends ScenarioDetailsListBaseComponen
       (service, data) => service.updateObjectives(data),
       () =>
         buildForm({
-          name: [''],
+          name: ['', Validators.required],
           health: [''],
           escort: [false],
-          initiative: [<number | null>null],
+          initiative: [<number | null>null, [Validators.min(1), Validators.max(99)]],
           count: [''],
-          marker: [''],
+          marker: ['', Validators.maxLength(1)],
         })
     );
 
