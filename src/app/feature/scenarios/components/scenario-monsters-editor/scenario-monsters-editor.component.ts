@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TuiDestroyService, TuiStringHandler } from '@taiga-ui/cdk';
 import {
   buildForm,
@@ -7,7 +7,7 @@ import {
 import { ScenarioMonster } from '@app/core/models/scenario.models';
 import { ActivatedRoute } from '@angular/router';
 import { Validators } from '@angular/forms';
-import { MonstersProviderService } from '@app/feature/scenarios/services/monsters-provider.service';
+import { AvailableMonster, MonstersProviderService } from '@app/feature/scenarios/services/monsters-provider.service';
 
 @Component({
   selector: 'ghse-scenario-monsters-editor',
@@ -16,7 +16,10 @@ import { MonstersProviderService } from '@app/feature/scenarios/services/monster
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [TuiDestroyService],
 })
-export class ScenarioMonstersEditorComponent extends ScenarioDetailsListBaseComponent<ScenarioMonster> {
+export class ScenarioMonstersEditorComponent
+  extends ScenarioDetailsListBaseComponent<ScenarioMonster>
+  implements OnInit
+{
   constructor(
     activatedRoute: ActivatedRoute,
     destroy$: TuiDestroyService,
@@ -38,15 +41,20 @@ export class ScenarioMonstersEditorComponent extends ScenarioDetailsListBaseComp
     this.reset();
   }
 
-  monsters = ['qwe', 'asd', 'zxc'];
-  stringify: TuiStringHandler<string> = item => item;
-  selectedMonster: string | null = null;
+  ngOnInit() {
+    this.monstersProvider.getAvailableMonsters().subscribe(data => (this.monsters = data));
+  }
 
-  addNewMonster(monster: string) {
+  monsters: Array<AvailableMonster> = [];
+  stringify: TuiStringHandler<AvailableMonster> = item => item.displayName!;
+  stringifySearch: TuiStringHandler<AvailableMonster> = item => `${item.name} ${item.displayName}`;
+  selectedMonster: AvailableMonster | null = null;
+
+  addNewMonster(monster: AvailableMonster) {
     if (!monster) return;
 
     this.addNew();
-    this.form.controls.at(0)?.patchValue({ name: monster });
+    this.form.controls.at(0)?.patchValue({ name: monster.name });
     setTimeout(() => (this.selectedMonster = null), 0);
   }
 }

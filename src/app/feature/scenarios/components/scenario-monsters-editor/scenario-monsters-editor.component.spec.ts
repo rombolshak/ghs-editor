@@ -10,6 +10,10 @@ import { SharedModule } from '@app/shared/shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { ScenariosServicesModule } from '@app/feature/scenarios/scenarios-services.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TuiComboBoxModule, TuiFilterByInputPipeModule, TuiStringifyContentPipeModule } from '@taiga-ui/kit';
+import { FormsModule } from '@angular/forms';
 
 describe('ScenarioMonstersEditorComponent', () => {
   let component: ScenarioMonstersEditorComponent;
@@ -28,7 +32,16 @@ describe('ScenarioMonstersEditorComponent', () => {
     );
     await TestBed.configureTestingModule({
       declarations: [ScenarioMonstersEditorComponent],
-      imports: [SharedModule, RouterTestingModule.withRoutes([])],
+      imports: [
+        SharedModule,
+        ScenariosServicesModule,
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule,
+        TuiComboBoxModule,
+        TuiFilterByInputPipeModule,
+        TuiStringifyContentPipeModule,
+        FormsModule,
+      ],
       providers: [
         {
           provide: ActivatedRoute,
