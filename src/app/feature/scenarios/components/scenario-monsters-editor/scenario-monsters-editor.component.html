@@ -21,7 +21,10 @@
           'assets/images/ghs/monster/thumbnail/' + addedMonsters[i].edition + '-' + addedMonsters[i].name + '.png'
         " />
       <div class="info-controls">
-        <div class="tui-text_h6 form-row">{{ addedMonsters[i].displayName }}</div>
+        <div class="form-row name">
+          {{ addedMonsters[i].displayName }}
+          <tui-svg src="tuiIconTrashLarge" class="delete" (click)="remove(i)"></tui-svg>
+        </div>
         <tui-input-count class="form-row" [formControl]="monster.controls.levelAdjustment" [min]="-1" [max]="7">
           Level ajustment
         </tui-input-count>
@@ -29,7 +32,10 @@
     </div>
     <div tuiGroup [collapsed]="true" orientation="vertical" class="form-row additional-info">
       <tui-checkbox-block [formControl]="monster.controls.isAlly">Is ally</tui-checkbox-block>
-      <tui-checkbox-block [formControl]="monster.controls.drawExtra" nativeId="drawExtra">
+      <tui-checkbox-block
+        [formControl]="monster.controls.drawExtra"
+        nativeId="drawExtra"
+        *ngIf="isDrawExtraNeeded(addedMonsters[i])">
         Draw extra card
         <tui-tooltip
           describeId="drawExtra"
@@ -38,3 +44,14 @@
     </div>
   </form>
 </div>
+
+<form>
+  <div class="form-row buttons">
+    <div>
+      <button tuiButton type="button" [disabled]="!form.valid || form.pristine" (click)="save()">Save</button>
+      <button tuiButton type="button" appearance="outline" (click)="reset()" data-automation="reset-button">
+        Reset
+      </button>
+    </div>
+  </div>
+</form>

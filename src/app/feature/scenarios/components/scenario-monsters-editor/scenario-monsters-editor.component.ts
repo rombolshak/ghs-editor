@@ -38,11 +38,13 @@ export class ScenarioMonstersEditorComponent
           drawExtra: [false],
         })
     );
-    this.reset();
   }
 
   ngOnInit() {
-    this.monstersProvider.getAvailableMonsters().subscribe(data => (this.allMonsters = data));
+    this.monstersProvider.getAvailableMonsters().subscribe(data => {
+      this.allMonsters = data;
+      this.reset();
+    });
   }
 
   allMonsters: Array<AvailableMonster> = [];
@@ -52,6 +54,14 @@ export class ScenarioMonstersEditorComponent
   stringifySearch: TuiStringHandler<AvailableMonster> = item => `${item.name} ${item.displayName}`;
   selectedMonster: AvailableMonster | null = null;
 
+  isDrawExtraNeeded(monster: AvailableMonster): boolean {
+    return (
+      this.addedMonsters.findIndex(
+        m => m.deck !== undefined && m !== monster && m.deck === monster.deck && m.edition === monster.edition
+      ) !== -1
+    );
+  }
+
   addNewMonster(monster: AvailableMonster) {
     if (!monster) return;
 
@@ -59,5 +69,22 @@ export class ScenarioMonstersEditorComponent
     this.form.controls.at(0)?.patchValue({ name: monster.name });
     this.addedMonsters.unshift(monster);
     setTimeout(() => (this.selectedMonster = null), 0);
+  }
+
+  override remove(index: number) {
+    this.addedMonsters.splice(index, 1);
+    super.remove(index);
+  }
+
+  override reset() {
+    this.addedMonsters = [];
+    for (const saved of this.savedModel!) {
+      const found = this.allMonsters.find(m => m.name === saved.name);
+      if (found) {
+        this.addedMonsters.push(found);
+      } else this.addedMonsters.push({ name: saved.name, displayName: `<Unknown monster> ${saved.name}`, edition: '' });
+    }
+
+    super.reset();
   }
 }
