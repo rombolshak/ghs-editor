@@ -42,10 +42,12 @@ export class ScenarioMonstersEditorComponent
   }
 
   ngOnInit() {
-    this.monstersProvider.getAvailableMonsters().subscribe(data => (this.monsters = data));
+    this.monstersProvider.getAvailableMonsters().subscribe(data => (this.allMonsters = data));
   }
 
-  monsters: Array<AvailableMonster> = [];
+  allMonsters: Array<AvailableMonster> = [];
+  addedMonsters: Array<AvailableMonster> = [];
+
   stringify: TuiStringHandler<AvailableMonster> = item => item.displayName!;
   stringifySearch: TuiStringHandler<AvailableMonster> = item => `${item.name} ${item.displayName}`;
   selectedMonster: AvailableMonster | null = null;
@@ -55,6 +57,7 @@ export class ScenarioMonstersEditorComponent
 
     this.addNew();
     this.form.controls.at(0)?.patchValue({ name: monster.name });
+    this.addedMonsters.unshift(monster);
     setTimeout(() => (this.selectedMonster = null), 0);
   }
 }

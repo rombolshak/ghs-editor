@@ -12,7 +12,13 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { ScenariosServicesModule } from '@app/feature/scenarios/scenarios-services.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TuiComboBoxModule, TuiFilterByInputPipeModule, TuiStringifyContentPipeModule } from '@taiga-ui/kit';
+import {
+  TuiCheckboxBlockModule,
+  TuiComboBoxModule,
+  TuiFilterByInputPipeModule,
+  TuiInputCountModule,
+  TuiStringifyContentPipeModule,
+} from '@taiga-ui/kit';
 import { FormsModule } from '@angular/forms';
 
 describe('ScenarioMonstersEditorComponent', () => {
@@ -40,6 +46,8 @@ describe('ScenarioMonstersEditorComponent', () => {
         TuiComboBoxModule,
         TuiFilterByInputPipeModule,
         TuiStringifyContentPipeModule,
+        TuiCheckboxBlockModule,
+        TuiInputCountModule,
         FormsModule,
       ],
       providers: [

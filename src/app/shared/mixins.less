@@ -81,3 +81,25 @@
     color: var(--tui-base-06);
   }
 }
+
+.ghse-items-list(@min-width) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(@min-width, 1fr));
+  gap: 1rem;
+}
+
+.ghse-item-box {
+  width: auto;
+  border: 1px solid var(--tui-base-03);
+  border-radius: var(--tui-radius-m);
+  padding: 1rem;
+
+  .form-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .delete {
+    .ghse-icon;
+    margin-left: 1rem;
+  }
+}

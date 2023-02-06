@@ -8,10 +8,33 @@
   <input tuiTextfield placeholder="Type a name" />
   <tui-data-list-wrapper
     *tuiDataList
-    [items]="monsters | tuiFilterByInputWith : stringifySearch"
+    [items]="allMonsters | tuiFilterByInputWith : stringifySearch"
     [itemContent]="stringify | tuiStringifyContent"></tui-data-list-wrapper
 ></tui-combo-box>
 
-<form *ngFor="let monster of form.controls; let i = index" class="monster-form">
-  <tui-input [formControl]="monster.controls.name"></tui-input>
-</form>
+<div class="monsters">
+  <form *ngFor="let monster of form.controls; let i = index" class="monster-form">
+    <div class="form-row monster-info">
+      <img
+        class="thumbnail"
+        [src]="
+          'assets/images/ghs/monster/thumbnail/' + addedMonsters[i].edition + '-' + addedMonsters[i].name + '.png'
+        " />
+      <div class="info-controls">
+        <div class="tui-text_h6 form-row">{{ addedMonsters[i].displayName }}</div>
+        <tui-input-count class="form-row" [formControl]="monster.controls.levelAdjustment" [min]="-1" [max]="7">
+          Level ajustment
+        </tui-input-count>
+      </div>
+    </div>
+    <div tuiGroup [collapsed]="true" orientation="vertical" class="form-row additional-info">
+      <tui-checkbox-block [formControl]="monster.controls.isAlly">Is ally</tui-checkbox-block>
+      <tui-checkbox-block [formControl]="monster.controls.drawExtra" nativeId="drawExtra">
+        Draw extra card
+        <tui-tooltip
+          describeId="drawExtra"
+          content="This monster shares the same deck as the other added monster. You can decide whether they will use the same ability card for a round (then leave the checkbox empty) or if this monster should draw another card (then tick the checkbox)"></tui-tooltip>
+      </tui-checkbox-block>
+    </div>
+  </form>
+</div>

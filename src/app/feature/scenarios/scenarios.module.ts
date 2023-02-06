@@ -7,9 +7,11 @@ import { ScenariosListComponent } from './pages/scenarios-list/scenarios-list.co
 import { SharedModule } from '@app/shared/shared.module';
 import { ScenarioDetailComponent } from './pages/scenario-detail/scenario-detail.component';
 import {
+  TuiCheckboxBlockModule,
   TuiCheckboxLabeledModule,
   TuiComboBoxModule,
   TuiFilterByInputPipeModule,
+  TuiInputCountModule,
   TuiInputNumberModule,
   TuiInputTagModule,
   TuiRadioBlockModule,
@@ -57,6 +59,8 @@ import { FormsModule } from '@angular/forms';
     TuiFilterByInputPipeModule,
     TuiStringifyContentPipeModule,
     FormsModule,
+    TuiInputCountModule,
+    TuiCheckboxBlockModule,
   ],
 })
 export class ScenariosModule {}
