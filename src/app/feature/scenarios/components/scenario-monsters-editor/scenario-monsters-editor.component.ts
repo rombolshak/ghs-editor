@@ -62,7 +62,7 @@ export class ScenarioMonstersEditorComponent
     );
   }
 
-  addNewMonster(monster: AvailableMonster) {
+  addNewMonster(monster: AvailableMonster | null) {
     if (!monster) return;
 
     this.addNew();
