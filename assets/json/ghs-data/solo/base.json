@@ -2,8 +2,6 @@
   "edition": "solo",
   "extensions": [
     "gh",
-    "fh",
-    "gh-envx",
     "fc",
     "cs"
   ]

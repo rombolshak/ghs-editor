@@ -78,6 +78,7 @@
     },
     {
       "roomNumber": 2,
+      "ref": "",
       "marker": "1",
       "monster": [
         {

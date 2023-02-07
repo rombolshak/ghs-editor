@@ -26,8 +26,7 @@
       ]
     },
     {
-      "round": "true",
-      "once": true,
+      "round": "once",
       "always": true,
       "spawns": [
         {
@@ -52,8 +51,7 @@
       ]
     },
     {
-      "round": "true",
-      "once": true,
+      "round": "once",
       "always": true,
       "spawns": [
         {

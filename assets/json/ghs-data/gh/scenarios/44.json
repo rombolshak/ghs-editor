@@ -19,28 +19,10 @@
       "escort": true,
       "health": "6+(3xL)",
       "initiative": 1,
-      "marker": "b",
-      "actions": [
-        {
-          "type": "move",
-          "value": 3
-        },
-        {
-          "type": "attack",
-          "value": 3,
-          "subActions": [
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            }
-          ]
-        }
-      ],
-      "allyDeck": true
+      "marker": "b"
     },
     {
-      "name": "Captive Orchid",
+      "name": "Orchid",
       "escort": true,
       "health": "4+(2xL)",
       "marker": "a",

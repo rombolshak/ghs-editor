@@ -7,7 +7,7 @@
     "bandit-guard",
     "black-imp",
     "cultist",
-    "cultist-scenario-78",
+    "cultist-78",
     "living-bones"
   ],
   "rooms": [
@@ -75,6 +75,16 @@
           "type": "normal"
         },
         {
+          "name": "cultist-78",
+          "type": "elite",
+          "marker": "b"
+        },
+        {
+          "name": "cultist-78",
+          "type": "elite",
+          "marker": "b"
+        },
+        {
           "name": "cultist",
           "player2": "normal",
           "player3": "elite",
@@ -87,16 +97,6 @@
         {
           "name": "cultist",
           "player4": "normal"
-        },
-        {
-          "name": "cultist-scenario-78",
-          "type": "elite",
-          "marker": "b"
-        },
-        {
-          "name": "cultist-scenario-78",
-          "type": "elite",
-          "marker": "b"
         }
       ]
     },

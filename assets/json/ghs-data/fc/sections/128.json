@@ -7,12 +7,11 @@
     "66"
   ],
   "monsters": [
-    "the-husk-section-128"
+    "the-husk-128"
   ],
   "rules": [
     {
-      "round": "true",
-      "once": true,
+      "round": "once",
       "note": "%data.section.rules.fc.128.1%",
       "sections": [
         "81"
@@ -22,7 +21,7 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk-section-66"
+            "name": "the-husk-66"
           },
           "type": "looseCondition",
           "value": "wound"
@@ -31,7 +30,7 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk-section-66"
+            "name": "the-husk-66"
           },
           "type": "looseCondition",
           "value": "muddle"
@@ -40,7 +39,7 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk-section-66"
+            "name": "the-husk-66"
           },
           "type": "looseCondition",
           "value": "poison"
@@ -49,7 +48,7 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk-section-66"
+            "name": "the-husk-66"
           },
           "type": "hp",
           "value": "25%"
@@ -58,10 +57,10 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk-section-66"
+            "name": "the-husk-66"
           },
           "type": "transfer",
-          "value": "the-husk-section-128"
+          "value": "the-husk-128"
         }
       ]
     }

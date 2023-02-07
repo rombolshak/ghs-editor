@@ -12,8 +12,8 @@
     {
       "roomNumber": 5,
       "ref": "l2b",
-      "initial": true,
       "marker": "h",
+      "initial": true,
       "treasures": [
         null,
         null
@@ -21,7 +21,6 @@
       "monster": [
         {
           "name": "black-imp",
-          "player2": "elite",
           "player3": "normal",
           "player4": "normal"
         },
@@ -32,11 +31,17 @@
         },
         {
           "name": "black-imp",
+          "player2": "elite",
           "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "black-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
           "player3": "normal",
           "player4": "normal"
         },
@@ -45,11 +50,6 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "deep-terror",
-          "player3": "normal",
-          "player4": "normal"
         },
         {
           "name": "deep-terror",

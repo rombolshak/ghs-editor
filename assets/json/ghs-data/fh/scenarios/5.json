@@ -21,23 +21,6 @@
     "rockroot": 2,
     "corpsecap": 2
   },
-  "rules": [
-    {
-      "round": "R == 1",
-      "start": true,
-      "figures": [
-        {
-          "identifier": {
-            "type": "character",
-            "name": ".*"
-          },
-          "type": "damage",
-          "value": "2",
-          "scenarioEffect": true
-        }
-      ]
-    }
-  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -46,7 +29,8 @@
       "monster": [
         {
           "name": "ice-wraith",
-          "type": "normal"
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "ice-wraith",
@@ -54,12 +38,11 @@
         },
         {
           "name": "ice-wraith",
-          "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "ice-wraith",
-          "player4": "normal"
+          "type": "normal"
         }
       ]
     }

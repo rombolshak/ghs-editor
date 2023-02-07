@@ -11,24 +11,6 @@
     "chaos-demon",
     "stone-golem"
   ],
-  "rules": [
-    {
-      "round": "true",
-      "start": true,
-      "note": "%data.scenario.rules.jotl.10.1%",
-      "requiredRooms": [
-        2
-      ]
-    },
-    {
-      "round": "true",
-      "start": true,
-      "note": "%data.scenario.rules.jotl.10.2%",
-      "requiredRooms": [
-        3
-      ]
-    }
-  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -73,7 +55,6 @@
     {
       "roomNumber": 2,
       "ref": "jotl10-2",
-      "marker": "1",
       "rooms": [
         3
       ],
@@ -102,7 +83,6 @@
     {
       "roomNumber": 3,
       "ref": "jotl10-3",
-      "marker": 2,
       "monster": [
         {
           "name": "black-sludge",

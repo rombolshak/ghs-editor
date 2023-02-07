@@ -19,6 +19,7 @@
   "edition": "toa",
   "newAmStyle": true,
   "extensions": [
-    "cs"
+    "gh",
+    "fc"
   ]
 }

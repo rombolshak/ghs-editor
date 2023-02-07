@@ -3,8 +3,10 @@
   "characterClass": "savvas",
   "gender": "",
   "edition": "fh",
-  "color": "#eb5b38",
+  "color": "#ec9063",
   "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,

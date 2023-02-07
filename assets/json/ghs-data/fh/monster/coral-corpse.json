@@ -40,10 +40,6 @@
         {
           "type": "retaliate",
           "value": 1
-        },
-        {
-          "type": "condition",
-          "value": "brittle"
         }
       ]
     },
@@ -60,10 +56,6 @@
         {
           "type": "retaliate",
           "value": 1
-        },
-        {
-          "type": "condition",
-          "value": "brittle"
         }
       ]
     },
@@ -80,10 +72,6 @@
         {
           "type": "retaliate",
           "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "brittle"
         }
       ]
     },
@@ -100,10 +88,6 @@
         {
           "type": "retaliate",
           "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "brittle"
         }
       ]
     },
@@ -120,10 +104,6 @@
         {
           "type": "retaliate",
           "value": 3
-        },
-        {
-          "type": "condition",
-          "value": "brittle"
         }
       ]
     },
@@ -140,10 +120,6 @@
         {
           "type": "retaliate",
           "value": 3
-        },
-        {
-          "type": "condition",
-          "value": "brittle"
         }
       ]
     },
@@ -160,10 +136,6 @@
         {
           "type": "retaliate",
           "value": 3
-        },
-        {
-          "type": "condition",
-          "value": "brittle"
         }
       ]
     }

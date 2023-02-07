@@ -3,8 +3,10 @@
   "characterClass": "vermling",
   "gender": "",
   "edition": "fh",
-  "color": "#ddb586",
+  "color": "#ac9c6f",
   "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,

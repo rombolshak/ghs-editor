@@ -18,7 +18,8 @@
       [
         {
           "type": "custom",
-          "value": "%data.custom.gh.merciless-overseer.1%"
+          "value": "%data.custom.gh.merciless-overseer.1%",
+          "small": true
         }
       ],
       [

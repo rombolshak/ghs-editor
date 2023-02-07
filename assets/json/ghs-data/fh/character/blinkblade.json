@@ -2,7 +2,7 @@
   "name": "blinkblade",
   "characterClass": "quatryl",
   "edition": "fh",
-  "color": "#01b0db",
+  "color": "#009ec6",
   "stats": [
     {
       "level": 1,
@@ -67,7 +67,8 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus1"
+            "type": "plus1",
+            "rolling": true
           }
         }
       ]

@@ -23,6 +23,7 @@
         {
           "identifier": {
             "type": "character",
+            "edition": "gh",
             "name": ".*"
           },
           "type": "amAdd",

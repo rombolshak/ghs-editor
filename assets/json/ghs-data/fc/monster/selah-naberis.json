@@ -1,10 +1,8 @@
 {
   "name": "selah-naberis",
-  "thumbnail": "fc-valrath-tracker",
   "edition": "fc",
   "deck": "tracker",
   "boss": true,
-  "hidden": true,
   "count": 1,
   "baseStat": {
     "type": "boss",
@@ -133,6 +131,12 @@
           "type": "target",
           "value": "C"
         }
+      ],
+      "immunities": [
+        "stun",
+        "immobilize",
+        "muddle",
+        "poison"
       ]
     },
     {
@@ -154,6 +158,12 @@
           "type": "target",
           "value": "C"
         }
+      ],
+      "immunities": [
+        "stun",
+        "immobilize",
+        "muddle",
+        "poison"
       ]
     }
   ]

@@ -3,8 +3,10 @@
   "characterClass": "orchid",
   "gender": "",
   "edition": "fh",
-  "color": "#6fb54e",
+  "color": "#b6e56c",
   "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,

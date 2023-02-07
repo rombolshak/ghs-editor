@@ -3,8 +3,10 @@
   "characterClass": "algox",
   "gender": "",
   "edition": "fh",
-  "color": "#88abc6",
+  "color": "#d3dbe9",
   "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,

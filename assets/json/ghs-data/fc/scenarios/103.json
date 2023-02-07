@@ -18,9 +18,26 @@
       "roomNumber": 1,
       "ref": "l1b",
       "initial": true,
+      "rooms": [
+        2
+      ],
       "objectives": [
         1
       ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "c2a",
+      "rooms": [
+        3
+      ],
+      "treasures": [
+        81
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "m1b"
     }
   ]
 }

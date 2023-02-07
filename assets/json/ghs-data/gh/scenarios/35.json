@@ -46,25 +46,21 @@
       "monster": [
         {
           "name": "city-archer",
-          "type": "elite",
-          "marker": "a"
+          "type": "elite"
         },
         {
           "name": "city-archer",
-          "type": "elite",
-          "marker": "b"
-        },
-        {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "elite",
-          "marker": "a"
+          "type": "elite"
         },
         {
           "name": "city-archer",
           "player3": "normal",
-          "player4": "elite",
-          "marker": "b"
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "city-guard",

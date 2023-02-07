@@ -82,10 +82,6 @@
       ],
       "monster": [
         {
-          "name": "arcane-golem:+1",
-          "type": "elite"
-        },
-        {
           "name": "forest-imp",
           "player3": "normal",
           "player4": "normal"
@@ -97,6 +93,10 @@
         {
           "name": "forest-imp",
           "player4": "normal"
+        },
+        {
+          "name": "arcane-golem:+1",
+          "type": "elite"
         }
       ]
     }

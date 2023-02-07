@@ -80,6 +80,10 @@
           "type": "normal"
         },
         {
+          "name": "lurker-king",
+          "type": "boss"
+        },
+        {
           "name": "lurker",
           "player2": "normal",
           "player3": "normal",
@@ -89,10 +93,6 @@
           "name": "lurker",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "lurker-king",
-          "type": "boss"
         },
         {
           "name": "ooze",

@@ -12,7 +12,7 @@
       "monster": [
         {
           "name": "hound-scenario-0",
-          "type": "normal"
+          "player4": "elite"
         },
         {
           "name": "hound-scenario-0",
@@ -20,8 +20,10 @@
         },
         {
           "name": "hound-scenario-0",
-          "player2": "elite",
-          "player3": "normal",
+          "type": "normal"
+        },
+        {
+          "name": "hound-scenario-0",
           "player4": "elite"
         },
         {
@@ -31,10 +33,8 @@
         },
         {
           "name": "hound-scenario-0",
-          "player4": "elite"
-        },
-        {
-          "name": "hound-scenario-0",
+          "player2": "elite",
+          "player3": "normal",
           "player4": "elite"
         }
       ]

@@ -8,31 +8,14 @@
   "monsters": [
     "harrower-infester",
     "lurker",
-    "spitting-drake",
-    "sun-demon"
+    "spitting-drake"
   ],
   "objectives": [
     {
       "name": "Hail",
       "escort": true,
       "health": "6+2xL",
-      "marker": "a",
-      "tags": [
-        "104"
-      ],
-      "actions": [
-        {
-          "type": "move",
-          "value": 3,
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.scenario.rules.fc.104.1%",
-              "small": true
-            }
-          ]
-        }
-      ]
+      "marker": "a"
     }
   ],
   "rules": [
@@ -104,10 +87,6 @@
       "monster": [
         {
           "name": "harrower-infester",
-          "player2": "elite"
-        },
-        {
-          "name": "harrower-infester",
           "player3": "normal",
           "player4": "elite"
         },
@@ -117,22 +96,8 @@
           "player4": "normal"
         },
         {
-          "name": "lurker",
-          "player2": "normal"
-        },
-        {
-          "name": "lurker",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "lurker",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "spitting-drake",
-          "player2": "normal"
+          "name": "harrower-infester",
+          "player2": "elite"
         },
         {
           "name": "spitting-drake",
@@ -141,20 +106,38 @@
         },
         {
           "name": "spitting-drake",
+          "player2": "normal"
+        },
+        {
+          "name": "spitting-drake",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "sun-demon",
           "player2": "elite"
         },
         {
-          "name": "sun-demon",
+          "name": "lurker",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "sun-demon",
+          "name": "lurker",
+          "player2": "normal"
+        },
+        {
+          "name": "lurker",
           "player3": "normal",
           "player4": "elite"
         }

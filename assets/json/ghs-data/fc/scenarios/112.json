@@ -20,15 +20,10 @@
       ],
       "monster": [
         {
-          "name": "ancient-artillery",
-          "player2": "normal",
+          "name": "stone-golem",
+          "player2": "elite",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "ancient-artillery",
-          "player3": "normal",
-          "player4": "normal"
         },
         {
           "name": "living-bones",
@@ -46,8 +41,13 @@
           "player4": "normal"
         },
         {
-          "name": "stone-golem",
-          "player2": "elite",
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         }
@@ -62,15 +62,10 @@
       ],
       "monster": [
         {
-          "name": "ancient-artillery",
-          "player2": "elite",
+          "name": "stone-golem",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "ancient-artillery",
-          "player3": "normal",
-          "player4": "normal"
         },
         {
           "name": "living-bones",
@@ -88,8 +83,13 @@
           "player4": "normal"
         },
         {
-          "name": "stone-golem",
-          "player2": "normal",
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "elite",
           "player3": "normal",
           "player4": "elite"
         }
@@ -100,19 +100,19 @@
       "ref": "d2a",
       "monster": [
         {
-          "name": "ancient-artillery",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "stone-golem",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "living-bones",
           "type": "normal"
         },
         {
-          "name": "stone-golem",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         }
       ]
     },
@@ -121,19 +121,19 @@
       "ref": "d1a",
       "monster": [
         {
-          "name": "ancient-artillery",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "stone-golem",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "living-bones",
           "type": "normal"
         },
         {
-          "name": "stone-golem",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         }
       ]
     }

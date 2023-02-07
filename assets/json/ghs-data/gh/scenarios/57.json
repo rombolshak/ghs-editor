@@ -13,8 +13,7 @@
   ],
   "rules": [
     {
-      "round": "always",
-      "once": true,
+      "round": "once",
       "always": true,
       "figures": [
         {
@@ -34,21 +33,16 @@
             "type": "boss"
           }
         }
-      ],
-      "requiredRooms": [
-        3
       ]
     },
     {
-      "round": "always",
-      "once": true,
+      "round": "once",
       "always": true,
       "spawns": [
         {
           "monster": {
             "name": "city-guard",
-            "player2": "normal",
-            "player4": "elite"
+            "player2": "normal"
           },
           "count": 2,
           "marker": "a"
@@ -66,10 +60,18 @@
             "player3": "elite"
           },
           "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "city-guard",
+            "player4": "elite"
+          },
+          "count": 2,
+          "marker": "a"
         }
       ],
       "requiredRooms": [
-        4
+        5
       ]
     }
   ],
@@ -167,7 +169,6 @@
     {
       "roomNumber": 4,
       "ref": "a1a",
-      "marker": "3",
       "treasures": [
         22,
         3
@@ -176,7 +177,7 @@
     {
       "roomNumber": 5,
       "ref": "c2b",
-      "marker": "4",
+      "marker": "3",
       "monster": [
         {
           "name": "city-archer",

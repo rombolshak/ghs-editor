@@ -16,6 +16,7 @@
         {
           "identifier": {
             "type": "character",
+            "edition": "gh",
             "name": ".*"
           },
           "type": "gainCondition",

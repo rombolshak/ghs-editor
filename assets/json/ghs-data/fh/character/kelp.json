@@ -3,8 +3,10 @@
   "characterClass": "lurker",
   "gender": "",
   "edition": "fh",
-  "color": "#987bab",
+  "color": "#9f9bd0",
   "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,

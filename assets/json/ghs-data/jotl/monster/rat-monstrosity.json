@@ -8,13 +8,8 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%game.custom.ondeath%",
-        "subActions": [
-          {
-            "type": "custom",
-            "value": "%data.custom.jotl.rat-monstrosity.1%"
-          }
-        ]
+        "value": "%data.custom.jotl.rat-monstrosity.1%",
+        "small": true
       }
     ]
   },
@@ -45,13 +40,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.2%"
-            }
-          ]
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         }
       ]
     },
@@ -63,13 +53,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.2%"
-            }
-          ]
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         }
       ]
     },
@@ -81,13 +66,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.2%"
-            }
-          ]
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         }
       ]
     },
@@ -99,13 +79,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.3%"
-            }
-          ]
+          "value": "%data.custom.jotl.rat-monstrosity.3%",
+          "small": true
         }
       ]
     },
@@ -117,13 +92,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.3%"
-            }
-          ]
+          "value": "%data.custom.jotl.rat-monstrosity.3%",
+          "small": true
         }
       ]
     },
@@ -143,17 +113,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.2%"
-            }
-          ]
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -166,17 +132,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.2%"
-            }
-          ]
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -189,17 +151,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.2%"
-            }
-          ]
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -212,17 +170,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%data.custom.jotl.rat-monstrosity.3%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.3%"
-            }
-          ]
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -235,17 +189,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%data.custom.jotl.rat-monstrosity.3%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.3%"
-            }
-          ]
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -258,17 +208,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%data.custom.jotl.rat-monstrosity.3%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.3%"
-            }
-          ]
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -281,17 +227,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%data.custom.jotl.rat-monstrosity.4%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.ondeath%",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.jotl.rat-monstrosity.4%"
-            }
-          ]
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     }

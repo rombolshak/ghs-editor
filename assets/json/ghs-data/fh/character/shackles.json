@@ -3,8 +3,10 @@
   "characterClass": "aesther",
   "gender": "",
   "edition": "fh",
-  "color": "#7476a7",
+  "color": "#c2c5ef",
   "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,

@@ -14,8 +14,14 @@
       "initial": true,
       "monster": [
         {
-          "name": "algox-archer",
-          "type": "elite"
+          "name": "algox-priest",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "algox-archer",
@@ -28,14 +34,8 @@
           "player4": "normal"
         },
         {
-          "name": "algox-priest",
-          "type": "normal"
-        },
-        {
-          "name": "algox-scout",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "algox-archer",
+          "type": "elite"
         }
       ]
     }

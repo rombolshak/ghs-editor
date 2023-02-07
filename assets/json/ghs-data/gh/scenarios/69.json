@@ -11,8 +11,7 @@
   ],
   "rules": [
     {
-      "round": "true",
-      "once": true,
+      "round": "once",
       "always": true,
       "spawns": [
         {
