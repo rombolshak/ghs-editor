@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { forkJoin, map, Observable, switchMap } from 'rxjs';
 import { withCache } from '@ngneat/cashew';
 import { BaseEditionDataService } from '@app/core/services/business/base-edition-data.service';
+import { InteractionLoaderService } from '@app/core/services/interaction-loader.service';
 
 type LabelData = {
   en: {
@@ -15,7 +16,12 @@ type LabelData = {
   providedIn: 'root',
 })
 export class LocalizationLabelService {
-  constructor(editionService: BaseEditionDataService, private readonly http: HttpClient) {
+  constructor(
+    editionService: BaseEditionDataService,
+    private readonly http: HttpClient,
+    private readonly loaderService: InteractionLoaderService
+  ) {
+    this.loaderService.addBlock('LocalizationLabelService');
     editionService.baseEditionData$
       .pipe(
         map(data => data.extendedEditions),
@@ -23,6 +29,7 @@ export class LocalizationLabelService {
       )
       .subscribe(data => {
         this._labels = new Map(data.map(label => [Object.keys(label.en.edition)[0], label]));
+        this.loaderService.releaseBlock('LocalizationLabelService');
       });
   }
 
@@ -34,5 +41,5 @@ export class LocalizationLabelService {
     return this.http.get<LabelData>(`assets/json/ghs-data/${edition}/label.json`, { context: withCache() });
   }
 
-  private _labels!: Map<string, LabelData>;
+  private _labels: Map<string, LabelData> = new Map();
 }

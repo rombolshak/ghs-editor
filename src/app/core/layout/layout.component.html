@@ -2,7 +2,15 @@
   <div class="main-content">
     <ghse-menu></ghse-menu>
     <div class="page-content">
-      <router-outlet></router-outlet>
+      <tui-loader
+        size="xxl"
+        [overlay]="true"
+        [showLoader]="true"
+        *ngIf="(loaderService.isLocked$ | async) ?? false; else outlet">
+      </tui-loader>
+      <ng-template #outlet>
+        <router-outlet></router-outlet>
+      </ng-template>
     </div>
   </div>
 </tui-root>

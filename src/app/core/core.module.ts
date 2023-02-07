@@ -5,7 +5,14 @@ import { TuiIslandModule } from '@taiga-ui/kit';
 import { TuiForModule } from '@taiga-ui/cdk';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TUI_SANITIZER, TuiAlertModule, TuiDialogModule, TuiRootModule, TuiSvgModule } from '@taiga-ui/core';
+import {
+  TUI_SANITIZER,
+  TuiAlertModule,
+  TuiDialogModule,
+  TuiLoaderModule,
+  TuiRootModule,
+  TuiSvgModule,
+} from '@taiga-ui/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpCacheInterceptorModule, useHttpCacheLocalStorage } from '@ngneat/cashew';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
@@ -26,6 +33,7 @@ import { LayoutComponent } from './layout/layout.component';
     HttpClientModule,
     HttpCacheInterceptorModule.forRoot(),
     TuiSvgModule,
+    TuiLoaderModule,
   ],
   providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }, useHttpCacheLocalStorage],
 })
