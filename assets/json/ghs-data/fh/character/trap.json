@@ -3,10 +3,8 @@
   "characterClass": "vermling",
   "gender": "",
   "edition": "fh",
-  "color": "#ac9c6f",
+  "color": "#ddb586",
   "spoiler": true,
-  "marker": false,
-  "deck": "",
   "stats": [
     {
       "level": 1,
@@ -215,7 +213,6 @@
                 "value": "Add %game.action.push% 2 or %game.action.pull% 2"
               }
             ]
-
           }
         }
       ]

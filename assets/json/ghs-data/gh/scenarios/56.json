@@ -10,12 +10,45 @@
   ],
   "objectives": [
     {
-      "name": "Captive Orchid 1",
+      "name": "Captive Orchid",
       "escort": true,
       "health": "4+(2xL)",
       "initiative": 50,
       "marker": "a",
-      "count": 3
+      "count": 3,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 3
+        }
+      ],
+      "allyDeck": true
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "escort",
+            "name": "Captive Orchid",
+            "marker": "a"
+          },
+          "type": "dead"
+        }
+      ],
+      "finish": "lost",
+      "requiredRooms": [
+        4
+      ]
     }
   ],
   "rooms": [

@@ -6,8 +6,8 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "note": "%data.custom.gh.merciless-overseer.2%",
     "attack": "V",
+    "note": "%data.custom.gh.merciless-overseer.2%",
     "immunities": [
       "disarm",
       "wound",
@@ -18,8 +18,7 @@
       [
         {
           "type": "custom",
-          "value": "%data.custom.gh.merciless-overseer.1%",
-          "small": true
+          "value": "%data.custom.gh.merciless-overseer.1%"
         }
       ],
       [

@@ -3,8 +3,8 @@
   "name": "Crystal Trench",
   "edition": "fh",
   "unlocks": [
-    "13",
-    "14"
+    "15",
+    "16"
   ],
   "monsters": [
     "hound",
@@ -19,6 +19,23 @@
     "arrowvine": 1,
     "snowthistle": 1
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:1",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -26,14 +43,14 @@
       "initial": true,
       "monster": [
         {
-          "name": "snow-imp",
-          "player3": "elite",
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "snow-imp",
-          "player3": "elite",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "snow-imp",
@@ -45,12 +62,12 @@
         },
         {
           "name": "snow-imp",
-          "type": "normal"
+          "player3": "elite",
+          "player4": "elite"
         },
         {
-          "name": "polar-bear",
-          "player2": "normal",
-          "player3": "normal",
+          "name": "snow-imp",
+          "player3": "elite",
           "player4": "elite"
         }
       ]
