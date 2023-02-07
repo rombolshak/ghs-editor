@@ -1,7 +1,6 @@
-import { ObjectiveData } from '@ghs/game/model/data/ObjectiveData';
-import { RoomData } from '@ghs/game/model/data/RoomData';
 import { ScenarioRule } from '@ghs/game/model/data/ScenarioRule';
 import { LootDeckConfig } from '@ghs/game/model/Loot';
+import { MonsterType } from '@ghs/game/model/MonsterType';
 
 export interface Scenario {
   id: string;
@@ -20,9 +19,27 @@ export interface GeneralScenarioInfo {
   initial: boolean;
 }
 
-export interface ScenarioRooms {
-  rooms: RoomData[];
+export interface RoomMonster {
+  name: string;
+  player2?: MonsterType;
+  player3?: MonsterType;
+  player4?: MonsterType;
+}
+
+export interface RoomTreasure {
+  isScenarioGoal: boolean;
+  treasureIndex: number;
+}
+
+export interface ScenarioRoom {
+  roomNumber: number;
+  ref: string;
+  initial: boolean;
   marker: string;
+  rooms: number[];
+  treasures: RoomTreasure[];
+  monster: RoomMonster[];
+  objectives: string[]; // id:countFn e.g. "1:4" or "1:CxL+3"
 }
 
 export interface SpecialRules {
@@ -33,6 +50,7 @@ export interface Section {
   parent: string | undefined;
   parentSections: string[];
   resetRound: boolean;
+  marker: string;
 }
 
 export interface ScenarioProperties {
