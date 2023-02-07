@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ScenarioDetailComponent } from './scenario-detail.component';
 import { SharedModule } from '@app/shared/shared.module';
-import { TuiStepperModule } from '@taiga-ui/kit';
+import { TuiStepperModule, TuiTabsModule } from '@taiga-ui/kit';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ScenariosServicesModule } from '@app/feature/scenarios/scenarios-services.module';
 import { ActivatedRoute } from '@angular/router';
@@ -26,7 +26,7 @@ describe('ScenarioDetailComponent [New Scenario]', () => {
     localStorage.clear();
     await TestBed.configureTestingModule({
       declarations: [ScenarioDetailComponent],
-      imports: [RouterTestingModule.withRoutes([]), SharedModule, TuiStepperModule, ScenariosServicesModule],
+      imports: [RouterTestingModule.withRoutes([]), SharedModule, TuiTabsModule, ScenariosServicesModule],
     }).compileComponents();
 
     route = TestBed.inject(ActivatedRoute);
@@ -58,23 +58,8 @@ describe('ScenarioDetailComponent [New Scenario]', () => {
 
   it('should disable steps', () => {
     expect(component.areStepsDisabled).toBeTrue();
-    const steps = fixture.debugElement.queryAll(By.css('button[tuiStep]'));
-    const disabledSteps = fixture.debugElement.queryAll(By.css('button[tuiStep][disabled]'));
+    const steps = fixture.debugElement.queryAll(By.css('button[tuiTab]'));
+    const disabledSteps = fixture.debugElement.queryAll(By.css('button[tuiTab][disabled]'));
     expect(disabledSteps.length).toBe(steps.length - 1);
-  });
-
-  it('pass general step', () => {
-    detailsService.updateGeneralInfo({ ...initialGeneralInfo, name: 'Test scenario', index: '1' });
-    expect(component.generalState).toBe('pass');
-  });
-
-  it('pass properties step', () => {
-    detailsService.updateProperties({ ...initialProperties, requires: [['1'], []] });
-    expect(component.propertiesState).toBe('pass');
-  });
-
-  it('pass objectives step', () => {
-    detailsService.updateObjectives([initialObjective]);
-    expect(component.objectivesState).toBe('pass');
   });
 });

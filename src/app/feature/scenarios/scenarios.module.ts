@@ -17,6 +17,7 @@ import {
   TuiRadioBlockModule,
   TuiStepperModule,
   TuiStringifyContentPipeModule,
+  TuiTabsModule,
   TuiTilesModule,
 } from '@taiga-ui/kit';
 import { ScenarioGeneralEditorComponent } from './components/scenario-general-editor/scenario-general-editor.component';
@@ -47,7 +48,6 @@ import { FormsModule } from '@angular/forms';
     ScenariosRoutingModule,
     ScenariosServicesModule,
     SharedModule,
-    TuiStepperModule,
     TuiCheckboxLabeledModule,
     TuiTilesModule,
     TuiInputTagModule,
@@ -61,6 +61,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     TuiInputCountModule,
     TuiCheckboxBlockModule,
+    TuiTabsModule,
+    TuiStepperModule,
   ],
 })
 export class ScenariosModule {}

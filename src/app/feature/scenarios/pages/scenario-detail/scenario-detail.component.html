@@ -1,30 +1,16 @@
 <div class="page-header with-link">
   <a tuiLink routerLink=".."><tui-svg src="tuiIconChevronLeft"></tui-svg> Scenarios</a>
   <h2 class="tui-text_h2">{{ header }}</h2>
+  <tui-tabs>
+    <button tuiTab routerLink="." routerLinkActive>General</button>
+    <button tuiTab routerLink="properties" routerLinkActive [disabled]="areStepsDisabled">Properties</button>
+    <button tuiTab routerLink="objectives" routerLinkActive [disabled]="areStepsDisabled">Objectives</button>
+    <button tuiTab routerLink="monsters" routerLinkActive [disabled]="areStepsDisabled">Monsters</button>
+    <button tuiTab routerLink="rooms" routerLinkActive [disabled]="areStepsDisabled">Rooms</button>
+    <button tuiTab routerLink="rules" routerLinkActive [disabled]="areStepsDisabled">Special rules</button>
+    <button tuiTab routerLink="sections" routerLinkActive [disabled]="areStepsDisabled">Sections</button>
+  </tui-tabs>
 </div>
 <div class="page-content">
-  <tui-stepper>
-    <button tuiStep routerLink="." routerLinkActive [stepState]="generalState">General</button>
-    <button
-      tuiStep
-      routerLink="properties"
-      routerLinkActive
-      [stepState]="propertiesState"
-      [disabled]="areStepsDisabled">
-      Properties
-    </button>
-    <button
-      tuiStep
-      routerLink="objectives"
-      routerLinkActive
-      [stepState]="objectivesState"
-      [disabled]="areStepsDisabled">
-      Objectives
-    </button>
-    <button tuiStep routerLink="monsters" routerLinkActive [disabled]="areStepsDisabled">Monsters</button>
-    <button tuiStep routerLink="rooms" routerLinkActive [disabled]="areStepsDisabled">Rooms</button>
-    <button tuiStep routerLink="rules" routerLinkActive [disabled]="areStepsDisabled">Special rules</button>
-    <button tuiStep routerLink="sections" routerLinkActive [disabled]="areStepsDisabled">Sections</button>
-  </tui-stepper>
   <router-outlet></router-outlet>
 </div>

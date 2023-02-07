@@ -36,23 +36,6 @@ export class ScenarioDetailComponent implements OnInit {
     return !this.model || this.model.generalInfo.name === '' ? 'New scenario' : ScenarioHelper.getFullName(this.model);
   }
 
-  get generalState(): 'error' | 'normal' | 'pass' {
-    return this.model?.generalInfo.index !== '' ? 'pass' : 'normal';
-  }
-
-  get propertiesState(): 'error' | 'normal' | 'pass' {
-    return ((this.model?.properties.requires.length ?? 0) > 0 &&
-      (this.model?.properties.requires[0].length ?? 0) > 0) ||
-      (this.model?.properties.unlocks.length ?? 0) > 0 ||
-      (this.model?.properties.blocks.length ?? 0) > 0
-      ? 'pass'
-      : 'normal';
-  }
-
-  get objectivesState(): 'error' | 'normal' | 'pass' {
-    return (this.model?.objectives.length ?? 0) > 0 ? 'pass' : 'normal';
-  }
-
   public model: Scenario | undefined;
   private detailsService: ScenarioDetailsService | undefined;
 }

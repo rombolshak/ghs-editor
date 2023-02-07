@@ -14,7 +14,7 @@
     }
 
     &.with-link {
-      padding: 1.5rem 3rem 3rem;
+      padding: 1.5rem 3rem 0rem;
 
       a {
         tui-svg {
@@ -48,8 +48,9 @@
 }
 
 .ghse-form() {
+  flex: 1;
+
   form {
-    margin-top: 1.5rem;
     width: 40rem;
 
     .form-row {
@@ -85,7 +86,7 @@
 .ghse-items-list(@min-width) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(@min-width, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .ghse-item-box {
