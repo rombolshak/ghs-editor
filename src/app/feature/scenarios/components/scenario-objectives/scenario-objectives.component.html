@@ -26,16 +26,20 @@
       </tui-radio-block>
     </div>
     <div class="form-row">
-      <div class="multi-field expression-fields">
+      <div class="multi-field expression-fields" tuiGroup>
         <tui-input [formControl]="objective.controls.health" class="health">Health</tui-input>
         <tui-input [formControl]="objective.controls.count" class="count">Count</tui-input>
-        <tui-input-number [formControl]="objective.controls.initiative" class="initiative" [min]="1" [max]="99">
+        <tui-input-number
+          [formControl]="objective.controls.initiative"
+          class="initiative"
+          [min]="1"
+          [max]="99"
+          [tuiHintContent]="expressionsDescription">
           Initiative
         </tui-input-number>
-        <tui-tooltip [content]="expressionsDescription"></tui-tooltip>
       </div>
       <ng-template #expressionsDescription>
-        <p>You can use mathematical expressions for the above fields. Substitution list:</p>
+        <p>You can use mathematical expressions for all fields in this row. Substitution list:</p>
         <ul>
           <li>L — scenario level</li>
           <li>C — characters count</li>
