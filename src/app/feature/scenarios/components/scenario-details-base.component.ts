@@ -95,8 +95,12 @@ export class ScenarioDetailsListBaseComponent<
     super(activatedRoute, destroy$, details$, updateDetails, form);
   }
 
-  public addNew() {
-    this.form.insert(0, this.instanceFormCreator());
+  public addNew(toTheEnd = false) {
+    if (toTheEnd) {
+      this.form.push(this.instanceFormCreator());
+    } else {
+      this.form.insert(0, this.instanceFormCreator());
+    }
     this.form.markAsDirty();
   }
 

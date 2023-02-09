@@ -1,9 +1,4 @@
-<nav tuiTabs vertical="left">
-  <button tuiTab>Room 1</button>
-  <button tuiTab>Room 2</button>
-  <button tuiTab>Room 3</button>
-  <button tuiTab>Room 4</button>
-  <button tuiTab>Room 5</button>
-  <button tuiTab>Room 6</button>
-  <button tuiTab>Add room</button>
+<nav tuiTabs vertical="left" class="rooms-list" [(activeItemIndex)]="selectedRoom">
+  <button tuiTab *ngFor="let room of form.controls">Room {{ room.controls.roomNumber.value }}</button>
+  <button tuiButton size="s" appearance="secondary" icon="tuiIconPlus" (click)="addNew()">Add room</button>
 </nav>

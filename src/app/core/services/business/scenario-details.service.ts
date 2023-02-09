@@ -5,6 +5,7 @@ import {
   ScenarioMonster,
   ScenarioObjective,
   ScenarioProperties,
+  ScenarioRoom,
 } from '@app/core/models/scenario.models';
 import { GhseDataStorageService } from '@app/core/services/storage/ghse-data-storage.service';
 import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
@@ -32,6 +33,7 @@ export class ScenarioDetailsService {
     this.properties$ = this._model.asObservable().pipe(map(model => model.properties));
     this.objectives$ = this._model.asObservable().pipe(map(model => model.objectives));
     this.monsters$ = this._model.asObservable().pipe(map(model => model.monsters));
+    this.rooms$ = this._model.asObservable().pipe(map(model => model.rooms));
   }
 
   businessId$: Observable<string>;
@@ -42,6 +44,7 @@ export class ScenarioDetailsService {
   properties$: Observable<ScenarioProperties>;
   objectives$: Observable<ScenarioObjective[]>;
   monsters$: Observable<ScenarioMonster[]>;
+  rooms$: Observable<ScenarioRoom[]>;
 
   updateGeneralInfo(data: GeneralScenarioInfo) {
     const newModel = { ...this._model.value, generalInfo: data };
@@ -60,6 +63,10 @@ export class ScenarioDetailsService {
 
   updateMonsters(data: ScenarioMonster[]) {
     this.notifyUpdated({ ...this._model.value, monsters: data });
+  }
+
+  updateRooms(data: ScenarioRoom[]) {
+    this.notifyUpdated({ ...this._model.value, rooms: data });
   }
 
   public reload() {

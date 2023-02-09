@@ -10,6 +10,7 @@ export interface Scenario {
   properties: ScenarioProperties;
   objectives: ScenarioObjective[];
   monsters: ScenarioMonster[];
+  rooms: ScenarioRoom[];
 }
 
 export interface GeneralScenarioInfo {
@@ -113,4 +114,5 @@ export const initialScenario = {
   properties: initialProperties,
   objectives: [],
   monsters: [],
+  rooms: [],
 } satisfies Scenario;
