@@ -28,7 +28,7 @@ import { ScenarioRulesEditorComponent } from './components/scenario-rules-editor
 import { ScenarioSectionsEditorComponent } from './components/scenario-sections-editor/scenario-sections-editor.component';
 import { ScenarioObjectivesComponent } from './components/scenario-objectives/scenario-objectives.component';
 import { TuiGroupModule } from '@taiga-ui/core';
-import { TuiAutoFocusModule } from '@taiga-ui/cdk';
+import { TuiAutoFocusModule, TuiLetModule } from '@taiga-ui/cdk';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -63,6 +63,7 @@ import { FormsModule } from '@angular/forms';
     TuiCheckboxBlockModule,
     TuiTabsModule,
     TuiStepperModule,
+    TuiLetModule,
   ],
 })
 export class ScenariosModule {}

@@ -3,7 +3,7 @@ import {
   buildForm,
   ScenarioDetailsListBaseComponent,
 } from '@app/feature/scenarios/components/scenario-details-base.component';
-import { RoomMonster, RoomTreasure, ScenarioRoom } from '@app/core/models/scenario.models';
+import { RoomMonster, RoomObjective, RoomTreasure, ScenarioRoom } from '@app/core/models/scenario.models';
 import { ActivatedRoute } from '@angular/router';
 import { TuiDestroyService } from '@taiga-ui/cdk';
 
@@ -28,7 +28,7 @@ export class ScenarioRoomsEditorComponent extends ScenarioDetailsListBaseCompone
           ref: [''],
           marker: [''],
           rooms: [<number[]>[]],
-          objectives: [<string[]>[]],
+          objectives: [<RoomObjective[]>[]],
           monster: [<RoomMonster[]>[]],
           treasures: [<RoomTreasure[]>[]],
         })

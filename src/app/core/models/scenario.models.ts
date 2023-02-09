@@ -32,6 +32,11 @@ export interface RoomTreasure {
   treasureIndex: number;
 }
 
+export interface RoomObjective {
+  id: number;
+  count: string;
+}
+
 export interface ScenarioRoom {
   roomNumber: number;
   ref: string;
@@ -40,7 +45,7 @@ export interface ScenarioRoom {
   rooms: number[];
   treasures: RoomTreasure[];
   monster: RoomMonster[];
-  objectives: string[]; // id:countFn e.g. "1:4" or "1:CxL+3"
+  objectives: RoomObjective[]; // id:countFn e.g. "1:4" or "1:CxL+3"
 }
 
 export interface SpecialRules {

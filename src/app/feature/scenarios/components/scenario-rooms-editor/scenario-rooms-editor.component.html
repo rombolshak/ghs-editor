@@ -2,3 +2,17 @@
   <button tuiTab *ngFor="let room of form.controls">Room {{ room.controls.roomNumber.value }}</button>
   <button tuiButton size="s" appearance="secondary" icon="tuiIconPlus" (click)="addNew()">Add room</button>
 </nav>
+
+<ng-container *tuiLet="form.controls.at(selectedRoom) as room">
+  <form *ngIf="room" class="room-form">
+    <div class="tui-form__header tui-form__header_margin-top_none">Room {{ room.controls.roomNumber.value }}</div>
+    <div tuiGroup class="properties">
+      <tui-input [formControl]="room.controls.ref" class="ref">Tiles</tui-input>
+      <tui-input [formControl]="room.controls.marker" class="marker">Map marker</tui-input>
+      <tui-checkbox-block [formControl]="room.controls.initial" class="initial">Is initial room</tui-checkbox-block>
+      <tui-input-tag [formControl]="room.controls.rooms" [tuiTextfieldLabelOutside]="true" class="rooms">
+        Connected rooms
+      </tui-input-tag>
+    </div>
+  </form>
+</ng-container>
