@@ -20,11 +20,10 @@ export interface GeneralScenarioInfo {
   initial: boolean;
 }
 
+type RoomMonsterCount = [normal: number, elite: number, boss: number];
 export interface RoomMonster {
   name: string;
-  player2?: MonsterType;
-  player3?: MonsterType;
-  player4?: MonsterType;
+  counts: [player2: RoomMonsterCount, player3: RoomMonsterCount, player4: RoomMonsterCount];
 }
 
 export interface RoomTreasure {
