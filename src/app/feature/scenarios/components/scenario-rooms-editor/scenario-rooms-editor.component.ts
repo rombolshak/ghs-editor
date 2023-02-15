@@ -6,6 +6,7 @@ import {
 import { RoomMonster, RoomObjective, RoomTreasure, ScenarioRoom } from '@app/core/models/scenario.models';
 import { ActivatedRoute } from '@angular/router';
 import { TuiDestroyService } from '@taiga-ui/cdk';
+import { MonstersProviderService } from '@app/feature/scenarios/services/monsters-provider.service';
 
 @Component({
   selector: 'ghse-scenario-rooms-editor',
@@ -15,7 +16,11 @@ import { TuiDestroyService } from '@taiga-ui/cdk';
   providers: [TuiDestroyService],
 })
 export class ScenarioRoomsEditorComponent extends ScenarioDetailsListBaseComponent<ScenarioRoom> {
-  constructor(activatedRoute: ActivatedRoute, destroy: TuiDestroyService) {
+  constructor(
+    activatedRoute: ActivatedRoute,
+    destroy: TuiDestroyService,
+    public monstersService: MonstersProviderService
+  ) {
     super(
       activatedRoute,
       destroy,

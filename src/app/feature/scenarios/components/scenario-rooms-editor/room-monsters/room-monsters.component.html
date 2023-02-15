@@ -1,14 +1,22 @@
 <div class="tui-form__header">Monsters</div>
 <div *ngFor="let monster of scenarioMonsters" class="monster-counts">
-  {{ monster.name }}
-  <ng-container *tuiLet="getMonsterValue(monster.name) as control">
-    <div *ngFor="let count of control.counts; let i = index" class="player-counts">
-      {{ i + 2 }} players
-      <tui-input-count [(ngModel)]="count[0]" [min]="0" [disabled]="count[2] !== 0"> Normal </tui-input-count>
-      <tui-input-count [(ngModel)]="count[1]" [min]="0" [disabled]="count[2] !== 0"> Elite </tui-input-count>
-      <tui-input-count [(ngModel)]="count[2]" [min]="0" [max]="1" [disabled]="count[0] + count[1] !== 0">
-        Boss
-      </tui-input-count>
+  <ng-container *tuiLet="getMonsterControl(monster) as control">
+    <img [src]="getMonsterImageUrl(monster)" class="monster-icon" />
+    <a tuiMarkerIcon src="tuiIconPlusLarge" mode="link" (click)="addStandee(monster)" class="plus-button"></a>
+    <div class="no-standees tui-text_body-m" *ngIf="control.standees.length === 0">
+      Click monster icon to add <span class="monster-name">{{ getMonsterDisplayName(monster) }}</span> to this room
+    </div>
+    <div *ngFor="let standee of control.standees; let i = index" class="standee">
+      <img class="bg" [src]="getMonsterImageUrl(monster)" />
+      <div class="border1"></div>
+      <div class="border2"></div>
+      <div class="border3"></div>
+
+      <div [ngClass]="['players2', standee[0]]" (click)="switchStandeeType(monster, i, 0)"></div>
+      <div [ngClass]="['players3', standee[1]]" (click)="switchStandeeType(monster, i, 1)"></div>
+      <div [ngClass]="['players4', standee[2]]" (click)="switchStandeeType(monster, i, 2)"></div>
+
+      <tui-svg src="tuiIconTrashLarge" class="delete" (click)="removeStandee(monster, i)"></tui-svg>
     </div>
   </ng-container>
 </div>

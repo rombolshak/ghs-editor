@@ -1,13 +1,175 @@
 @import '../../../../../shared/mixins';
 
 :host {
-  .ghse-items-list(20rem);
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
 
   .monster-counts {
     .ghse-item-box;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .monster-name {
+    font: var(--tui-font-text-l);
+    margin: 0.5rem;
+    font-weight: bold;
   }
 
   .player-counts {
     width: auto;
+  }
+
+  .monster-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    margin-right: 2rem;
+  }
+
+  .plus-button {
+    position: absolute;
+    background-color: transparent;
+    color: transparent;
+    transition-property: opacity, background-color, color;
+    transition: ease-in-out 0.3s;
+
+    &:hover {
+      color: unset;
+      background-color: white;
+      opacity: 0.8;
+    }
+  }
+
+  .standee {
+    display: flex;
+    position: relative;
+    margin-right: 1.5rem;
+    width: 4rem;
+    height: 4rem;
+
+    .bg {
+      position: absolute;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 100%;
+      filter: opacity(0.8);
+      transition: ease-in-out 0.3s;
+    }
+
+    .delete {
+      color: transparent;
+      align-self: center;
+      padding: 0.3rem;
+      z-index: 100;
+    }
+
+    &:hover {
+      .bg {
+        filter: opacity(0.2);
+      }
+
+      .delete {
+        .ghse-icon();
+      }
+    }
+
+    .border1,
+    .border2,
+    .border3 {
+      width: 3.6rem;
+      height: 2.25rem;
+      position: absolute;
+      border-left: 4px solid #bc1717;
+      border-right: 4px solid #bc1717;
+      top: 0.8rem;
+      border-radius: 5%;
+
+      &::after {
+        width: 4.4rem;
+        height: 2.8rem;
+        position: absolute;
+        border-left: 4px solid #0000007a;
+        border-right: 4px solid #0000007a;
+        top: -0.3rem;
+        left: -10px;
+        content: '';
+        border-radius: 5%;
+      }
+    }
+
+    .border2 {
+      transform: rotate(60deg);
+    }
+
+    .border3 {
+      transform: rotate(-60deg);
+    }
+
+    .players2,
+    .players3,
+    .players4 {
+      cursor: pointer;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 1.2rem 0.7rem 1.2rem 0;
+      border-color: transparent;
+
+      &::after {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 1rem 0.4rem 1rem 0;
+        border-color: transparent;
+        content: '';
+        transform: rotate(180deg);
+        top: -1rem;
+        left: 0.65rem;
+      }
+
+      &.none,
+      &.none::after {
+        border-right-color: black;
+      }
+
+      &.normal,
+      &.normal::after {
+        border-right-color: whitesmoke;
+      }
+
+      &.elite,
+      &.elite::after {
+        border-right-color: #edc815;
+      }
+
+      &.boss,
+      &.boss::after {
+        border-right-color: #a71b1c;
+      }
+    }
+
+    .players2 {
+      transform: rotate(30deg);
+      top: -0.25rem;
+      left: -0.1rem;
+    }
+
+    .players3 {
+      transform: rotate(150deg);
+      top: -0.25rem;
+      left: 3.5rem;
+    }
+
+    .players4 {
+      transform: rotate(270deg);
+      top: 2.75rem;
+      left: 1.71rem;
+    }
   }
 }

@@ -11,6 +11,7 @@ export interface AvailableMonster {
   edition: string;
   deck?: string;
   displayName?: string;
+  count: number;
 }
 
 @Injectable({

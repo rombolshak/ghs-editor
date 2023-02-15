@@ -30,7 +30,12 @@ for (let edition of editions) {
   for (let monsterFile of monstersFiles) {
     const monster = loadFile(monsterFile);
     if (monster['hidden']) continue;
-    monsters.push({ name: monster['name'], edition: monster['edition'], deck: monster['deck'] });
+    monsters.push({
+      name: monster['name'],
+      edition: monster['edition'],
+      deck: monster['deck'],
+      count: monster['count'],
+    });
   }
 }
 

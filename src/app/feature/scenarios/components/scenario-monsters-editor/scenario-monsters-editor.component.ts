@@ -82,7 +82,13 @@ export class ScenarioMonstersEditorComponent
       const found = this.allMonsters.find(m => m.name === saved.name);
       if (found) {
         this.addedMonsters.push(found);
-      } else this.addedMonsters.push({ name: saved.name, displayName: `<Unknown monster> ${saved.name}`, edition: '' });
+      } else
+        this.addedMonsters.push({
+          name: saved.name,
+          displayName: `<Unknown monster> ${saved.name}`,
+          edition: '',
+          count: 0,
+        });
     }
 
     super.reset();

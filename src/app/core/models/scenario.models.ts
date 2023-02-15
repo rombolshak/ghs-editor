@@ -20,10 +20,11 @@ export interface GeneralScenarioInfo {
   initial: boolean;
 }
 
-type RoomMonsterCount = [normal: number, elite: number, boss: number];
+export type StandeeType = 'none' | 'normal' | 'elite' | 'boss';
+type MonsterStandee = [players2: StandeeType, players3: StandeeType, players4: StandeeType];
 export interface RoomMonster {
   name: string;
-  counts: [player2: RoomMonsterCount, player3: RoomMonsterCount, player4: RoomMonsterCount];
+  standees: MonsterStandee[];
 }
 
 export interface RoomTreasure {
@@ -110,6 +111,8 @@ export const initialMonster = {
   isAlly: false,
   drawExtra: false,
 } satisfies ScenarioMonster;
+
+export const initialMonsterStandee = ['none', 'none', 'none'] satisfies MonsterStandee;
 
 export const initialScenario = {
   id: '',
