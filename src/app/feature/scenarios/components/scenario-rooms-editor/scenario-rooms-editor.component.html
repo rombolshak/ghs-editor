@@ -17,6 +17,11 @@
     <ghse-room-monsters
       [formControl]="room.controls.monster"
       [scenarioMonsters]="detailsService?.monsters$ | async"
-      [availableMonsters]="monstersService.getAvailableMonsters() | async"></ghse-room-monsters>
+      [availableMonsters]="monstersService.getAvailableMonsters() | async">
+    </ghse-room-monsters>
+    <ghse-room-objectives
+      [formControl]="room.controls.objectives"
+      [scenarioObjectives]="detailsService?.objectives$ | async">
+    </ghse-room-objectives>
   </form>
 </ng-container>

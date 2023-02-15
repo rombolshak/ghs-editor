@@ -1,0 +1,15 @@
+@import '../../../../../shared/mixins';
+
+:host {
+  .grid {
+    .ghse-items-list(10rem);
+  }
+
+  .room-objective {
+    .ghse-item-box;
+
+    &.present {
+      background-color: var(--tui-success-bg);
+    }
+  }
+}

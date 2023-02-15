@@ -1,0 +1,10 @@
+<div class="tui-form__header">Objectives</div>
+<div class="grid">
+  <div
+    *ngFor="let objective of scenarioObjectives; let i = index"
+    class="room-objective"
+    [class.present]="getControl(i).count !== '' && getControl(i).count !== '0'">
+    <div class="tui-text_body-m">{{ objective.name }}</div>
+    <tui-input [(ngModel)]="getControl(i).count">Count</tui-input>
+  </div>
+</div>
