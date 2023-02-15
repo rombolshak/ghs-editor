@@ -1,0 +1,20 @@
+<div class="tui-form__header">Treasures</div>
+<button tuiButton appearance="secondary" (click)="addTreasure()">Add treasure</button>
+<div class="grid">
+  <div *ngFor="let control of value; let i = index" class="room-treasure">
+    <div class="form-row">
+      <tui-checkbox-block [(ngModel)]="control.isScenarioGoal" contentAlign="left" class="is-goal">
+        Scenario goal
+      </tui-checkbox-block>
+      <tui-svg src="tuiIconTrashLarge" class="delete" (click)="remove(i)"></tui-svg>
+    </div>
+    <div tuiGroup class="form-row">
+      <tui-input-number [min]="1" [(ngModel)]="control.treasureIndex" [disabled]="control.isScenarioGoal" class="index">
+        Index
+      </tui-input-number>
+      <tui-input [(ngModel)]="control.description" [disabled]="control.isScenarioGoal" class="description">
+        Description
+      </tui-input>
+    </div>
+  </div>
+</div>

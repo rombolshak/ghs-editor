@@ -32,6 +32,7 @@ import { TuiAutoFocusModule, TuiLetModule } from '@taiga-ui/cdk';
 import { FormsModule } from '@angular/forms';
 import { RoomMonstersComponent } from './components/scenario-rooms-editor/room-monsters/room-monsters.component';
 import { RoomObjectivesComponent } from './components/scenario-rooms-editor/room-objectives/room-objectives.component';
+import { RoomTreasuresComponent } from './components/scenario-rooms-editor/room-treasures/room-treasures.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { RoomObjectivesComponent } from './components/scenario-rooms-editor/room
     ScenarioObjectivesComponent,
     RoomMonstersComponent,
     RoomObjectivesComponent,
+    RoomTreasuresComponent,
   ],
   imports: [
     CommonModule,

@@ -30,6 +30,7 @@ export interface RoomMonster {
 export interface RoomTreasure {
   isScenarioGoal: boolean;
   treasureIndex: number;
+  description?: string;
 }
 
 export interface RoomObjective {
