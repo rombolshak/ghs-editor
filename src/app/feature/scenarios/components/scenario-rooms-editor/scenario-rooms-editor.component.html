@@ -26,3 +26,14 @@
     <ghse-room-treasures></ghse-room-treasures>
   </form>
 </ng-container>
+
+<form>
+  <div class="form-row buttons">
+    <div>
+      <button tuiButton type="button" [disabled]="!form.valid || form.pristine" (click)="save()">Save</button>
+      <button tuiButton type="button" appearance="outline" (click)="reset()" data-automation="reset-button">
+        Reset
+      </button>
+    </div>
+  </div>
+</form>

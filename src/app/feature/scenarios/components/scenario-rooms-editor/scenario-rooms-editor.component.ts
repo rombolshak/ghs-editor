@@ -38,6 +38,8 @@ export class ScenarioRoomsEditorComponent extends ScenarioDetailsListBaseCompone
           treasures: [<RoomTreasure[]>[]],
         })
     );
+
+    this.reset();
   }
 
   selectedRoom = 0;
