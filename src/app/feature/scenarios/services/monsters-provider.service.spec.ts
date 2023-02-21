@@ -38,8 +38,8 @@ describe('MonstersProviderService', () => {
 
   it('should return available monsters', done => {
     const testData = [
-      { name: 'm1', edition: 'test', displayName: 'Test monster' },
-      { name: 'm3', edition: 'test', displayName: 'Test monster', deck: 'boss' },
+      { name: 'm1', edition: 'test', displayName: 'Test monster', count: 6 },
+      { name: 'm3', edition: 'test', displayName: 'Test monster', deck: 'boss', count: 1 },
     ];
 
     service.getAvailableMonsters().subscribe(data => {
@@ -49,9 +49,9 @@ describe('MonstersProviderService', () => {
 
     const request = httpTestingController.expectOne('assets/json/monsters.generated.json');
     request.flush([
-      { name: 'm1', edition: 'test' },
-      { name: 'm2', edition: 'qwe' },
-      { name: 'm3', edition: 'test', deck: 'boss' },
+      { name: 'm1', edition: 'test', count: 6 },
+      { name: 'm2', edition: 'qwe', count: 6 },
+      { name: 'm3', edition: 'test', deck: 'boss', count: 1 },
     ]);
     httpTestingController.verify();
   });

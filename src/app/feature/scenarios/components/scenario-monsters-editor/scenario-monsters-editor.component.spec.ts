@@ -26,10 +26,10 @@ import { By } from '@angular/platform-browser';
 class MonsterProviderMock {
   getAvailableMonsters(): Observable<Array<AvailableMonster>> {
     return of([
-      { name: 'm1', edition: 'test', displayName: 'Test monster 1' },
-      { name: 'm2', edition: 'non-test', displayName: 'Test monster 2', deck: 'shared' },
-      { name: 'm3', edition: 'test', displayName: 'Test monster 3', deck: 'shared' },
-      { name: 'm4', edition: 'test', displayName: 'Test monster 4', deck: 'shared' },
+      { name: 'm1', edition: 'test', displayName: 'Test monster 1', count: 6 },
+      { name: 'm2', edition: 'non-test', displayName: 'Test monster 2', deck: 'shared', count: 6 },
+      { name: 'm3', edition: 'test', displayName: 'Test monster 3', deck: 'shared', count: 6 },
+      { name: 'm4', edition: 'test', displayName: 'Test monster 4', deck: 'shared', count: 6 },
     ]);
   }
 }
