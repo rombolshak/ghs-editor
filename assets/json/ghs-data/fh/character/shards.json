@@ -139,7 +139,7 @@
           }
         },
         {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
             "type": "plus2",
             "effects": [
@@ -192,7 +192,8 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Gain 1 %game.action.custom.fh-resonance%"
+                "value": "Gain 1 %game.characterToken.shards.fh-resonance%",
+                "note": "Gain 1 %game.action.custom.fh-resonance%"
               }
             ]
           }

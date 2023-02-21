@@ -81,6 +81,12 @@
         {
           "count": 1,
           "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
             "type": "minus1",
             "effects": [
               {
@@ -89,11 +95,11 @@
               },
               {
                 "type": "element",
-                "value": "earth"
+                "value": "dark"
               },
               {
                 "type": "element",
-                "value": "dark"
+                "value": "earth"
               }
             ]
           }

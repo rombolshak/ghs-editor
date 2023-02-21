@@ -10,7 +10,7 @@
   "objectives": [
     {
       "name": "Ice Pillar",
-      "health": "[(4+L)xC/2{$math.floor}]",
+      "health": "[4+(LxC)/2{$math.floor}]",
       "count": 3,
       "actions": [
         {
@@ -19,7 +19,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% each monster whithin %game.action.range:4%"
+              "value": "%game.action.target% each monster within %game.action.range:4%"
             }
           ]
         }
@@ -27,7 +27,7 @@
     },
     {
       "name": "Ice Pillar",
-      "health": "[(4+L)xC/2{$math.floor}]",
+      "health": "[4+(LxC)/2{$math.floor}]",
       "marker": "a",
       "actions": [
         {
@@ -36,7 +36,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% each monster whithin %game.action.range:4%"
+              "value": "%game.action.target% each monster within %game.action.range:4%"
             }
           ]
         }
@@ -44,7 +44,7 @@
     },
     {
       "name": "Ice Pillar",
-      "health": "[(4+L)xC/2{$math.floor}]",
+      "health": "[4+(LxC)/2{$math.floor}]",
       "marker": "b",
       "actions": [
         {
@@ -53,7 +53,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% each monster whithin %game.action.range:4%"
+              "value": "%game.action.target% each monster within %game.action.range:4%"
             }
           ]
         }

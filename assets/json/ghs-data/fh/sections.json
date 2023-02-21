@@ -71,56 +71,6 @@
     ]
   },
   {
-    "index": "12.6",
-    "name": "Frozen Fjord",
-    "parent": "13",
-    "edition": "fh",
-    "marker": "3",
-    "parentSections": [
-      "44.1"
-    ],
-    "rooms": [
-      {
-        "roomNumber": 1,
-        "ref": "01-E",
-        "initial": true,
-        "monster": [
-          {
-            "name": "shrike-fiend",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          }
-        ]
-      },
-      {
-        "roomNumber": 2,
-        "ref": "01-G",
-        "initial": true,
-        "monster": [
-          {
-            "name": "snow-imp",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          {
-            "name": "snow-imp",
-            "type": "elite"
-          },
-          {
-            "name": "snow-imp",
-            "player4": "normal"
-          },
-          {
-            "name": "snow-imp",
-            "player4": "normal"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "index": "14.3",
     "name": "Temple of Liberation",
     "parent": "20",
@@ -137,6 +87,57 @@
     "name": "Unfettered Shard",
     "parent": "41",
     "edition": "fh"
+  },
+  {
+    "index": "20.1",
+    "name": "Thawed Wood",
+    "parent": "33",
+    "edition": "fh",
+    "marker": "1",
+    "resetRound": "hidden",
+    "rules": [
+      {
+        "round": "R % 2 == 0",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "black-imp",
+              "player2": "normal"
+            },
+            "marker": "b"
+          }
+        ]
+      },
+      {
+        "round": "R > 1",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "black-imp",
+              "player3": "normal",
+              "player4": "elite"
+            },
+            "marker": "b"
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "16-B",
+        "initial": true
+      }
+    ]
+  },
+  {
+    "index": "23.1",
+    "name": "The Way Forward",
+    "parent": "38",
+    "edition": "fh",
+    "resetRound": "visible"
   },
   {
     "index": "29.2",
@@ -176,49 +177,11 @@
     ]
   },
   {
-    "index": "38.2",
-    "name": "Frozen Fjord",
-    "parent": "13",
+    "index": "40.2",
+    "name": "Dead Pass",
+    "parent": "46",
     "edition": "fh",
-    "marker": "2",
-    "parentSections": [
-      "44.1"
-    ],
-    "rooms": [
-      {
-        "roomNumber": 1,
-        "ref": "07-D",
-        "initial": true,
-        "monster": [
-          {
-            "name": "shrike-fiend",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          {
-            "name": "snow-imp",
-            "player3": "normal",
-            "player4": "normal"
-          },
-          {
-            "name": "snow-imp",
-            "player3": "normal",
-            "player4": "normal"
-          },
-          {
-            "name": "snow-imp",
-            "type": "elite"
-          },
-          {
-            "name": "snow-imp",
-            "player2": "normal",
-            "player3": "elite",
-            "player4": "elite"
-          }
-        ]
-      }
-    ]
+    "resetRound": "visible"
   },
   {
     "index": "41.2",
@@ -287,84 +250,61 @@
     ]
   },
   {
-    "index": "44.1",
-    "name": "Frozen Fjord",
-    "parent": "13",
-    "edition": "fh",
-    "marker": "1",
-    "rooms": [
-      {
-        "roomNumber": 1,
-        "ref": "06-A",
-        "initial": true,
-        "monster": [
-          {
-            "name": "shrike-fiend",
-            "type": "elite"
-          },
-          {
-            "name": "shrike-fiend",
-            "player3": "normal",
-            "player4": "elite"
-          }
-        ]
-      },
-      {
-        "roomNumber": 2,
-        "ref": "02-E",
-        "initial": "true",
-        "treasures": [
-          49
-        ],
-        "monster": [
-          {
-            "name": "wind-demon",
-            "type": "normal"
-          },
-          {
-            "name": "wind-demon",
-            "player2": "normal",
-            "player3": "normal",
-            "player4": "elite"
-          },
-          {
-            "name": "wind-demon",
-            "player3": "normal",
-            "player4": "normal"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "index": "48.1",
     "name": "Realm of Endless Frost",
     "parent": "21",
     "edition": "fh",
+    "marker": "2",
+    "parentSections": [
+      "51.1"
+    ],
     "objectives": [
       {
-        "name": "Crate 1",
+        "name": "Crate",
         "health": "L+2"
       },
       {
-        "name": "Crate 2",
+        "name": "Bookshelf",
         "health": "L+2"
-      },
+      }
+    ],
+    "rooms": [
       {
-        "name": "Crate 3",
-        "health": "L+2"
-      },
-      {
-        "name": "Bookshelf 1",
-        "health": "L+2"
-      },
-      {
-        "name": "Bookshelf 2",
-        "health": "L+2"
-      },
-      {
-        "name": "Bookshelf 3",
-        "health": "L+2"
+        "roomNumber": 1,
+        "ref": "07-E",
+        "initial": true,
+        "treasures": [
+          84
+        ],
+        "monster": [
+          {
+            "name": "living-bones",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "living-spirit",
+            "type": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "player4": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ],
+        "objectives": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ]
       }
     ]
   },
@@ -373,10 +313,116 @@
     "name": "Realm of Endless Frost",
     "parent": "21",
     "edition": "fh",
+    "marker": "1",
     "objectives": [
       {
         "name": "Glowing Orb",
-        "health": "(L+2)xC"
+        "health": "(L+2)xC",
+        "actions": [
+          {
+            "type": "custom",
+            "value": "Whenever it suffers damage, all characters and monsters suffer %game.damage:2%"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "round": "true",
+        "start": false,
+        "figures": [
+          {
+            "type": "present",
+            "identifier": {
+              "type": "objective",
+              "edition": "objective",
+              "name": "Glowing Orb"
+            }
+          }
+        ],
+        "spawns": [
+          {
+            "monster": {
+              "name": "living-bones",
+              "player2": "normal",
+              "player3": "normal",
+              "player4": "elite"
+            },
+            "marker": "a"
+          },
+          {
+            "monster": {
+              "name": "living-bones",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            },
+            "marker": "b"
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "15-C",
+        "initial": true,
+        "monster": [
+          {
+            "name": "living-bones",
+            "type": "elite"
+          },
+          {
+            "name": "living-bones",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "living-bones",
+            "player4": "normal"
+          }
+        ],
+        "objectives": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "index": "53.1",
+    "name": "Realm of Endless Frost",
+    "parent": "21",
+    "edition": "fh",
+    "marker": "3",
+    "parentSections": [
+      "48.1"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "13-E",
+        "initial": true,
+        "monster": [
+          {
+            "name": "prince-of-frost",
+            "type": "boss"
+          },
+          {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "frost-demon",
+            "player4": "normal"
+          },
+          {
+            "name": "frost-demon",
+            "player3": "normal",
+            "player4": "normal"
+          }
+        ]
       }
     ]
   },
@@ -410,6 +456,55 @@
       {
         "name": "Large Debris 2",
         "health": "(L+2)xC"
+      }
+    ]
+  },
+  {
+    "index": "63.3",
+    "name": "Sunless Trench",
+    "parent": "42",
+    "edition": "fh",
+    "marker": "1",
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "11-B",
+        "initial": true,
+        "monster": [
+          {
+            "name": "deep-terror",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "deep-terror",
+            "player4": "normal"
+          },
+          {
+            "name": "deep-terror",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "deep-terror",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ]
       }
     ]
   },
@@ -732,6 +827,47 @@
     ]
   },
   {
+    "index": "103.3",
+    "name": "Sunless Trench",
+    "parent": "42",
+    "edition": "fh",
+    "marker": "2",
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "03-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "night-demon",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "night-demon",
+            "player4": "normal"
+          },
+          {
+            "name": "night-demon",
+            "type": "normal"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "index": "106.2",
     "name": "The True Oak",
     "parent": "70",
@@ -843,6 +979,54 @@
     "edition": "fh",
     "monsters": [
       "power-core"
+    ]
+  },
+  {
+    "index": "132.2",
+    "name": "A Giant Block of Ice",
+    "parent": "72",
+    "edition": "fh",
+    "resetRound": "visible"
+  },
+  {
+    "index": "135.2",
+    "name": "Sunless Trench",
+    "parent": "42",
+    "edition": "fh",
+    "marker": "3",
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "12-D",
+        "initial": true,
+        "monster": [
+          {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "ooze",
+            "player4": "normal"
+          },
+          {
+            "name": "ooze",
+            "type": "elite"
+          },
+          {
+            "name": "ooze",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ]
+      }
     ]
   },
   {
@@ -1039,7 +1223,135 @@
     "objectives": [
       {
         "name": "Glowing Orb",
-        "health": "(Lx2)+3"
+        "health": "((Lx2)+3)xC"
+      }
+    ]
+  },
+  {
+    "index": "159.1",
+    "name": "Work Freeze",
+    "parent": "114",
+    "edition": "fh",
+    "marker": "b",
+    "objectives": [
+      {
+        "name": "Ice Pillar",
+        "health": "(2xL)+2",
+        "actions": [
+          {
+            "type": "shield",
+            "value": "[L/2{$math.ceil}]"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "round": "R % 2 == 0",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "snow-imp",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "normal"
+            },
+            "marker": "f"
+          },
+          {
+            "monster": {
+              "name": "snow-imp",
+              "player4": "elite"
+            },
+            "marker": "f"
+          }
+        ],
+        "disableRules": [
+          {
+            "edition": "fh",
+            "scenario": "114",
+            "index": 0,
+            "section": true
+          }
+        ]
+      },
+      {
+        "round": "R % 2 == 1",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "hound",
+              "player2": "normal",
+              "player3": "elite"
+            },
+            "marker": "e"
+          },
+          {
+            "monster": {
+              "name": "polar-bear",
+              "player4": "normal"
+            },
+            "marker": "e"
+          }
+        ],
+        "disableRules": [
+          {
+            "edition": "fh",
+            "scenario": "114",
+            "index": 1,
+            "section": true
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "13-C",
+        "initial": true,
+        "monster": [
+          {
+            "name": "hound",
+            "player4": "normal"
+          },
+          {
+            "name": "hound",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "type": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "polar-bear",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "polar-bear",
+            "type": "normal"
+          }
+        ],
+        "objectives": [
+          1,
+          1,
+          1,
+          1
+        ]
       }
     ]
   },
